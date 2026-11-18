@@ -6,7 +6,7 @@ An offline tool that reproduces the three daily song recommendations from `skill
 
 ## Use the browser viewer
 
-[Open the Ai-chan recommendation viewer](https://chogang.github.io/arcaea-aichan-recommendations/)
+[Open the Ai-chan recommendation viewer](https://chogang.github.io/aichan/)
 
 1. The viewer interface is in Korean. Choose **Single day** (**하루 조회**) and pick a date, or choose **Date range** (**기간 조회**) and pick a start and end date. **Today** (**오늘**), **7 days** (**7일**), and **30 days** (**30일**) fill in the dates for you.
 2. Click **Find recommendations** (**추천곡 조회**). The viewer shows three songs per date. Date ranges include both endpoints and can span up to 366 days.
