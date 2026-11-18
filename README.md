@@ -8,13 +8,15 @@ An offline tool that reproduces the three daily song recommendations from `skill
 
 [Open the Ai-chan recommendation viewer](https://chogang.github.io/aichan/)
 
-1. The viewer interface is in Korean. Choose **Single day** (**하루 조회**) and pick a date, or choose **Date range** (**기간 조회**) and pick a start and end date. **Today** (**오늘**), **7 days** (**7일**), and **30 days** (**30일**) fill in the dates for you.
-2. Click **Find recommendations** (**추천곡 조회**). The viewer shows three songs per date. Date ranges include both endpoints and can span up to 366 days.
-3. Under **Text export** (**텍스트 내보내기**), optionally include song IDs (**곡 ID 포함**), packs (**곡 팩 포함**), or chart difficulties (**곡 난이도 포함**). Choose **Copy all** (**전체 복사**) or **Save as TXT** (**TXT 저장**).
+1. Choose **Single day** (**하루 조회**) and pick a date, or choose **Date range** (**기간 조회**). For a range, enter a start and end date or a start date and number of days. The start date counts as day 1. **Today** (**오늘**), **7 days** (**7일**), and **30 days** (**30일**) fill in dates for you.
+2. Click **Find recommendations** (**추천곡 조회**). The viewer shows three songs per date. Ranges include both endpoints and are split into pages of up to 366 days. Use the pagination buttons to view the rest of the range.
+3. Under **Text export** (**텍스트 내보내기**), choose **Copy all** (**전체 복사**) or **Save as TXT** (**TXT 저장**) to export the current page. Pack and chart details are enabled by default. The browser remembers each of these two options when local storage is available.
 
-Use **Song search** (**곡 검색**) to find titles, artists, or song IDs in the results. You can set a chart type and an inclusive level range. A song qualifies when one chart meets both selections. For example, `9+` falls between `9` and `10`. Copying or saving as TXT includes the filtered results.
+Use **Song search** (**곡 검색**) to find titles, artists, or song IDs in the results. Set a difficulty (**난이도**) and an inclusive level range to filter the current page. A song qualifies when one chart meets both selections. For example, `9+` falls between `9` and `10`.
 
 The recommendation date changes at 05:00 KST. Selecting **Today** before 05:00 KST shows the previous date's recommendations. For offline use, download the [viewer HTML](docs/index.html) and open it in a browser.
+
+The viewer accepts dates from 2025-11-08 through 2099-12-31.
 
 ## Use the command line
 
@@ -26,7 +28,7 @@ node aichan-recommend.js --date '2026-11-18T05:00:00+09:00'
 node aichan-recommend.js --seed 20775
 ```
 
-Without arguments, the tool uses the current time. The `--date` value must be an ISO 8601 timestamp with a time zone. The included `songlist.json` contains 570 song entries from version 7.3.0 with indices, IDs, and display metadata. To use another catalog with the same structure, pass its path with `--catalog`.
+Without arguments, the tool uses the current time. The `--date` value must be an ISO 8601 timestamp with a time zone. The included `songlist.json` contains song indices, IDs, and display metadata. To use another catalog with the same structure, pass its path with `--catalog`.
 
 ## Use the JSON API
 
@@ -41,6 +43,21 @@ Send a `GET` request to the [recommendations endpoint](https://arcaea-aichan-api
 The JSON includes `day_index`, `effective_period_utc`, and `songs`. Each song includes a `difficulties` array using the same chart labels and display levels as the viewer, for example `[{"difficulty":"FTR","level":"9+"}]`. Levels are strings so the `+` is preserved. Songs without chart data have an empty array. The API returns HTTP `400` with a JSON `error` for invalid arguments, duplicates, or a combination of `date` and `seed`.
 
 Run `npx wrangler pages dev` from the repository root to try the endpoint at `http://localhost:8788/api/recommendations`. To verify the API response and date boundary against the CLI, run `node verify-api.mjs` with Node.js 22 or later.
+
+## Update the song catalog
+
+Pass a complete Arcaea `songlist.json` to the update script. You may also supply `packlist.json` for display names. Skip the pack list to reuse known names and display IDs for new packs.
+
+```sh
+node scripts/update-catalog.cjs --dry-run FULL_SONGLIST.json PACKLIST.json
+node scripts/update-catalog.cjs FULL_SONGLIST.json PACKLIST.json
+node verify-api.mjs
+node verify.js
+```
+
+The script validates the input and regenerates the CLI catalog, API difficulties, and the viewer's encrypted data block. Review the generated changes and commit those files. The viewer still works offline as a single HTML file. Publish the updated API separately from the GitHub Pages viewer when the public API should use the new catalog.
+
+The recommendation algorithm is based on Arcaea 7.3.0. A catalog update can change results for earlier dates, and a game update may require checking the algorithm again.
 
 ## How the recommendations are selected
 

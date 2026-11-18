@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url';
 import { handleRequest } from './api.mjs';
 import catalog from './songlist.json' with { type: 'json' };
 import songDifficulties from './song-difficulties.json' with { type: 'json' };
+import catalogUpdater from './scripts/update-catalog.cjs';
 
 const endpoint = 'https://example.com/api/recommendations';
 const cli = fileURLToPath(new URL('./aichan-recommend.js', import.meta.url));
@@ -12,7 +13,9 @@ const cliResult = point => JSON.parse(execFileSync(process.execPath, [cli, '--da
 const before = '2026-11-18T04:59:59.999+09:00';
 const after = '2026-11-18T05:00:00.000+09:00';
 const viewer = readFileSync(new URL('./docs/index.html', import.meta.url), 'utf8');
-const viewerMetadata = JSON.parse(viewer.match(/^const songMetadata = (.*);$/m)[1]);
+const { songs: viewerSongs, metadata: viewerMetadata } = catalogUpdater.readViewerCatalog(viewer);
+assert.deepEqual(viewerSongs, catalog.songs);
+assert.deepEqual(Object.keys(viewerMetadata).sort(), catalog.songs.map(song => song.id).sort());
 const labels = { 0: 'PST', 1: 'PRS', 2: 'FTR', 3: 'BYD', 4: 'ETR' };
 const order = ['PST', 'PRS', 'FTR', 'ETR', 'BYD'];
 const expectedDifficulties = Object.fromEntries(catalog.songs.map(({ id }) => [id,
@@ -22,9 +25,6 @@ const expectedDifficulties = Object.fromEntries(catalog.songs.map(({ id }) => [i
   })).sort((a, b) => order.indexOf(a.difficulty) - order.indexOf(b.difficulty))
 ]));
 assert.deepEqual(songDifficulties, expectedDifficulties);
-assert.deepEqual(songDifficulties.unknownnum, [
-  { difficulty: 'PST', level: '4' }, { difficulty: 'PRS', level: '7' }, { difficulty: 'FTR', level: '9+' }
-]);
 const fixtures = [
   ['', before, cliResult(before)],
   ['', after, cliResult(after)],
