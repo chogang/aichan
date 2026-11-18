@@ -36,7 +36,7 @@ Send a `GET` request to the [recommendations endpoint](https://arcaea-aichan-api
 | `/api/recommendations?date=2026-11-18` | Recommendations for the specified `YYYY-MM-DD` date, beginning at 05:00 KST. |
 | `/api/recommendations?seed=20775` | Recommendations for an integer seed from `20400` through `10000000`. |
 
-The JSON matches the CLI output and includes `day_index`, `effective_period_utc`, and `songs`. The API returns HTTP `400` with a JSON `error` for invalid arguments, duplicates, or a combination of `date` and `seed`.
+The JSON includes `day_index`, `effective_period_utc`, and `songs`. Each song includes a `difficulties` array using the same chart labels and display levels as the viewer, for example `[{"difficulty":"FTR","level":"9+"}]`. Levels are strings so the `+` is preserved. Songs without chart data have an empty array. The API returns HTTP `400` with a JSON `error` for invalid arguments, duplicates, or a combination of `date` and `seed`.
 
 Run `npx wrangler pages dev` from the repository root to try the endpoint at `http://localhost:8788/api/recommendations`. To verify the API response and date boundary against the CLI, run `node verify-api.mjs` with Node.js 22 or later.
 

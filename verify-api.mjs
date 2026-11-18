@@ -1,13 +1,30 @@
 import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
+import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { handleRequest } from './api.mjs';
+import catalog from './songlist.json' with { type: 'json' };
+import songDifficulties from './song-difficulties.json' with { type: 'json' };
 
 const endpoint = 'https://example.com/api/recommendations';
 const cli = fileURLToPath(new URL('./aichan-recommend.js', import.meta.url));
 const cliResult = point => JSON.parse(execFileSync(process.execPath, [cli, '--date', point], { encoding: 'utf8' }));
 const before = '2026-11-18T04:59:59.999+09:00';
 const after = '2026-11-18T05:00:00.000+09:00';
+const viewer = readFileSync(new URL('./docs/index.html', import.meta.url), 'utf8');
+const viewerMetadata = JSON.parse(viewer.match(/^const songMetadata = (.*);$/m)[1]);
+const labels = { 0: 'PST', 1: 'PRS', 2: 'FTR', 3: 'BYD', 4: 'ETR' };
+const order = ['PST', 'PRS', 'FTR', 'ETR', 'BYD'];
+const expectedDifficulties = Object.fromEntries(catalog.songs.map(({ id }) => [id,
+  viewerMetadata[id].difficulties.map(({ ratingClass, rating, ratingPlus }) => ({
+    difficulty: labels[ratingClass],
+    level: `${rating}${ratingPlus ? '+' : ''}`
+  })).sort((a, b) => order.indexOf(a.difficulty) - order.indexOf(b.difficulty))
+]));
+assert.deepEqual(songDifficulties, expectedDifficulties);
+assert.deepEqual(songDifficulties.unknownnum, [
+  { difficulty: 'PST', level: '4' }, { difficulty: 'PRS', level: '7' }, { difficulty: 'FTR', level: '9+' }
+]);
 const fixtures = [
   ['', before, cliResult(before)],
   ['', after, cliResult(after)],
@@ -20,7 +37,12 @@ for (const [query, clock, expected] of fixtures) {
   assert.equal(response.status, 200);
   assert.match(response.headers.get('content-type'), /^application\/json\b/);
   assert.equal(response.headers.get('access-control-allow-origin'), '*');
-  assert.deepEqual(await response.json(), expected);
+  const json = await response.json();
+  const songs = json.songs.map(({ difficulties, ...song }) => {
+    assert.deepEqual(difficulties, expectedDifficulties[song.id]);
+    return song;
+  });
+  assert.deepEqual({ ...json, songs }, expected);
 }
 
 for (const query of [
@@ -37,4 +59,4 @@ const wrongMethod = handleRequest(new Request(endpoint, { method: 'POST' }));
 assert.equal(wrongMethod.status, 405);
 assert.equal(wrongMethod.headers.get('allow'), 'GET');
 assert.equal(handleRequest(new Request('https://example.com/')).status, 404);
-console.log('Verified JSON parity with the CLI, daily boundary, deterministic inputs, and HTTP errors.');
+console.log('Verified CLI fields, viewer difficulties for all catalog songs, daily boundary, deterministic inputs, and HTTP errors.');

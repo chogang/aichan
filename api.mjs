@@ -1,5 +1,6 @@
 import core from './recommendations.cjs';
 import catalog from './songlist.json' with { type: 'json' };
+import songDifficulties from './song-difficulties.json' with { type: 'json' };
 
 function json(body, status = 200, headers = {}) {
   return Response.json(body, {
@@ -43,5 +44,9 @@ export function handleRequest(request, now = Date.now()) {
     return json({ error: error.message }, 400);
   }
   if (!core.isDayIndex(seed)) return json({ error: 'Invalid or unsupported day index.' }, 400);
-  return json(core.recommendationResponse(catalog.songs, seed));
+  const result = core.recommendationResponse(catalog.songs, seed);
+  return json({
+    ...result,
+    songs: result.songs.map(song => ({ ...song, difficulties: songDifficulties[song.id] ?? [] }))
+  });
 }

@@ -36,7 +36,7 @@ node aichan-recommend.js --seed 20775
 | `/api/recommendations?date=2026-11-18` | 지정한 `YYYY-MM-DD` 날짜의 오전 5시(KST)부터 적용되는 추천곡. |
 | `/api/recommendations?seed=20775` | `20400` 이상 `10000000` 이하의 정수 시드에 해당하는 추천곡. |
 
-응답 JSON은 CLI 출력과 같으며 `day_index`, `effective_period_utc`, `songs`를 포함합니다. 잘못된 인자, 중복 인자, `date`와 `seed`를 동시에 지정한 요청에는 HTTP `400`과 JSON `error`가 반환됩니다.
+응답 JSON에는 `day_index`, `effective_period_utc`, `songs`가 포함됩니다. 각 곡의 `difficulties` 배열에는 뷰어와 동일한 채보 난이도와 표시 레벨이 들어갑니다. 예를 들어 `[{"difficulty":"FTR","level":"9+"}]`처럼 `+`를 보존하기 위해 레벨은 문자열로 반환합니다. 채보 정보가 없으면 빈 배열을 반환합니다. 잘못된 인자, 중복 인자, `date`와 `seed`를 동시에 지정한 요청에는 HTTP `400`과 JSON `error`가 반환됩니다.
 
 저장소 루트에서 `npx wrangler pages dev`를 실행하면 `http://localhost:8788/api/recommendations`에서 확인할 수 있습니다. Node.js 22 이상에서 `node verify-api.mjs`를 실행하면 CLI와 API의 응답 및 추천일 경계를 대조합니다.
 
