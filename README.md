@@ -8,7 +8,7 @@ An offline tool that reproduces the three daily song recommendations from `skill
 
 [Open the Ai-chan recommendation viewer](https://chogang.github.io/aichan/)
 
-1. Choose **Single day** (**하루 조회**) and pick a date, or choose **Date range** (**기간 조회**). For a range, enter a start date and fill in either the end date or the number of days. Filling one field disables the other until you clear it. The start date counts as day 1. **Today** (**오늘**), **7 days** (**7일**), and **30 days** (**30일**) fill in dates for you.
+1. Choose **Single day** (**하루 조회**) and pick a date, or choose **Date range** (**기간 조회**). For a range, enter a start date and fill in either the end date or the number of days. Filling one field disables the other. **Reset** (**초기화**) clears both fields and keeps the start date. The start date counts as day 1. **Today** (**오늘**), **7 days** (**7일**), and **30 days** (**30일**) fill in dates for you.
 2. Click **Find recommendations** (**추천곡 조회**). The viewer shows three songs per date. Ranges include both endpoints and are split into pages of up to 366 days. Use the pagination buttons to view the rest of the range.
 3. Under **Text export** (**텍스트 내보내기**), choose **Copy all** (**전체 복사**) or **Save as TXT** (**TXT 저장**) to export the current page. Pack and chart details are enabled by default. The browser remembers each of these two options when local storage is available.
 
