@@ -17,7 +17,7 @@ textarea::placeholder{color:var(--muted);opacity:1}.version{font-size:13px;color
 .filters{margin:0 0 18px}.filter-grid{display:grid;grid-template-columns:minmax(0,2fr) repeat(3,minmax(0,1fr));gap:10px}.filter-grid label{min-width:0;margin:0}.filter-grid input,.filter-grid select{display:block;width:100%;min-width:0;min-height:44px;margin-top:5px;padding:7px 9px;font:inherit;border:1px solid var(--control-line);border-radius:7px;background:var(--surface);color:var(--ink)}.filter-grid input::placeholder{color:var(--muted)}.filter-error{margin-top:8px}.days .empty{margin:0}
 @media(max-width:620px){.filter-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.filter-search{grid-column:1/-1}}
 input[type=number]{display:block;width:100%;min-width:0;min-height:44px;padding:9px 11px;font:inherit;border:1px solid var(--control-line);border-radius:7px;background:var(--surface);color:var(--ink)}.dates.range{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-bottom:12px}.dates.range .field{min-width:0;margin:0}.dates.range .field:first-child{grid-column:1/-1}.dates.range input{min-width:0}.dates .inactive label{color:var(--muted)}.dates input:disabled{background:var(--paper);border-color:var(--line);color:var(--muted);cursor:not-allowed}.pagination{display:flex;gap:8px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin:0 0 12px}.pagination .hint{margin:0}.pagination button{padding:7px 12px}
-.range-assist{display:flex;align-items:center;justify-content:space-between;gap:12px}.range-assist .hint{margin:0}.range-assist button{flex:none}
+.dates:not(.range) #range-hint{display:none}.dates.range #range-hint{grid-column:1/-1;margin:0}.range-assist{display:flex;justify-content:flex-end}
 </style>
 </head>
 <body>
@@ -28,9 +28,8 @@ input[type=number]{display:block;width:100%;min-width:0;min-height:44px;padding:
 <h2 id="query-title">조회할 날짜</h2>
 <form id="query-form" novalidate>
 <fieldset><legend>조회 방식</legend><div class="modes"><label><input type="radio" name="mode" value="single" checked>하루 조회</label><label><input type="radio" name="mode" value="range">기간 조회</label></div></fieldset>
-<div class="dates"><div class="field"><label for="start">날짜 선택</label><input id="start" type="date" min="2025-11-08" max="2099-12-31" required></div><div class="field" id="end-field" hidden><label for="end">종료일 (포함)</label><input id="end" type="date" min="2025-11-08" max="2099-12-31" disabled aria-describedby="range-hint"></div><div class="field" id="length-field" hidden><label for="length">일수 (시작일 포함)</label><input id="length" type="number" min="1" step="1" inputmode="numeric" disabled aria-describedby="range-hint"></div></div>
-<p class="hint">한국 시간(UTC+9) 05:00부터 다음 날 05:00까지</p>
-<div id="range-assist" class="range-assist" hidden><p class="hint" id="range-hint">종료일 또는 일수 중 하나를 입력하세요.</p><button type="button" id="reset-range" aria-label="종료일과 일수 초기화">초기화</button></div>
+<div class="dates"><div class="field"><label for="start">날짜 선택</label><input id="start" type="date" min="2025-11-08" max="2099-12-31" required></div><p class="hint" id="range-hint">종료일 또는 일수 중 하나를 입력하세요.</p><div class="field" id="end-field" hidden><label for="end">종료일 (포함)</label><input id="end" type="date" min="2025-11-08" max="2099-12-31" disabled aria-describedby="range-hint"></div><div class="field" id="length-field" hidden><label for="length">일수 (시작일 포함)</label><input id="length" type="number" min="1" step="1" inputmode="numeric" disabled aria-describedby="range-hint"></div></div>
+<div id="range-assist" class="range-assist" hidden><button type="button" id="reset-range" aria-label="종료일과 일수 초기화">초기화</button></div>
 <div class="presets" aria-label="빠른 날짜 선택"><button type="button" data-days="1">오늘</button><button type="button" data-days="7">7일</button><button type="button" data-days="30">30일</button></div>
 <button type="submit" class="primary submit" id="query">추천곡 조회</button>
 <p class="error" id="error" role="alert" hidden></p>
