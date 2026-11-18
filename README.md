@@ -12,6 +12,8 @@ An offline tool that reproduces the three daily song recommendations from `skill
 2. Click **Find recommendations** (**추천곡 조회**). The viewer shows three songs per date. Date ranges include both endpoints and can span up to 366 days.
 3. Under **Text export** (**텍스트 내보내기**), optionally include song IDs (**곡 ID 포함**), packs (**곡 팩 포함**), or chart difficulties (**곡 난이도 포함**). Choose **Copy all** (**전체 복사**) or **Save as TXT** (**TXT 저장**).
 
+Use **Song search** (**곡 검색**) to find titles, artists, or song IDs in the results. You can set a chart type and an inclusive level range. A song qualifies when one chart meets both selections. For example, `9+` falls between `9` and `10`. Copying or saving as TXT includes the filtered results.
+
 The recommendation date changes at 05:00 KST. Selecting **Today** before 05:00 KST shows the previous date's recommendations. For offline use, download the [viewer HTML](docs/index.html) and open it in a browser.
 
 ## Use the command line
