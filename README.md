@@ -1,20 +1,22 @@
-# Arcaea 아이쨩 추천곡 조회
+# Arcaea Ai-chan Recommendations
 
-Arcaea 7.3.0의 파트너 ID 75, 아이쨩의 `skill_aichan`이 고르는 일일 추천곡 3개를 재현하는 오프라인 도구입니다. 같은 유효 날짜와 곡 카탈로그를 사용하면 같은 순서로 같은 곡이 나옵니다.
+**English** · [한국어](README.ko.md)
 
-## 브라우저에서 조회
+An offline tool that reproduces the three daily song recommendations from `skill_aichan`, the skill of Arcaea partner Ai-chan (ID 75), in version 7.3.0. The same effective date and song catalog yield the same songs in the same order.
 
-[아이쨩 추천곡 뷰어 열기](https://chogang.github.io/arcaea-aichan-recommendations/)
+## Use the browser viewer
 
-1. **하루 조회**는 날짜 하나를 선택하고, **기간 조회**는 시작일과 종료일을 선택합니다. **오늘**, **7일**, **30일** 버튼으로 날짜를 빠르게 지정할 수도 있습니다.
-2. **추천곡 조회**를 누릅니다. 날짜마다 추천곡 3곡이 표시됩니다. 기간 조회는 시작일과 종료일을 모두 포함하며 한 번에 최대 366일까지 조회할 수 있습니다.
-3. **텍스트 내보내기**에서 **곡 ID 포함**, **곡 팩 포함**, **곡 난이도 포함**을 필요에 따라 켭니다. **전체 복사**로 결과를 복사하거나 **TXT 저장**으로 내려받습니다.
+[Open the Ai-chan recommendation viewer](https://chogang.github.io/arcaea-aichan-recommendations/)
 
-추천 날짜는 한국 시간 오전 5시에 바뀝니다. 오전 5시 전에 **오늘**을 선택하면 전날 추천곡이 표시됩니다. 오프라인에서는 [뷰어 HTML](docs/index.html)을 내려받아 브라우저에서 열면 됩니다.
+1. The viewer interface is in Korean. Choose **Single day** (**하루 조회**) and pick a date, or choose **Date range** (**기간 조회**) and pick a start and end date. **Today** (**오늘**), **7 days** (**7일**), and **30 days** (**30일**) fill in the dates for you.
+2. Click **Find recommendations** (**추천곡 조회**). The viewer shows three songs per date. Date ranges include both endpoints and can span up to 366 days.
+3. Under **Text export** (**텍스트 내보내기**), optionally include song IDs (**곡 ID 포함**), packs (**곡 팩 포함**), or chart difficulties (**곡 난이도 포함**). Choose **Copy all** (**전체 복사**) or **Save as TXT** (**TXT 저장**).
 
-## 명령줄에서 조회
+The recommendation date changes at 05:00 KST. Selecting **Today** before 05:00 KST shows the previous date's recommendations. For offline use, download the [viewer HTML](docs/index.html) and open it in a browser.
 
-Node.js가 필요합니다. 저장소에서 다음 명령을 실행하면 추천곡 ID, 제목, 아티스트, 팩 ID와 적용 구간을 JSON으로 출력합니다.
+## Use the command line
+
+Install Node.js and run one of these commands from the repository. The tool outputs song IDs, titles, artists, pack IDs, and the effective time range as JSON.
 
 ```sh
 node aichan-recommend.js
@@ -22,12 +24,12 @@ node aichan-recommend.js --date '2026-11-18T05:00:00+09:00'
 node aichan-recommend.js --seed 20775
 ```
 
-인수를 생략하면 실행 시각을 사용합니다. `--date`에는 시간대가 포함된 ISO 8601 시각을 지정합니다. 같이 포함된 `songlist.json`에는 7.3.0의 곡 인덱스·ID·표시용 메타데이터 570건이 있습니다. 같은 구조의 별도 카탈로그는 `--catalog`로 지정할 수 있습니다.
+Without arguments, the tool uses the current time. The `--date` value must be an ISO 8601 timestamp with a time zone. The included `songlist.json` contains 570 song entries from version 7.3.0 with indices, IDs, and display metadata. To use another catalog with the same structure, pass its path with `--catalog`.
 
-## 추천곡을 고르는 순서
+## How the recommendations are selected
 
-1. **날짜를 시드로 변환합니다.** 앱은 런타임 시각 보정과 로그인·시각 유효성 확인을 거칩니다. 유효 시각을 Unix 밀리초로 나타내면 시드는 `floor((유효 시각 + 14_400_000) / 86_400_000)`입니다. 4시간을 더하므로 유효 날짜 경계는 UTC 20:00, 한국 시간 오전 5시입니다. 앱은 같은 날짜의 추천 목록을 재사용합니다. 조회 도구는 지정한 시각을 유효 시각으로 간주합니다.
-2. **인덱스 후보를 섞습니다.** `0`부터 `4999`까지 배열을 만들고, 세 난수 상태를 모두 날짜 시드로 초기화합니다. 아래 갱신식을 사용해 난수 하나를 만들 때마다 배열의 뒤쪽부터 한 자리씩 바꿉니다.
+1. **Convert the date to a seed.** The game applies a runtime clock correction and checks login and clock validity. With the effective time expressed in Unix milliseconds, the seed is `floor((effectiveTime + 14_400_000) / 86_400_000)`. Adding four hours puts the daily boundary at 20:00 UTC, or 05:00 KST. The game reuses recommendations for the same seed. The tool treats the supplied timestamp as the effective time.
+2. **Shuffle the candidate indices.** Initialize an array from `0` to `4999` and set all three random number states to the date seed. Generate one random value per swap, starting at the end of the array.
 
    ```text
    x = (171 × x) mod 30269
@@ -35,40 +37,40 @@ node aichan-recommend.js --seed 20775
    z = (170 × z) mod 30323
    r = ((x / 30269 + y / 30307) + z / 30323) mod 1
 
-   i = 4999부터 1까지
-       r = 다음 난수
+   for i from 4999 down to 1
+       r = next random value
        j = trunc(float32(r × i))
        swap(array[i], array[j])
    ```
 
-   나눗셈과 덧셈, 교환 위치를 구하는 곱셈은 각각 단정도(`float32`)로 계산합니다. 이 구현의 곱수는 `i`이므로 각 교환 상대는 `0…i−1`에서 정해집니다. `Math.fround`로 원본의 단정도 연산을 반영합니다.
-3. **배열을 앞에서부터 읽으며 3곡을 채웁니다.** 각 숫자는 곡 데이터의 행 번호가 아니라 `idx`입니다. 등록곡이 없는 값과 곡 ID `lasteternity`를 건너뜁니다. `set == "base"` 또는 `id == "innocence"`에 해당하는 첫 곡 1개와, 그 외 분류에서 처음 만나는 2개를 선택합니다. 결과에는 발견 순서와 곡 ID가 유지되며, 난이도 선택은 포함되지 않습니다.
+   The divisions, additions, and multiplication used to find the swap index use single precision (`float32`). The multiplier is `i`, so the swap partner lies between `0` and `i−1`. The JavaScript implementation uses `Math.fround` to reproduce the rounding.
+3. **Scan the shuffled array until three songs are selected.** Look up each value by the song's `idx` field. Skip unregistered indices and the song ID `lasteternity`. Take the first song for which `set == "base"` or `id == "innocence"`, and the first two songs from the remaining group. The selection preserves encounter order and operates at the song level. Chart difficulties are display information.
 
-시드 `20775`(한국 시간 2026-11-18 05:00부터 다음 날 05:00 직전까지)에서는 셔플 배열의 2·7·12번째 값이 추천에 들어갑니다.
+With seed `20775` (from 2026-11-18 at 05:00 KST up to but excluding 05:00 KST the next day), the second, seventh, and twelfth entries in the shuffled array supply the recommendations.
 
-| 위치 | `idx` | 곡 | 분류 |
+| Position | `idx` | Song | Group |
 |---:|---:|---|---|
-| 2 | 521 | +1(UNKNOWN)-NUMBER | 기타 첫 곡 |
-| 7 | 263 | DDD | 기본 분류 |
-| 12 | 468 | Syriana | 기타 두 번째 곡 |
+| 2 | 521 | +1(UNKNOWN)-NUMBER | First song from the remaining group |
+| 7 | 263 | DDD | Base group |
+| 12 | 468 | Syriana | Second song from the remaining group |
 
-## 구현 검증
+## Verify the implementation
 
-Arcaea 7.3.0의 ARM64 코드에서 `skill_aichan`의 생성자가 `CharacterAbilityPreferredSongDaily`에 연결되는 경로를 확인했습니다. 해당 타입의 활성 파트너를 판별한 뒤 호출되는 함수를 따라 날짜 계산, 셔플 연산과 곡 분류 조건을 복원했습니다.
+The ARM64 code in Arcaea 7.3.0 connects `skill_aichan` to `CharacterAbilityPreferredSongDaily`. Tracing the function the game calls for an active partner of this type revealed the date calculation, shuffle, and song selection rules.
 
-검증을 실행하려면 Node.js와 Java 소스 실행을 지원하는 JDK 11 이상이 필요합니다.
+To run the verification, install Node.js and JDK 11 or later with Java source-file execution support.
 
 ```sh
 node verify.js
 ```
 
-이 명령은 Java의 `float`로 구현한 셔플과 JavaScript의 `Math.fround` 구현을 **43개 시드 × 5,000개 인덱스**에 대해 순서까지 비교합니다. 이어서 실제 카탈로그의 `idx` 중복 여부와, 한국 시간 오전 5시 경계 직전·직후의 시드 및 곡 ID를 CLI 출력과 대조합니다.
+This compares the complete shuffle order produced by Java's `float` implementation and JavaScript's `Math.fround` implementation across **43 seeds × 5,000 indices**. It also checks that catalog indices are unique and that the CLI returns the expected seed and song IDs on either side of the 05:00 KST boundary.
 
-| 한국 시간 | 시드 | 예상 곡 ID |
+| Korean time | Seed | Expected song IDs |
 |---|---:|---|
 | 2026-11-18 04:59:59.999 | 20774 | `mantis`, `callmyname`, `diode` |
 | 2026-11-18 05:00:00.000 | 20775 | `unknownnum`, `ddd`, `syriana` |
 
-브라우저에서도 위 곡 순서를 확인할 수 있습니다. `2026-11-18` 하루를 조회하면 `unknownnum`, `ddd`, `syriana`가 표시됩니다. `2026-11-17`부터 `2026-11-18`까지 기간을 설정하면 양끝 날짜를 포함해 6곡이 나옵니다. **곡 ID 포함**을 켜고 화면과 내보내기 텍스트를 대조하거나 **TXT 저장**으로 저장 결과를 확인합니다.
+To check the order in the browser, query 2026-11-18 with song IDs enabled. The result should read `unknownnum`, `ddd`, `syriana`. A range from 2026-11-17 through 2026-11-18 should show six songs across the two dates. Compare the on-screen IDs with the text export or save a TXT file to check the downloaded result.
 
-이 검증은 정적 분석에 따른 재현 구현을 대상으로 합니다. 실제 게임 화면과의 대조, 앱의 런타임 시각 보정값과 로그인 상태 재현, 곡 등록 필터 전체 확인은 검증 범위에 포함되지 않습니다. 게임 버전이나 카탈로그가 바뀌면 실제 목록도 달라질 수 있습니다.
+The verification covers the implementation based on static analysis. Comparison against the running game, reproduction of runtime clock corrections and login state, and a complete check of song registration filters remain outside its scope. The game version and song catalog can affect the results.
