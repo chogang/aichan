@@ -26,6 +26,20 @@ node aichan-recommend.js --seed 20775
 
 인수를 생략하면 실행 시각을 사용합니다. `--date`에는 시간대가 포함된 ISO 8601 시각을 지정합니다. 같이 포함된 `songlist.json`에는 7.3.0의 곡 인덱스·ID·표시용 메타데이터 570건이 있습니다. 같은 구조의 별도 카탈로그는 `--catalog`로 지정할 수 있습니다.
 
+## JSON API로 조회
+
+[추천곡 API 주소](https://arcaea-aichan-api.pages.dev/api/recommendations)에 `GET` 요청을 보냅니다. `date`와 `seed` 중 하나를 지정할 수 있습니다.
+
+| 요청 경로 | 결과 |
+|---|---|
+| `/api/recommendations` | 오늘의 추천곡. 한국 시간 오전 5시에 추천일이 바뀝니다. |
+| `/api/recommendations?date=2026-11-18` | 지정한 `YYYY-MM-DD` 날짜의 오전 5시(KST)부터 적용되는 추천곡. |
+| `/api/recommendations?seed=20775` | `20400` 이상 `10000000` 이하의 정수 시드에 해당하는 추천곡. |
+
+응답 JSON은 CLI 출력과 같으며 `day_index`, `effective_period_utc`, `songs`를 포함합니다. 잘못된 인자, 중복 인자, `date`와 `seed`를 동시에 지정한 요청에는 HTTP `400`과 JSON `error`가 반환됩니다.
+
+저장소 루트에서 `npx wrangler pages dev`를 실행하면 `http://localhost:8788/api/recommendations`에서 확인할 수 있습니다. Node.js 22 이상에서 `node verify-api.mjs`를 실행하면 CLI와 API의 응답 및 추천일 경계를 대조합니다.
+
 ## 추천곡을 고르는 순서
 
 1. **날짜를 시드로 변환합니다.** 앱은 런타임 시각 보정과 로그인·시각 유효성 확인을 거칩니다. 유효 시각을 Unix 밀리초로 나타내면 시드는 `floor((유효 시각 + 14_400_000) / 86_400_000)`입니다. 4시간을 더하므로 유효 날짜 경계는 UTC 20:00, 한국 시간 오전 5시입니다. 앱은 같은 날짜의 추천 목록을 재사용합니다. 조회 도구는 지정한 시각을 유효 시각으로 간주합니다.

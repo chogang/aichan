@@ -26,6 +26,20 @@ node aichan-recommend.js --seed 20775
 
 Without arguments, the tool uses the current time. The `--date` value must be an ISO 8601 timestamp with a time zone. The included `songlist.json` contains 570 song entries from version 7.3.0 with indices, IDs, and display metadata. To use another catalog with the same structure, pass its path with `--catalog`.
 
+## Use the JSON API
+
+Send a `GET` request to the [recommendations endpoint](https://arcaea-aichan-api.pages.dev/api/recommendations). Use either `date` or `seed`.
+
+| Request path | Result |
+|---|---|
+| `/api/recommendations` | Today's recommendations. The day changes at 05:00 KST. |
+| `/api/recommendations?date=2026-11-18` | Recommendations for the specified `YYYY-MM-DD` date, beginning at 05:00 KST. |
+| `/api/recommendations?seed=20775` | Recommendations for an integer seed from `20400` through `10000000`. |
+
+The JSON matches the CLI output and includes `day_index`, `effective_period_utc`, and `songs`. The API returns HTTP `400` with a JSON `error` for invalid arguments, duplicates, or a combination of `date` and `seed`.
+
+Run `npx wrangler pages dev` from the repository root to try the endpoint at `http://localhost:8788/api/recommendations`. To verify the API response and date boundary against the CLI, run `node verify-api.mjs` with Node.js 22 or later.
+
 ## How the recommendations are selected
 
 1. **Convert the date to a seed.** The game applies a runtime clock correction and checks login and clock validity. With the effective time expressed in Unix milliseconds, the seed is `floor((effectiveTime + 14_400_000) / 86_400_000)`. Adding four hours puts the daily boundary at 20:00 UTC, or 05:00 KST. The game reuses recommendations for the same seed. The tool treats the supplied timestamp as the effective time.
