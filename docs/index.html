@@ -17,19 +17,11 @@ textarea::placeholder{color:var(--muted);opacity:1}.version{font-size:13px;color
 .filters{margin:0 0 18px}.filter-grid{display:grid;grid-template-columns:minmax(0,2fr) repeat(3,minmax(0,1fr));gap:10px}.filter-grid label{min-width:0;margin:0}.filter-grid input,.filter-grid select{display:block;width:100%;min-width:0;min-height:44px;margin-top:5px;padding:7px 9px;font:inherit;border:1px solid var(--control-line);border-radius:7px;background:var(--surface);color:var(--ink)}.filter-grid input::placeholder{color:var(--muted)}.filter-error{margin-top:8px}.days .empty{margin:0}
 @media(max-width:620px){.filter-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.filter-search{grid-column:1/-1}}
 input[type=number]{display:block;width:100%;min-width:0;min-height:44px;padding:9px 11px;font:inherit;border:1px solid var(--control-line);border-radius:7px;background:var(--surface);color:var(--ink)}.dates{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-bottom:12px}.dates .field{min-width:0;margin:0}.dates .field:first-child{grid-column:1/-1}.dates input{min-width:0}.dates .inactive label{color:var(--muted)}.dates input:disabled{background:var(--paper);border-color:var(--line);color:var(--muted);cursor:not-allowed}.pagination{display:flex;gap:8px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin:0 0 12px}.pagination .hint{margin:0}.pagination button{padding:7px 12px}
-.dates #range-hint{grid-column:1/-1;margin:0}.range-assist{display:flex;align-items:center;justify-content:space-between;gap:7px}
-@media(max-width:760px){
-  .query-dates{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px;align-items:end}
-  .query-dates .dates,.query-dates .range-assist{display:contents}
-  .query-dates #range-hint{grid-area:1/1/2/-1}
-  .query-dates .dates .field:first-child{grid-area:2/1/3/4}
-  .query-dates #end-field{grid-area:2/4/3/-1}
-  .query-dates #length-field{grid-area:3/3/4/5}
-  .query-dates #length-field label{font-size:12px}
-  .query-dates .range-assist button{grid-area:3/1/4/3;padding-inline:8px;white-space:nowrap}
-  .query-dates #reset-range{grid-column:5/-1}
-  .query-dates input[type=date]{padding-inline:7px}
-}
+.dates #range-hint{grid-column:1/-1;margin:0}
+.query-heading{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}.query-heading h2{margin:0}.query-heading button{padding:6px 12px;font-size:13px}
+.length-input{position:relative}.length-input input{appearance:textfield;padding-right:34px}.length-input input::-webkit-inner-spin-button,.length-input input::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}.length-unit{position:absolute;right:11px;top:50%;transform:translateY(-50%);color:var(--muted);pointer-events:none}
+.quick-select{margin:18px 0}.quick-select-label{font-size:14px;font-weight:600;margin:0 0 6px}.quick-select .presets{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:0}.quick-select .presets button{min-width:0;padding-inline:4px;white-space:nowrap}
+@media(max-width:760px){.dates{gap:10px}.dates .field:first-child{grid-area:2/1/3/2}.dates #end-field{grid-area:2/2/3/3}.dates #length-field{grid-area:3/1/4/-1}.dates #range-hint{grid-area:1/1/2/-1}.dates input[type=date]{padding-inline:7px}}
 </style>
 </head>
 <body>
@@ -37,13 +29,10 @@ input[type=number]{display:block;width:100%;min-width:0;min-height:44px;padding:
 <header><h1>아이쨩 추천곡 조회</h1><span class="version">Arcaea 7.3.0</span></header>
 <div class="layout">
 <section class="controls" aria-labelledby="query-title">
-<h2 id="query-title">조회할 날짜</h2>
+<div class="query-heading"><h2 id="query-title">조회할 날짜</h2><button type="button" id="reset-range" aria-label="종료일과 일수 초기화">초기화</button></div>
 <form id="query-form" novalidate>
-<div class="query-dates">
-<div class="dates"><div class="field"><label for="start">시작일 (포함)</label><input id="start" type="date" min="2025-11-08" max="2099-12-31" required></div><p class="hint" id="range-hint">종료일 또는 일수를 입력하세요. 둘 다 비우면 시작일만 조회합니다.</p><div class="field" id="end-field"><label for="end">종료일 (포함)</label><input id="end" type="date" min="2025-11-08" max="2099-12-31" aria-describedby="range-hint"></div><div class="field" id="length-field"><label for="length">일수 (시작일 포함)</label><input id="length" type="number" min="1" step="1" inputmode="numeric" aria-describedby="range-hint"></div></div>
-<div class="range-assist"><button type="button" data-days="1">오늘</button><button type="button" id="reset-range" aria-label="종료일과 일수 초기화">초기화</button></div>
-</div>
-<div class="presets" aria-label="빠른 기간 선택"><button type="button" data-days="7">7일</button><button type="button" data-days="30">30일</button><button type="button" data-days="365">365일</button></div>
+<div class="dates"><div class="field"><label for="start">시작일 (포함)</label><input id="start" type="date" min="2025-11-08" max="2099-12-31" required></div><p class="hint" id="range-hint">종료일이나 조회 일수 중 하나를 입력하세요. 둘 다 비우면 시작일 하루만 조회합니다.</p><div class="field" id="end-field"><label for="end">종료일 (포함)</label><input id="end" type="date" min="2025-11-08" max="2099-12-31" aria-describedby="range-hint"></div><div class="field" id="length-field"><label for="length">일수 (시작일 포함)</label><div class="length-input"><input id="length" type="number" min="1" step="1" inputmode="numeric" aria-describedby="range-hint"><span class="length-unit" aria-hidden="true">일</span></div></div></div>
+<div class="quick-select"><p id="quick-select-label" class="quick-select-label">빠른 선택</p><div class="presets" role="group" aria-labelledby="quick-select-label"><button type="button" data-days="1">오늘</button><button type="button" data-days="7">7일</button><button type="button" data-days="30">30일</button><button type="button" data-days="365">365일</button></div></div>
 <button type="submit" class="primary submit" id="query">추천곡 조회</button>
 <p class="error" id="error" role="alert" hidden></p>
 </form>
