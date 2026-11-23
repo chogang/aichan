@@ -18,12 +18,11 @@ textarea::placeholder{color:var(--muted);opacity:1}.version{font-size:13px;color
 @media(max-width:620px){.filter-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.filter-search{grid-column:1/-1}}
 input[type=number]{display:block;width:100%;min-width:0;min-height:44px;padding:9px 11px;font:inherit;border:1px solid var(--control-line);border-radius:7px;background:var(--surface);color:var(--ink)}.dates{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-bottom:12px}.dates .field{min-width:0;margin:0}.dates .field:first-child{grid-column:1/-1}.dates input{min-width:0}.dates .inactive label{color:var(--muted)}.dates input:disabled{background:var(--paper);border-color:var(--line);color:var(--muted);cursor:not-allowed}.pagination{display:flex;gap:8px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin:0 0 12px}.pagination .hint{margin:0}.pagination button{padding:7px 12px}
 .dates #range-hint{grid-column:1/-1;margin:0}
-.query-heading{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}.query-heading h2{margin:0}.query-heading button{padding:6px 12px;font-size:13px}
+.query-heading{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}.query-heading h2,.query-heading h3{margin:0}.filters .query-heading h3{font-size:14px;font-weight:600}.query-heading button{padding:6px 12px;font-size:13px}
 .length-input{position:relative}.length-input input{appearance:textfield;padding-right:34px}.length-input input::-webkit-inner-spin-button,.length-input input::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}.length-unit{position:absolute;right:11px;top:50%;transform:translateY(-50%);color:var(--muted);pointer-events:none}
 .quick-select{margin:18px 0}.quick-select-label{font-size:14px;font-weight:600;margin:0 0 6px}.quick-select .presets{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:0}.quick-select .presets button{min-width:0;padding-inline:4px;white-space:nowrap}
 .song-with-jacket{position:relative;min-height:40px;padding-inline-start:49px}.song-jacket{position:absolute;inset-inline-start:0;top:0;width:40px;height:40px;border-radius:4px;object-fit:cover;background:var(--surface)}
 .day ol{list-style:none;padding:0}.day-action-buttons{display:flex;gap:6px;margin-top:6px}.day-copy,.day-share{padding:6px 14px;font-size:12px;white-space:nowrap}footer a,#day-copy-status a{color:var(--accent)}#day-copy-status{overflow-wrap:anywhere}
-.filter-reset{margin:0 0 8px;padding:6px 9px;font-size:12px}
 @media(max-width:760px){.day-heading{display:flex;justify-content:space-between;align-items:center;gap:12px}.day-action-buttons{margin-top:0}}
 @media(max-width:760px){.dates{gap:10px}.dates .field:first-child{grid-area:2/1/3/2}.dates #end-field{grid-area:2/2/3/3}.dates #length-field{grid-area:3/1/4/-1}.dates #range-hint{grid-area:1/1/2/-1}.dates input[type=date]{padding-inline:7px}}
 </style>
@@ -46,9 +45,8 @@ input[type=number]{display:block;width:100%;min-width:0;min-height:44px;padding:
 <div class="result-head"><h2 id="result-title">추천 곡</h2><span id="count" class="hint"></span></div>
 <p class="summary" id="summary" aria-live="polite"></p>
 <p class="time-basis" id="time-basis" hidden>05:00 기준 · 한국 시간(UTC+9)</p>
-<fieldset class="filters" id="filters">
-<legend>추천 결과 필터</legend>
-<button type="button" id="reset-filters" class="filter-reset" aria-label="추천 결과 필터 초기화">초기화</button>
+<fieldset class="filters" id="filters" aria-labelledby="filter-title">
+<div class="query-heading"><h3 id="filter-title">추천 결과 필터</h3><button type="button" id="reset-filters" aria-label="추천 결과 필터 초기화">초기화</button></div>
 <div class="filter-grid">
 <label class="filter-search">곡 검색<input id="song-search" type="search" placeholder="곡명, 아티스트, 곡 ID" autocomplete="off" spellcheck="false"></label>
 <label>난이도<select id="chart-type"><option value="">전체</option></select></label>
