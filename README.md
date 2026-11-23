@@ -57,7 +57,7 @@ node verify.js
 
 The script validates the input and regenerates the CLI catalog, API difficulties, and the viewer's encrypted data block. Review the generated changes and commit those files. The viewer still works offline as a single HTML file. Publish the updated API separately from the GitHub Pages viewer when the public API should use the new catalog.
 
-To update jacket thumbnails, edit `song-jackets.json` using song IDs and confirmed HTTPS JPG URLs from `webassets.lowiro.com`, then run the same catalog update command. The viewer requests jackets from the official CDN when online. Songs without a known or available jacket are displayed without a thumbnail.
+To update jacket thumbnails, add song IDs and their 32-character lowercase hexadecimal hashes to `song-jackets.json`, then run the same catalog update command. The viewer builds the official URL as `https://webassets.lowiro.com/<hash>.jpg?v=323` when rendering the list. Songs without a known or available jacket are displayed without a thumbnail.
 
 The recommendation algorithm is based on Arcaea 7.3.0. A catalog update can change results for earlier dates, and a game update may require checking the algorithm again.
 

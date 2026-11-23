@@ -8,7 +8,7 @@ const block = /(<script type="application\/octet-stream" id="viewer-catalog">)([
 const kinds = new Map([[0, 'PST'], [1, 'PRS'], [2, 'FTR'], [4, 'ETR'], [3, 'BYD']]);
 const kindOrder = [...kinds.keys()];
 const idPattern = /^[a-zA-Z0-9_.-]+$/;
-const jacketPattern = /^https:\/\/webassets\.lowiro\.com\/[a-f0-9]{32}\.jpg(?:\?v=\d+)?$/;
+const jacketPattern = /^[a-f0-9]{32}$/;
 const object = value => value !== null && typeof value === 'object' && !Array.isArray(value);
 const fail = text => { throw new Error(text); };
 
@@ -83,7 +83,7 @@ function convert(source, packSource, previous, jackets = new Map()) {
     });
     songs.push({ idx, id, title_localized, artist, set });
     metadata[id] = { pack: packName(set), difficulties: charts };
-    if (jackets.has(id)) metadata[id].jacket_url = jackets.get(id);
+    if (jackets.has(id)) metadata[id].jacket_hash = jackets.get(id);
     difficulties[id] = [...charts].sort((a, b) => kindOrder.indexOf(a.ratingClass) - kindOrder.indexOf(b.ratingClass)).map(chart => ({
       difficulty: kinds.get(chart.ratingClass), level: `${chart.rating}${chart.ratingPlus ? '+' : ''}`
     }));
@@ -106,8 +106,8 @@ function readSongJackets(directory = root) {
   }
   if (!object(data)) fail('Expected a song-jackets.json object keyed by song ID');
   const entries = Object.entries(data);
-  for (const [id, url] of entries) {
-    if (!idPattern.test(id) || typeof url !== 'string' || !jacketPattern.test(url)) fail(`Invalid jacket URL for ${id}`);
+  for (const [id, hash] of entries) {
+    if (!idPattern.test(id) || typeof hash !== 'string' || !jacketPattern.test(hash)) fail(`Invalid jacket hash for ${id}`);
   }
   return new Map(entries);
 }
