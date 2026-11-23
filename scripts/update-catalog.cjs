@@ -76,16 +76,19 @@ function convert(source, packSource, previous, jackets = new Map()) {
     if ((row.deleted !== true || row.difficulties !== undefined) && !Array.isArray(row.difficulties)) fail(`Missing chart data for ${id}; use the full game songlist`);
 
     const classes = new Set();
-    const charts = (row.difficulties || []).map(({ ratingClass, rating, ratingPlus }) => {
+    const charts = (row.difficulties || []).map(({ ratingClass, ratingClassAlias, rating, ratingPlus }) => {
       if (!kinds.has(ratingClass) || classes.has(ratingClass) || !Number.isInteger(rating) || rating < 0 || rating > 99 || (ratingPlus !== undefined && typeof ratingPlus !== 'boolean')) fail(`Invalid or duplicate chart for ${id}`);
       classes.add(ratingClass);
-      return { ratingClass, rating, ratingPlus: ratingPlus === true };
+      const chart = { ratingClass, rating, ratingPlus: ratingPlus === true };
+      if (ratingClass === 3 && ratingClassAlias === 1) chart.ratingClassAlias = 1;
+      return chart;
     });
     songs.push({ idx, id, title_localized, artist, set });
     metadata[id] = { pack: packName(set), difficulties: charts };
     if (jackets.has(id)) metadata[id].jacket_hash = jackets.get(id);
     difficulties[id] = [...charts].sort((a, b) => kindOrder.indexOf(a.ratingClass) - kindOrder.indexOf(b.ratingClass)).map(chart => ({
-      difficulty: kinds.get(chart.ratingClass), level: `${chart.rating}${chart.ratingPlus ? '+' : ''}`
+      difficulty: chart.ratingClass === 3 && chart.ratingClassAlias === 1 ? 'INS' : kinds.get(chart.ratingClass),
+      level: `${chart.rating}${chart.ratingPlus ? '+' : ''}`
     }));
   }
   recommend(songs, 20775); // Ensure the source supports both recommendation groups.

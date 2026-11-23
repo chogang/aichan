@@ -19,12 +19,13 @@ assert.deepEqual(Object.keys(viewerMetadata).sort(), catalog.songs.map(song => s
 const jackets = catalogUpdater.readSongJackets();
 for (const { id } of catalog.songs) assert.equal(viewerMetadata[id].jacket_hash, jackets.get(id), `Jacket hash for ${id}`);
 const labels = { 0: 'PST', 1: 'PRS', 2: 'FTR', 3: 'BYD', 4: 'ETR' };
-const order = ['PST', 'PRS', 'FTR', 'ETR', 'BYD'];
+const order = [0, 1, 2, 4, 3];
 const expectedDifficulties = Object.fromEntries(catalog.songs.map(({ id }) => [id,
-  viewerMetadata[id].difficulties.map(({ ratingClass, rating, ratingPlus }) => ({
-    difficulty: labels[ratingClass],
+  [...viewerMetadata[id].difficulties].sort((a, b) => order.indexOf(a.ratingClass) - order.indexOf(b.ratingClass))
+  .map(({ ratingClass, ratingClassAlias, rating, ratingPlus }) => ({
+    difficulty: ratingClass === 3 && ratingClassAlias === 1 ? 'INS' : labels[ratingClass],
     level: `${rating}${ratingPlus ? '+' : ''}`
-  })).sort((a, b) => order.indexOf(a.difficulty) - order.indexOf(b.difficulty))
+  }))
 ]));
 assert.deepEqual(songDifficulties, expectedDifficulties);
 const fixtures = [
