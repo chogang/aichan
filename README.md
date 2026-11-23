@@ -14,6 +14,8 @@ An offline tool that reproduces the three daily song recommendations from `skill
 
 Use **Song search** (**곡 검색**) to find titles, artists, or song IDs in the results. Set a difficulty (**난이도**) and an inclusive level range to filter the current page. A song qualifies when one chart meets both selections. For example, `9+` falls between `9` and `10`.
 
+Use **Copy with images** (**복사 (이미지 포함)**) below a date to copy its filtered songs and jacket links. The images display when the destination app supports pasted HTML and loads external images.
+
 The recommendation date changes at 05:00 KST. Selecting **Today** before 05:00 KST shows the previous date's recommendations. For offline use, download the [viewer HTML](docs/index.html) and open it in a browser.
 
 The viewer accepts dates from 2025-11-08 through 2099-12-31.
