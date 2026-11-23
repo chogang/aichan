@@ -16,6 +16,8 @@ const viewer = readFileSync(new URL('./docs/index.html', import.meta.url), 'utf8
 const { songs: viewerSongs, metadata: viewerMetadata } = catalogUpdater.readViewerCatalog(viewer);
 assert.deepEqual(viewerSongs, catalog.songs);
 assert.deepEqual(Object.keys(viewerMetadata).sort(), catalog.songs.map(song => song.id).sort());
+const jackets = catalogUpdater.readSongJackets();
+for (const { id } of catalog.songs) assert.equal(viewerMetadata[id].jacket_url, jackets.get(id), `Jacket URL for ${id}`);
 const labels = { 0: 'PST', 1: 'PRS', 2: 'FTR', 3: 'BYD', 4: 'ETR' };
 const order = ['PST', 'PRS', 'FTR', 'ETR', 'BYD'];
 const expectedDifficulties = Object.fromEntries(catalog.songs.map(({ id }) => [id,

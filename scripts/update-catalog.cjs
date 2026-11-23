@@ -8,6 +8,7 @@ const block = /(<script type="application\/octet-stream" id="viewer-catalog">)([
 const kinds = new Map([[0, 'PST'], [1, 'PRS'], [2, 'FTR'], [4, 'ETR'], [3, 'BYD']]);
 const kindOrder = [...kinds.keys()];
 const idPattern = /^[a-zA-Z0-9_.-]+$/;
+const jacketPattern = /^https:\/\/webassets\.lowiro\.com\/[a-f0-9]{32}\.jpg(?:\?v=\d+)?$/;
 const object = value => value !== null && typeof value === 'object' && !Array.isArray(value);
 const fail = text => { throw new Error(text); };
 
@@ -33,7 +34,7 @@ function localized(value) {
   return value?.ko || value?.en || Object.values(value || {})[0];
 }
 
-function convert(source, packSource, previous) {
+function convert(source, packSource, previous, jackets = new Map()) {
   if (!Array.isArray(source?.songs) || source.songs.length === 0 || source.songs.length > 5000) fail('Expected a full songlist JSON object with 1–5000 songs');
   const packages = new Map();
   if (packSource !== undefined) {
@@ -82,6 +83,7 @@ function convert(source, packSource, previous) {
     });
     songs.push({ idx, id, title_localized, artist, set });
     metadata[id] = { pack: packName(set), difficulties: charts };
+    if (jackets.has(id)) metadata[id].jacket_url = jackets.get(id);
     difficulties[id] = [...charts].sort((a, b) => kindOrder.indexOf(a.ratingClass) - kindOrder.indexOf(b.ratingClass)).map(chart => ({
       difficulty: kinds.get(chart.ratingClass), level: `${chart.rating}${chart.ratingPlus ? '+' : ''}`
     }));
@@ -92,6 +94,22 @@ function convert(source, packSource, previous) {
 
 function readJSON(file) {
   return JSON.parse(fs.readFileSync(file, 'utf8').replace(/^\uFEFF/, ''));
+}
+
+function readSongJackets(directory = root) {
+  let data;
+  try {
+    data = readJSON(path.join(directory, 'song-jackets.json'));
+  } catch (error) {
+    if (error.code === 'ENOENT') return new Map();
+    throw error;
+  }
+  if (!object(data)) fail('Expected a song-jackets.json object keyed by song ID');
+  const entries = Object.entries(data);
+  for (const [id, url] of entries) {
+    if (!idPattern.test(id) || typeof url !== 'string' || !jacketPattern.test(url)) fail(`Invalid jacket URL for ${id}`);
+  }
+  return new Map(entries);
 }
 
 function publishFiles(files) {
@@ -124,7 +142,7 @@ function updateCatalog(songPath, packPath, dryRun, directory = root) {
   const difficultyPath = path.join(directory, 'song-difficulties.json');
   const html = fs.readFileSync(htmlPath, 'utf8');
   const previous = readViewerCatalog(html);
-  const { songs, metadata, difficulties } = convert(readJSON(songPath), packPath === undefined ? undefined : readJSON(packPath), previous);
+  const { songs, metadata, difficulties } = convert(readJSON(songPath), packPath === undefined ? undefined : readJSON(packPath), previous, readSongJackets(directory));
   const serialize = (value, spaces) => JSON.stringify(value, null, spaces) + '\n';
   const newCatalog = { format: 1, songs, metadata };
   const equal = (a, b) => JSON.stringify(a) === JSON.stringify(b);
@@ -156,4 +174,4 @@ if (require.main === module) {
   }
 }
 
-module.exports = { convert, encodeCatalog, readJSON, readViewerCatalog, updateCatalog };
+module.exports = { convert, encodeCatalog, readJSON, readSongJackets, readViewerCatalog, updateCatalog };
