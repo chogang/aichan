@@ -18,7 +18,7 @@ Arcaea 7.3.0의 파트너 ID 75, 아이쨩의 `skill_aichan`이 고르는 일일
 
 **곡 검색**에 곡명, 아티스트 또는 곡 ID를 입력하면 현재 페이지의 결과를 좁힐 수 있습니다. **난이도**와 레벨 범위는 같은 채보에 적용되며 최저·최고 레벨을 모두 포함합니다. 예를 들어 `9+`는 `9`와 `10` 사이에 해당합니다.
 
-날짜별 **복사** 버튼은 그날의 필터 결과와 재킷을 복사합니다. **공유** 버튼과 복사 내용의 마지막 줄은 해당 날짜의 전체 추천곡 링크를 사용합니다. 미리보기는 세로형 곡 카드 세 장을 나란히 배치합니다. 재킷 위에 팩 이름과 무료·유료 배지를, 아래에 곡명과 FTR·ETR·BYD·INS 레벨을 표시합니다. 미리보기와 링크를 열었을 때의 뷰어는 공유 시 선택한 언어를 따릅니다. 날짜가 없는 링크는 오늘을 조회합니다. 붙여넣는 앱에서 HTML 붙여넣기와 외부 이미지 로딩을 지원하면 재킷이 표시됩니다. [날짜 지정 공유 링크](https://arcaea-aichan-api.pages.dev/share?date=2026-11-18&lang=ko) · [오늘 공유 링크](https://arcaea-aichan-api.pages.dev/share?lang=ko)
+날짜별 **복사** 버튼은 그날의 필터 결과와 재킷을 복사합니다. **공유** 버튼과 복사 내용의 마지막 줄은 해당 날짜의 전체 추천곡 링크를 사용합니다. 미리보기는 세로형 곡 카드 세 장을 나란히 배치합니다. 재킷 위에 팩 이름과 무료·유료 배지를, 아래에 곡명과 FTR·ETR·BYD·INS 레벨을 표시합니다. 미리보기와 링크를 열었을 때의 뷰어는 공유 시 선택한 언어를 따릅니다. 날짜가 없는 링크는 오늘을 조회합니다. 붙여넣는 앱에서 HTML 붙여넣기와 외부 이미지 로딩을 지원하면 재킷이 표시됩니다. [날짜 지정 공유 링크](https://arcaea-aichan.pages.dev/share?date=2026-11-18&lang=ko) · [오늘 공유 링크](https://arcaea-aichan.pages.dev/share?lang=ko)
 
 뷰어와 링크 미리보기는 Arcaea 곡 데이터에 구매 항목이 지정된 곡을 **유료**, 구매 항목이 빈 곡을 **무료**로 표시합니다. 실제 플레이 가능 여부는 계정의 구매 내역과 월드 모드 해금 상태에 따라 달라집니다.
 
@@ -50,9 +50,11 @@ node aichan-recommend.js --seed 20775
 
 응답 JSON에는 `day_index`, `effective_period_utc`, `songs`가 포함됩니다. 각 곡의 `difficulties` 배열에는 뷰어와 동일한 채보 난이도와 표시 레벨이 들어갑니다. 예를 들어 `[{"difficulty":"FTR","level":"9+"}]`처럼 `+`를 보존하기 위해 레벨은 문자열로 반환합니다. 채보 정보가 없으면 빈 배열을 반환합니다. 잘못된 인자, 중복 인자, `date`와 `seed`를 동시에 지정한 요청에는 HTTP `400`과 JSON `error`가 반환됩니다.
 
-`/share-card`는 PNG를 반환합니다. `v=1`은 기존 목록형, `v=2`는 카드 세 장을 나란히 배치하는 형식입니다. 기본값과 공유 링크 미리보기는 `v=2`를 사용합니다. 두 형식 모두 `date`와 `lang`을 받을 수 있습니다. [목록형](https://arcaea-aichan-api.pages.dev/share-card?v=1&date=2026-11-18&lang=ko) · [나열형](https://arcaea-aichan-api.pages.dev/share-card?v=2&date=2026-11-18&lang=ko)
+`/share-card`는 PNG를 반환합니다. `v=1`은 기존 목록형, `v=2`는 카드 세 장을 나란히 배치하는 형식입니다. 기본값과 공유 링크 미리보기는 `v=2`를 사용합니다. 두 형식 모두 `date`와 `lang`을 받을 수 있습니다. [목록형](https://arcaea-aichan.pages.dev/share-card?v=1&date=2026-11-18&lang=ko) · [나열형](https://arcaea-aichan.pages.dev/share-card?v=2&date=2026-11-18&lang=ko)
 
-저장소 루트에서 `npm ci`와 `npx wrangler pages dev`를 실행하면 두 API를 로컬 서버에서 사용할 수 있습니다. Node.js 22 이상에서 `node verify-api.mjs`로 CLI와 API를 대조하고, `node verify-share.mjs`로 카드 레이아웃, 공유 메타데이터와 뷰어 링크를 확인합니다.
+저장소 루트에서 `npm ci`를 실행한 뒤 JSON API는 `npx wrangler pages dev api-public`으로, 공유 링크와 이미지는 `npx wrangler pages dev share-public`으로 확인할 수 있습니다. Node.js 22 이상에서 `node verify-api.mjs`로 CLI와 API를 대조하고, `node verify-share.mjs`로 카드 레이아웃, 공유 메타데이터와 뷰어 링크를 확인합니다.
+
+`api-public`은 `arcaea-aichan-api` Pages 프로젝트에, `share-public`은 `arcaea-aichan`에 배포합니다. 기존 공유 주소를 열면 날짜와 언어를 유지한 채 새 주소로 이동합니다.
 
 ## 곡 데이터 갱신
 

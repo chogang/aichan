@@ -2,13 +2,19 @@ import { selectShareDay, shareCardVersion, shareCardRevision, shareContent } fro
 
 const chartColors = {
   FTR: ['#342735', '#e9a5e6'],
-  ETR: ['#30283e', '#dbcef1'],
-  BYD: ['#40272f', '#fadee3'],
+  ETR: ['#D8C9F0', '#dbcef1'],
+  BYD: ['#BF0D25', '#fadee3'],
   INS: ['#4949a0', '#efefff']
 };
 const maxJacketBytes = 512 * 1024;
-const jacketSize = 342;
-const jacketInset = 13;
+const jacketSize = 300;
+const jacketInset = 30;
+const cardWidth = jacketSize + 2 * jacketInset;
+const jacketTop = 30;
+const titleAreaHeight = 76;
+const titleLineHeight = 33;
+const chartGap = 8;
+const etrTextOutline = ' stroke="#30283e" stroke-width="2.4" stroke-linejoin="round" paint-order="stroke fill"';
 
 function escapeXml(text) {
   return String(text).replace(/[&<>"']/g, character => ({
@@ -23,13 +29,13 @@ function textWidth(text) {
     else if (/\s/u.test(character)) width += 0.25;
     else if (/[mwMW@%]/u.test(character)) width += 0.99;
     else if (/[fijlrIt'!.,:;|]/u.test(character)) width += 0.43;
-    else if (/[a-z0-9]/u.test(character)) width += 0.64;
+    else if (/[a-z0-9]/u.test(character)) width += 0.60;
     else width += 0.73;
   }
   return width;
 }
 
-function fitText(text, lineWidth, maxLines) {
+function fitText(text, lineWidth, maxLines, truncate = true) {
   const lines = [];
   let rest = [...text.trim()];
   while (rest.length && lines.length < maxLines) {
@@ -41,6 +47,7 @@ function fitText(text, lineWidth, maxLines) {
       break;
     }
     if (isLastLine) {
+      if (!truncate) return null;
       while (end && textWidth(rest.slice(0, end).join('') + '…') > lineWidth) end--;
       lines.push(rest.slice(0, end).join('').trimEnd() + '…');
       break;
@@ -62,33 +69,50 @@ function jacketDataUrl(bytes) {
 }
 
 function songCard(song, index, bytes, labels) {
-  const x = 36 + index * 380;
-  const title = fitText(song.title, 12.8, 2).map((line, lineIndex) =>
-    `<text x="184" y="${397 + lineIndex * 26}" text-anchor="middle" fill="#f7f7f8" font-size="25">${escapeXml(line)}</text>`
+  const x = jacketInset + index * (cardWidth + jacketInset);
+  const center = cardWidth / 2;
+  const titleTop = jacketTop + jacketSize;
+  let titleSize = 30;
+  let titleLines = fitText(song.title, jacketSize / titleSize, 2, false);
+  while (!titleLines && titleSize > 24) {
+    titleSize--;
+    titleLines = fitText(song.title, jacketSize / titleSize, 2, false);
+  }
+  titleLines ??= fitText(song.title, jacketSize / titleSize, 2);
+  const titleBaseline = titleTop + (titleAreaHeight - (titleLines.length - 1) * titleLineHeight) / 2 + Math.round(titleSize * .34);
+  const title = titleLines.map((line, lineIndex) =>
+    `<text x="${center}" y="${titleBaseline + lineIndex * titleLineHeight}" text-anchor="middle" fill="#f7f7f8" font-size="${titleSize}">${escapeXml(line)}</text>`
   ).join('');
+  const chartCount = song.difficulties.length;
+  const chartWidth = Math.min(92, Math.floor((cardWidth - 2 * chartGap - (chartCount - 1) * chartGap) / Math.max(1, chartCount)));
+  const chartStart = (cardWidth - (chartCount * chartWidth + (chartCount - 1) * chartGap)) / 2;
+  const chartTop = titleTop + titleAreaHeight;
   const charts = song.difficulties.map(({ difficulty, level }, chartIndex) => {
     const [background, color] = chartColors[difficulty];
-    return `<g transform="translate(${19 + chartIndex * 81} 435)">
-      <rect width="74" height="31" rx="7" fill="${background}" stroke="${color}" stroke-opacity=".65"/>
-      <text x="37" y="21" text-anchor="middle" font-size="16" fill="${color}">${difficulty} ${escapeXml(level)}</text>
+    return `<g transform="translate(${chartStart + chartIndex * (chartWidth + chartGap)} ${chartTop})">
+      <rect width="${chartWidth}" height="36" rx="7" fill="${background}" stroke="${color}" stroke-opacity=".65"/>
+      <text x="${chartWidth / 2}" y="25" text-anchor="middle" font-size="20" fill="${color}"${difficulty === 'ETR' ? etrTextOutline : ''}>${difficulty} ${escapeXml(level)}</text>
     </g>`;
   }).join('');
   const accessLabel = labels[song.access];
-  const access = accessLabel ? `<g transform="translate(276 -21)">
+  const accessX = cardWidth - 84 - 8;
+  const access = accessLabel ? `<g transform="translate(${accessX} -21)">
     <rect width="84" height="28" rx="7" fill="${song.access === 'free' ? '#e8e8ed' : '#25252a'}" stroke="#92929c"/>
     <text x="42" y="19" text-anchor="middle" fill="${song.access === 'free' ? '#232329' : '#f3f3f5'}" font-size="15">${escapeXml(accessLabel)}</text>
   </g>` : '';
-  const pack = fitText(song.packName, accessLabel ? 16.5 : 22.8, 2);
+  const pack = fitText(song.packName, (accessLabel ? accessX - jacketInset - 8 : jacketSize) / 18, 3);
+  const packLineHeight = 19;
+  const packBaseline = Math.max(-15, -1 - (pack.length - 1) * packLineHeight / 2);
   const packText = pack.map((line, i) =>
-    `<text x="${jacketInset}" y="${pack.length === 1 ? -2 : -10 + i * 17}" font-size="15" fill="#f3f3f5">${escapeXml(line)}</text>`
+    `<text x="${jacketInset}" y="${packBaseline + i * packLineHeight}" font-size="18" fill="#f3f3f5">${escapeXml(line)}</text>`
   ).join('');
   const jacket = bytes ? `<image href="${jacketDataUrl(bytes)}" width="${jacketSize}" height="${jacketSize}" preserveAspectRatio="xMidYMid slice"/>` : '';
 
   return `<g transform="translate(${x} 105)">
-    <rect y="-29" width="368" height="503" rx="15" fill="#2a2a2e" stroke="#48484f"/>
-    <g transform="translate(${jacketInset} ${jacketInset})" clip-path="url(#jacket-clip)">
+    <rect y="-29" width="${cardWidth}" height="503" rx="15" fill="#2a2a2e" stroke="#48484f"/>
+    <g transform="translate(${jacketInset} ${jacketTop})" clip-path="url(#jacket-clip)">
       <rect width="${jacketSize}" height="${jacketSize}" fill="#414147"/>
-      <path transform="translate(105 102) scale(1.16)" d="M63 29v42c0 12-17 17-23 9-7-11 4-22 16-19V38l29-7v9z" fill="#888891"/>
+      <path transform="translate(84 81) scale(1.16)" d="M63 29v42c0 12-17 17-23 9-7-11 4-22 16-19V38l29-7v9z" fill="#888891"/>
       ${jacket}
     </g>
     ${access}
@@ -103,7 +127,7 @@ function songRow(song, index, bytes, labels) {
     const [background, color] = chartColors[difficulty];
     return `<g transform="translate(${chartIndex * 137} 64)">
       <rect width="124" height="34" rx="8" fill="${background}"/>
-      <text x="62" y="24" text-anchor="middle" font-size="19" fill="${color}">${difficulty} ${escapeXml(level)}</text>
+      <text x="62" y="24" text-anchor="middle" font-size="19" fill="${color}"${difficulty === 'ETR' ? etrTextOutline : ''}>${difficulty} ${escapeXml(level)}</text>
     </g>`;
   }).join('');
   const accessLabel = labels[song.access];

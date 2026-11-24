@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import { sharePage } from './functions/share.js';
-import { handleShareCard } from './share-card.mjs';
+import { handleShareCard, shareCardSvg } from './share-card.mjs';
 import { selectShareDay, shareContent, shareCardVersion, shareCardRevision, shareOrigin, viewerOrigin } from './share-data.mjs';
 
 const url = 'https://example.com/share';
@@ -100,11 +100,18 @@ assert.equal(await renderCard('?date=2026-11-18&lang=ja&v=4'), japaneseCard);
 const listCard = await renderCard('?date=2026-11-18&lang=ja&v=1');
 assert.match(listCard, /width="1128" height="140"/);
 assert.match(listCard, />有料</);
-assert.match(japaneseCard, /width="368" height="503"/);
+assert.match(japaneseCard, /width="360" height="503"/);
 assert.notEqual(listCard, japaneseCard);
 assert.equal(await renderCard('?v=1&lang=ja&date=2026-11-18'), listCard);
 assert.equal(renders, 3);
 assert.deepEqual([...cards.keys()].map(key => new URL(key).searchParams.get('v')), ['2', '2', '1']);
+
+const longTitleContent = shareContent(selectShareDay(new Request(`${url}?date=2026-12-25&lang=en`)));
+const titleLines = svg => [...svg.matchAll(/font-size="(2[4-9]|30)">(Extradimensional|Cosmic Phenomenon)<\/text>/g)];
+const longTitle = titleLines(shareCardSvg(longTitleContent, []));
+assert.deepEqual(longTitle.map(match => match[2]), ['Extradimensional', 'Cosmic Phenomenon']);
+assert.equal(longTitle[0][1], longTitle[1][1]);
+assert.ok(Number(longTitle[0][1]) < 30);
 
 for (const query of [
   '?date=', '?date=2026-11-8', '?date=2026-02-29', '?date=2025-11-07', '?date=2100-01-01',

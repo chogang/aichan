@@ -4,10 +4,10 @@ import songDifficulties from './song-difficulties.json' with { type: 'json' };
 import jacketHashes from './song-jackets.json' with { type: 'json' };
 import shareLocales from './share-locales.json' with { type: 'json' };
 
-export const shareOrigin = 'https://arcaea-aichan-api.pages.dev';
+export const shareOrigin = 'https://arcaea-aichan.pages.dev';
 export const viewerOrigin = 'https://chogang.github.io/aichan/';
 export const shareCardVersion = '2';
-export const shareCardRevision = '7';
+export const shareCardRevision = '8';
 
 const highestPageDay = core.calendarDayIndex('2099-12-31');
 const previewDifficulties = new Set(['FTR', 'ETR', 'BYD', 'INS']);

@@ -18,7 +18,7 @@ The viewer shows reset times in Korean Standard Time, US Eastern Time, Japan Sta
 
 Use **Song search** (**곡 검색**) to find titles, artists, or song IDs in the results. Set a difficulty (**난이도**) and an inclusive level range to filter the current page. A song qualifies when one chart meets both selections. For example, `9+` falls between `9` and `10`.
 
-Use the per-day **Copy** (**복사**) button to copy that date’s filtered songs and jacket links. The **Share** (**공유**) button and the last line of the copy use a link to that day’s full recommendations. The preview places three vertical cards side by side. Each card shows the pack name and Free or Paid label above the jacket, with the song title and FTR, ETR, BYD, or INS levels below. The link uses the selected viewer language for the preview and when opened in the viewer. Links without a date select today. Jacket images in pasted content display when the destination app supports pasted HTML and loads external images. [English dated share link](https://arcaea-aichan-api.pages.dev/share?date=2026-11-18&lang=en) · [Today's share link in English](https://arcaea-aichan-api.pages.dev/share?lang=en)
+Use the per-day **Copy** (**복사**) button to copy that date’s filtered songs and jacket links. The **Share** (**공유**) button and the last line of the copy use a link to that day’s full recommendations. The preview places three vertical cards side by side. Each card shows the pack name and Free or Paid label above the jacket, with the song title and FTR, ETR, BYD, or INS levels below. The link uses the selected viewer language for the preview and when opened in the viewer. Links without a date select today. Jacket images in pasted content display when the destination app supports pasted HTML and loads external images. [English dated share link](https://arcaea-aichan.pages.dev/share?date=2026-11-18&lang=en) · [Today's share link in English](https://arcaea-aichan.pages.dev/share?lang=en)
 
 The viewer and its link previews label songs **Paid** when the Arcaea catalog lists a purchase item, and **Free** when the purchase field is empty. Account ownership and World Mode unlocks still determine access in the game.
 
@@ -50,9 +50,11 @@ Send a `GET` request to the [recommendations endpoint](https://arcaea-aichan-api
 
 The JSON includes `day_index`, `effective_period_utc`, and `songs`. Each song includes a `difficulties` array using the same chart labels and display levels as the viewer, for example `[{"difficulty":"FTR","level":"9+"}]`. Levels are strings so the `+` is preserved. Songs without chart data have an empty array. The API returns HTTP `400` with a JSON `error` for invalid arguments, duplicates, or a combination of `date` and `seed`.
 
-The `/share-card` endpoint returns a PNG. Use `v=1` for the original list layout or `v=2` for three side-by-side cards. The endpoint defaults to `v=2`, and share links use that layout for their previews. Either layout accepts `date` and `lang`. [List layout](https://arcaea-aichan-api.pages.dev/share-card?v=1&date=2026-11-18&lang=en) · [Card layout](https://arcaea-aichan-api.pages.dev/share-card?v=2&date=2026-11-18&lang=en)
+The `/share-card` endpoint returns a PNG. Use `v=1` for the original list layout or `v=2` for three side-by-side cards. The endpoint defaults to `v=2`, and share links use that layout for their previews. Either layout accepts `date` and `lang`. [List layout](https://arcaea-aichan.pages.dev/share-card?v=1&date=2026-11-18&lang=en) · [Card layout](https://arcaea-aichan.pages.dev/share-card?v=2&date=2026-11-18&lang=en)
 
-Run `npm ci` and `npx wrangler pages dev` from the repository root to try both endpoints on the local server. With Node.js 22 or later, run `node verify-api.mjs` to compare the API against the CLI and `node verify-share.mjs` to check the card layouts, share metadata, and viewer link.
+Run `npm ci` from the repository root, then use `npx wrangler pages dev api-public` for the JSON API or `npx wrangler pages dev share-public` for the share links and images. With Node.js 22 or later, run `node verify-api.mjs` to compare the API against the CLI and `node verify-share.mjs` to check the card layouts, share metadata, and viewer link.
+
+Deploy `api-public` to the `arcaea-aichan-api` Pages project and `share-public` to `arcaea-aichan`. Older share links redirect to the new project and retain their date and language.
 
 ## Update the song catalog
 
