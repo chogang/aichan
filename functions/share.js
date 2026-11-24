@@ -27,18 +27,20 @@ export function sharePage(request, now = Date.now()) {
   } catch (error) {
     return respond(`<!doctype html><html lang="en"><meta charset="utf-8"><title>Invalid date</title><p>${escape(error.message)}</p><a href="${viewerOrigin}">Open the viewer</a></html>`, 400);
   }
-  const { day, songs } = shareContent(selected);
-  const title = `${day} 아이쨩 추천곡 · Arcaea`;
+  const { day, locale, labels, songs } = shareContent(selected);
+  const title = `${day} ${labels.title} · Arcaea`;
   const chartLabels = song => song.difficulties.map(({ difficulty, level }) => `${difficulty} ${level}`);
   const description = songs.map(song => [song.title, ...chartLabels(song)].join(' · ')).join(' | ');
   const imageDescription = songs.map(song => [
-    song.title, song.packName, { free: '무료', purchase: '유료' }[song.access], ...chartLabels(song)
+    song.title, song.packName, labels[song.access], ...chartLabels(song)
   ].filter(Boolean).join(' · ')).join(' | ');
-  const canonical = `${shareOrigin}/share?date=${day}`;
-  const image = `${shareOrigin}/share-card?date=${day}`;
-  const viewer = `${viewerOrigin}?date=${day}`;
+  const requested = new URL(request.url).searchParams;
+  const query = `date=${day}&lang=${locale}`;
+  const canonical = escape(`${shareOrigin}/share?${query}`);
+  const image = escape(`${shareOrigin}/share-card?${query}`);
+  const viewer = escape(`${viewerOrigin}?${requested.has('lang') ? query : 'date=' + day}`);
   return respond(`<!doctype html>
-<html lang="ko">
+<html lang="${locale}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -46,7 +48,7 @@ export function sharePage(request, now = Date.now()) {
   <link rel="canonical" href="${canonical}">
   <meta name="description" content="${escape(description)}">
   <meta property="og:type" content="website">
-  <meta property="og:locale" content="ko_KR">
+  <meta property="og:locale" content="${labels.ogLocale}">
   <meta property="og:url" content="${canonical}">
   <meta property="og:title" content="${escape(title)}">
   <meta property="og:description" content="${escape(description)}">
@@ -64,9 +66,9 @@ export function sharePage(request, now = Date.now()) {
 <body>
   <main>
     <h1>${escape(title)}</h1>
-    <a id="viewer" href="${viewer}">추천곡 뷰어 열기</a>
+    <a id="viewer" href="${viewer}">${escape(labels.openViewer)}</a>
   </main>
   <script>${forward}</script>
 </body>
-</html>`, 200, new URL(request.url).searchParams.has('date') ? 'public, max-age=300' : 'no-store');
+</html>`, 200, requested.has('date') ? 'public, max-age=300' : 'no-store');
 }

@@ -18,7 +18,7 @@ Arcaea 7.3.0의 파트너 ID 75, 아이쨩의 `skill_aichan`이 고르는 일일
 
 **곡 검색**에 곡명, 아티스트 또는 곡 ID를 입력하면 현재 페이지의 결과를 좁힐 수 있습니다. **난이도**와 레벨 범위는 같은 채보에 적용되며 최저·최고 레벨을 모두 포함합니다. 예를 들어 `9+`는 `9`와 `10` 사이에 해당합니다.
 
-날짜별 **복사** 버튼은 그날의 필터 결과와 재킷을 복사합니다. **공유** 버튼과 복사 내용의 마지막 줄은 해당 날짜의 전체 추천곡 링크를 사용합니다. 링크 미리보기에는 날짜, 곡 제목, 재킷, 팩 이름, 무료·유료 표시와 FTR·ETR·BYD·INS 레벨이 표시됩니다. 링크를 열면 해당 날짜의 뷰어가 열리고, 날짜가 없는 링크는 오늘을 조회합니다. 붙여넣는 앱에서 HTML 붙여넣기와 외부 이미지 로딩을 지원하면 재킷이 표시됩니다. [날짜 지정 공유 링크](https://arcaea-aichan-api.pages.dev/share?date=2026-11-18) · [오늘 공유 링크](https://arcaea-aichan-api.pages.dev/share)
+날짜별 **복사** 버튼은 그날의 필터 결과와 재킷을 복사합니다. **공유** 버튼과 복사 내용의 마지막 줄은 해당 날짜의 전체 추천곡 링크를 사용합니다. 미리보기는 세로형 곡 카드 세 장을 나란히 배치합니다. 큰 재킷 아래에 곡명과 FTR·ETR·BYD·INS 레벨을, 재킷 오른쪽 위에 팩 이름과 무료·유료 배지를 표시합니다. 미리보기와 링크를 열었을 때의 뷰어는 공유 시 선택한 언어를 따릅니다. 날짜가 없는 링크는 오늘을 조회합니다. 붙여넣는 앱에서 HTML 붙여넣기와 외부 이미지 로딩을 지원하면 재킷이 표시됩니다. [날짜 지정 공유 링크](https://arcaea-aichan-api.pages.dev/share?date=2026-11-18&lang=ko) · [오늘 공유 링크](https://arcaea-aichan-api.pages.dev/share?lang=ko)
 
 뷰어와 링크 미리보기는 Arcaea 곡 데이터에 구매 항목이 지정된 곡을 **유료**, 구매 항목이 빈 곡을 **무료**로 표시합니다. 실제 플레이 가능 여부는 계정의 구매 내역과 월드 모드 해금 상태에 따라 달라집니다.
 
@@ -69,7 +69,7 @@ node verify.js
 
 선곡 알고리즘은 Arcaea 7.3.0을 기준으로 합니다. 곡 데이터를 갱신하면 과거 날짜의 추천곡도 달라질 수 있으며, 게임이 업데이트되면 알고리즘이 바뀌었는지 확인해야 합니다.
 
-곡명이나 팩 이름에 새 문자가 추가되면 `python -m pip install fonttools==4.60.1`과 `python scripts/build-share-font.py 'NotoSansJP[wght].ttf'`를 실행해 공유 카드 글꼴을 갱신합니다. 생성된 `share-assets/ai-chan-preview.bin`을 곡 목록과 함께 커밋합니다. 원본 글꼴은 Google Fonts의 Noto Sans JP이며 라이선스는 `share-assets/OFL.txt`에 있습니다. [원본 글꼴 다운로드](https://github.com/google/fonts/tree/main/ofl/notosansjp)
+곡 목록이나 공유 카드 번역에 새 문자가 추가되면 `python -m pip install fonttools==4.60.1`과 `python scripts/build-share-font.py 'NotoSansJP[wght].ttf' 'NotoSansKR[wght].ttf' 'NotoSansSC[wght].ttf'`를 실행해 공유 카드 글꼴을 갱신합니다. `share-assets/`에 생성된 글꼴을 텍스트 변경과 함께 커밋합니다. 원본 글꼴의 라이선스는 `share-assets/OFL.txt`에 있습니다. [Noto Sans JP](https://github.com/google/fonts/tree/main/ofl/notosansjp) · [Noto Sans KR](https://github.com/google/fonts/tree/main/ofl/notosanskr) · [Noto Sans SC](https://github.com/google/fonts/tree/main/ofl/notosanssc)
 
 ## 추천곡을 고르는 순서
 

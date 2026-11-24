@@ -1,0 +1,38 @@
+{
+  "ko": {
+    "title": "아이쨩 추천곡",
+    "free": "무료",
+    "purchase": "유료",
+    "jacketCredit": "재킷 이미지 © lowiro",
+    "singles": "개별곡",
+    "openViewer": "추천곡 뷰어 열기",
+    "ogLocale": "ko_KR"
+  },
+  "en": {
+    "title": "Ai-chan recommendations",
+    "free": "FREE",
+    "purchase": "PAID",
+    "jacketCredit": "Jacket artwork © lowiro",
+    "singles": "Singles",
+    "openViewer": "Open the recommendations viewer",
+    "ogLocale": "en_US"
+  },
+  "ja": {
+    "title": "Ai-chanのおすすめ楽曲",
+    "free": "無料",
+    "purchase": "有料",
+    "jacketCredit": "ジャケット画像 © lowiro",
+    "singles": "シングル",
+    "openViewer": "おすすめ楽曲ビューアを開く",
+    "ogLocale": "ja_JP"
+  },
+  "zh-Hans": {
+    "title": "Ai酱推荐曲目",
+    "free": "免费",
+    "purchase": "付费",
+    "jacketCredit": "封面图片 © lowiro",
+    "singles": "单曲",
+    "openViewer": "打开推荐曲目查看器",
+    "ogLocale": "zh_CN"
+  }
+}

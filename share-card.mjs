@@ -14,15 +14,41 @@ function escapeXml(text) {
   })[character]);
 }
 
-function truncateTitle(title) {
+function textWidth(text) {
   let width = 0;
-  let result = '';
-  for (const character of title) {
-    width += /[\u3000-\u9fff\uf900-\ufaff\uff01-\uff60]/u.test(character) ? 2 : 1;
-    if (width > 48) return `${result}…`;
-    result += character;
+  for (const character of text) {
+    if (/[\u3000-\u9fff\uac00-\ud7af\uf900-\ufaff\uff01-\uff60]/u.test(character)) width += 1;
+    else if (/\s/u.test(character)) width += 0.25;
+    else if (/[mwMW@%]/u.test(character)) width += 0.99;
+    else if (/[fijlrIt'!.,:;|]/u.test(character)) width += 0.43;
+    else if (/[a-z0-9]/u.test(character)) width += 0.64;
+    else width += 0.73;
   }
-  return result;
+  return width;
+}
+
+function fitText(text, lineWidth, maxLines) {
+  const lines = [];
+  let rest = [...text.trim()];
+  while (rest.length && lines.length < maxLines) {
+    const isLastLine = lines.length === maxLines - 1;
+    let end = 0;
+    while (end < rest.length && textWidth(rest.slice(0, end + 1).join('')) <= lineWidth) end++;
+    if (end === rest.length) {
+      lines.push(rest.join(''));
+      break;
+    }
+    if (isLastLine) {
+      while (end && textWidth(rest.slice(0, end).join('') + '…') > lineWidth) end--;
+      lines.push(rest.slice(0, end).join('').trimEnd() + '…');
+      break;
+    }
+    const space = rest.slice(0, end + 1).lastIndexOf(' ');
+    if (space > 0) end = space;
+    lines.push(rest.slice(0, end).join('').trimEnd());
+    rest = [...rest.slice(end).join('').trimStart()];
+  }
+  return lines;
 }
 
 function jacketDataUrl(bytes) {
@@ -33,49 +59,56 @@ function jacketDataUrl(bytes) {
   return `data:image/jpeg;base64,${btoa(chunks.join(''))}`;
 }
 
-function songRow(song, index, bytes) {
-  const y = 136 + index * 152;
+function songCard(song, index, bytes, labels) {
+  const x = 36 + index * 380;
+  const title = fitText(song.title, 12.8, 2).map((line, lineIndex) =>
+    `<text x="19" y="${383 + lineIndex * 28}" fill="#f7f7f8" font-size="25">${escapeXml(line)}</text>`
+  ).join('');
+  const pack = fitText(song.packName, 17.5, 2);
   const charts = song.difficulties.map(({ difficulty, level }, chartIndex) => {
     const [background, color] = chartColors[difficulty];
-    const x = chartIndex * 137;
-    return `<g transform="translate(${x} 64)">
-      <rect width="124" height="34" rx="8" fill="${background}"/>
-      <text x="62" y="24" text-anchor="middle" font-size="19" fill="${color}">${difficulty} ${escapeXml(level)}</text>
+    return `<g transform="translate(${19 + chartIndex * 81} 429)">
+      <rect width="74" height="31" rx="7" fill="${background}"/>
+      <text x="37" y="21" text-anchor="middle" font-size="16" fill="${color}">${difficulty} ${escapeXml(level)}</text>
     </g>`;
   }).join('');
-  const accessLabel = song.access === 'free' ? 'FREE' : 'PAID';
-  const access = song.access ? `<g transform="translate(1024 24)">
-    <rect width="84" height="28" rx="7" fill="${song.access === 'free' ? '#45454b' : 'none'}" stroke="#6d6d76"/>
-    <text x="42" y="19" text-anchor="middle" fill="#e6e6ea" font-size="14" letter-spacing="1">${accessLabel}</text>
+  const accessLabel = labels[song.access];
+  const accessWidth = accessLabel ? Math.ceil(textWidth(accessLabel) * 15 + 22) : 0;
+  const access = accessLabel ? `<g transform="translate(${343 - accessWidth} 20)">
+    <rect width="${accessWidth}" height="26" rx="6" fill="${song.access === 'free' ? '#e8e8ed' : '#25252a'}" stroke="#92929c"/>
+    <text x="${accessWidth / 2}" y="18" text-anchor="middle" fill="${song.access === 'free' ? '#232329' : '#f3f3f5'}" font-size="15">${escapeXml(accessLabel)}</text>
   </g>` : '';
-  const jacket = bytes ? `<image href="${jacketDataUrl(bytes)}" width="112" height="112" preserveAspectRatio="xMidYMid slice"/>` : '';
+  const packWidth = Math.ceil(Math.max(0, ...pack.map(textWidth)) * 15 + 22);
+  const packBadge = pack.length ? `<g transform="translate(${343 - packWidth} ${accessLabel ? 51 : 20})">
+    <rect width="${packWidth}" height="${pack.length * 18 + 9}" rx="6" fill="#25252a"/>
+    ${pack.map((line, i) => `<text x="${packWidth - 11}" y="${18 + i * 18}" text-anchor="end" font-size="15" fill="#f3f3f5">${escapeXml(line)}</text>`).join('')}
+  </g>` : '';
+  const jacket = bytes ? `<image href="${jacketDataUrl(bytes)}" width="348" height="348" preserveAspectRatio="xMidYMid slice"/>` : '';
 
-  return `<g transform="translate(36 ${y})">
-    <rect width="1128" height="140" rx="16" fill="#2a2a2e" stroke="#444449"/>
-    <g transform="translate(14 14)" clip-path="url(#jacket-clip)">
-      <rect width="112" height="112" fill="#414147"/>
-      <path d="M63 29v42c0 12-17 17-23 9-7-11 4-22 16-19V38l29-7v9z" fill="#888891"/>
+  return `<g transform="translate(${x} 105)">
+    <rect width="368" height="474" rx="15" fill="#2a2a2e" stroke="#48484f"/>
+    <g transform="translate(10 10)" clip-path="url(#jacket-clip)">
+      <rect width="348" height="348" fill="#414147"/>
+      <path transform="translate(108 105) scale(1.16)" d="M63 29v42c0 12-17 17-23 9-7-11 4-22 16-19V38l29-7v9z" fill="#888891"/>
       ${jacket}
     </g>
-    <g transform="translate(154 0)">
-      <text x="0" y="48" fill="#f7f7f8" font-size="31">${escapeXml(truncateTitle(song.title))}</text>
-      ${charts}
-      <text x="0" y="124" fill="#bfbfc7" font-size="19">${escapeXml(song.packName || '')}</text>
-    </g>
     ${access}
+    ${packBadge}
+    ${title}
+    ${charts}
   </g>`;
 }
 
-export function shareCardSvg({ day, songs }, jackets) {
+export function shareCardSvg({ day, songs, labels }, jackets) {
   return `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-    <defs><clipPath id="jacket-clip"><rect width="112" height="112" rx="10"/></clipPath></defs>
+    <defs><clipPath id="jacket-clip"><rect width="348" height="348" rx="9"/></clipPath></defs>
     <rect width="1200" height="630" fill="#202023"/>
-    <g font-family="AiChan Preview">
-      <text x="36" y="58" font-size="22" fill="#bfbfc7" letter-spacing="1.2">ARCAEA</text>
-      <text x="36" y="104" font-size="39" fill="#f7f7f8">Ai-chan recommendations</text>
-      <text x="1164" y="102" font-size="34" fill="#e6e6ea" text-anchor="end">${escapeXml(day)}</text>
-      ${songs.map((song, index) => songRow(song, index, jackets[index])).join('')}
-      <text x="36" y="610" font-size="15" fill="#bfbfc7">Jacket artwork © lowiro</text>
+    <g font-family="AiChan Preview, AiChan Hangul, AiChan Han">
+      <text x="36" y="39" font-size="16" fill="#bfbfc7" letter-spacing="1.2">ARCAEA</text>
+      <text x="36" y="81" font-size="35" fill="#f7f7f8">${escapeXml(labels.title)}</text>
+      <text x="1164" y="80" font-size="31" fill="#e6e6ea" text-anchor="end">${escapeXml(day)}</text>
+      ${songs.map((song, index) => songCard(song, index, jackets[index], labels)).join('')}
+      <text x="36" y="609" font-size="15" fill="#bfbfc7">${escapeXml(labels.jacketCredit)}</text>
     </g>
   </svg>`;
 }
@@ -122,7 +155,7 @@ export async function handleShareCard(request, renderPng, {
 
   const url = new URL(request.url);
   const hasDate = url.searchParams.has('date');
-  url.search = new URLSearchParams({ date: selection.day }).toString();
+  url.search = new URLSearchParams({ date: selection.day, lang: selection.locale }).toString();
   const cacheKey = new Request(url);
   let datedResponse = await cache?.match(cacheKey);
   if (!datedResponse) {
