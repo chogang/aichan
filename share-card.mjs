@@ -2,8 +2,8 @@ import { selectShareDay, shareCardVersion, shareCardRevision, shareContent } fro
 
 const chartColors = {
   FTR: ['#342735', '#e9a5e6'],
-  ETR: ['#D8C9F0', '#302449'],
-  BYD: ['#BF0D25', '#fff0f3'],
+  ETR: ['#30283e', '#dbcef1'],
+  BYD: ['#40272f', '#fadee3'],
   INS: ['#4949a0', '#efefff']
 };
 const maxJacketBytes = 512 * 1024;
