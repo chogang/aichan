@@ -12,6 +12,7 @@ const canvasWidth = 1200;
 const outerMargin = 30;
 const cardGap = 24;
 const cardPadding = 24;
+const cardBottomPadding = 32;
 const cardWidth = (canvasWidth - 2 * outerMargin - 2 * cardGap) / 3;
 const cardTop = 84;
 const jacketSize = 300;
@@ -24,8 +25,8 @@ const accessColors = {
   free: ['#283B34', '#507D65', '#A0D9B6'],
   purchase: ['#303037', '#666670', '#C8C8D0']
 };
-const titleAreaHeight = 76;
 const titleLineHeight = 33;
+const titleAreaHeight = 2 * titleLineHeight;
 const chartGap = 8;
 const chartHeight = 36;
 
@@ -92,17 +93,17 @@ function songCard(song, index, bytes, labels) {
     titleLines = fitText(song.title, jacketSize / titleSize, 2, false);
   }
   titleLines ??= fitText(song.title, jacketSize / titleSize, 2);
-  const titleBaseline = titleTop + titleLineHeight / 2 + Math.round(titleSize * .34);
+  const titleBaseline = titleTop + (titleAreaHeight - (titleLines.length - 1) * titleLineHeight) / 2 + Math.round(titleSize * .34);
   const title = titleLines.map((line, lineIndex) =>
     `<text x="${center}" y="${titleBaseline + lineIndex * titleLineHeight}" text-anchor="middle" fill="#f7f7f8" font-size="${titleSize}">${escapeXml(line)}</text>`
   ).join('');
-  const artistTop = titleTop + titleLines.length * titleLineHeight + 4;
+  const artistTop = titleTop + titleAreaHeight + 4;
   const artist = fitText(song.artist || '', jacketSize / 16, 1)[0];
   const chartCount = song.difficulties.length;
   const chartWidth = Math.min(92, Math.floor((cardWidth - 2 * cardPadding - (chartCount - 1) * chartGap) / Math.max(1, chartCount)));
   const chartStart = (cardWidth - (chartCount * chartWidth + (chartCount - 1) * chartGap)) / 2;
   const chartTop = artistTop + 20 + 12;
-  const cardHeight = titleTop + titleAreaHeight + 4 + 20 + 12 + chartHeight + cardPadding;
+  const cardHeight = chartTop + chartHeight + cardBottomPadding;
   const charts = song.difficulties.map(({ difficulty, level }, chartIndex) => {
     const [background, color, border = color] = chartColors[difficulty];
     return `<g transform="translate(${chartStart + chartIndex * (chartWidth + chartGap)} ${chartTop})">

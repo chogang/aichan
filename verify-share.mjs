@@ -113,10 +113,14 @@ assert.deepEqual([...cards.keys()].map(key => new URL(key).searchParams.get('v')
 
 const longTitleContent = shareContent(selectShareDay(new Request(`${url}?date=2026-12-25&lang=en`)));
 const titleLines = svg => [...svg.matchAll(/font-size="(2[4-9]|30)">(Extradimensional|Cosmic Phenomenon)<\/text>/g)];
-const longTitle = titleLines(shareCardSvg(longTitleContent, []));
+const mixedTitleCard = shareCardSvg(longTitleContent, []);
+const longTitle = titleLines(mixedTitleCard);
 assert.deepEqual(longTitle.map(match => match[2]), ['Extradimensional', 'Cosmic Phenomenon']);
 assert.equal(longTitle[0][1], longTitle[1][1]);
 assert.ok(Number(longTitle[0][1]) < 30);
+const artistBaselines = [...mixedTitleCard.matchAll(/y="([^"]+)" text-anchor="middle" font-size="16"/g)].map(match => match[1]);
+assert.equal(artistBaselines.length, 3);
+assert.equal(new Set(artistBaselines).size, 1);
 
 const etrContent = shareContent(selectShareDay(new Request(`${url}?date=2026-11-23&lang=en`)));
 for (const layout of ['1', '2']) {
