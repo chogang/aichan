@@ -30,6 +30,12 @@ function readViewerCatalog(html) {
   return catalog;
 }
 
+function replaceViewerCatalog(html, catalog) {
+  const updated = html.replace(block, (_, open, ciphertext, close) => open + encodeCatalog(catalog) + close);
+  if (JSON.stringify(readViewerCatalog(updated)) !== JSON.stringify(catalog)) fail('New viewer catalog failed round-trip verification');
+  return updated;
+}
+
 function localized(value) {
   return value?.ko || value?.en || Object.values(value || {})[0];
 }
@@ -106,12 +112,12 @@ function readJSON(file) {
   return JSON.parse(fs.readFileSync(file, 'utf8').replace(/^\uFEFF/, ''));
 }
 
-function readSongJackets(directory = root) {
+function readSongJackets(directory = root, required = false) {
   let data;
   try {
     data = readJSON(path.join(directory, 'song-jackets.json'));
   } catch (error) {
-    if (error.code === 'ENOENT') return new Map();
+    if (error.code === 'ENOENT' && !required) return new Map();
     throw error;
   }
   if (!object(data)) fail('Expected a song-jackets.json object keyed by song ID');
@@ -157,9 +163,7 @@ function updateCatalog(songPath, packPath, dryRun, directory = root) {
   const cliCatalog = { songs, packNames };
   const newCatalog = { format: 1, songs, metadata };
   const equal = (a, b) => JSON.stringify(a) === JSON.stringify(b);
-  const updateHtml = !equal(previous, newCatalog);
-  const newHtml = updateHtml ? html.replace(block, (_, open, ciphertext, close) => open + encodeCatalog(newCatalog) + close) : html;
-  if (!equal(readViewerCatalog(newHtml), newCatalog)) fail('New viewer catalog failed round-trip verification');
+  const newHtml = equal(previous, newCatalog) ? html : replaceViewerCatalog(html, newCatalog);
   const cli = fs.readFileSync(cliPath, 'utf8');
   const chartLevels = fs.readFileSync(difficultyPath, 'utf8');
   const changed = [
@@ -171,13 +175,36 @@ function updateCatalog(songPath, packPath, dryRun, directory = root) {
   return { count: songs.length, files: changed.map(([file]) => path.relative(directory, file)) };
 }
 
+function refreshJackets(dryRun, directory = root) {
+  const htmlPath = path.join(directory, 'docs', 'index.html');
+  const html = fs.readFileSync(htmlPath, 'utf8');
+  const catalog = readViewerCatalog(html);
+  const jackets = readSongJackets(directory, true);
+  let changed = false;
+  for (const { id } of catalog.songs) {
+    const metadata = catalog.metadata[id];
+    if (!Object.hasOwn(catalog.metadata, id) || !object(metadata)) fail(`Missing viewer metadata for ${id}`);
+    const hash = jackets.get(id);
+    if (metadata.jacket_hash === hash) continue;
+    if (hash === undefined) delete metadata.jacket_hash;
+    else metadata.jacket_hash = hash;
+    changed = true;
+  }
+  if (changed) {
+    const updated = replaceViewerCatalog(html, catalog);
+    if (!dryRun) publishFiles([[htmlPath, html, updated]]);
+  }
+  return { count: catalog.songs.length, files: changed ? [path.relative(directory, htmlPath)] : [] };
+}
+
 if (require.main === module) {
   try {
     const args = process.argv.slice(2);
     const dryRun = args[0] === '--dry-run';
     if (dryRun) args.shift();
-    if (args.length < 1 || args.length > 2 || args.some(arg => arg.startsWith('--'))) fail('Usage: node scripts/update-catalog.cjs [--dry-run] FULL_SONGLIST.json [PACKLIST.json]');
-    const { count, files } = updateCatalog(args[0], args[1], dryRun);
+    const jacketsOnly = args.length === 1 && args[0] === '--refresh-jackets';
+    if (!jacketsOnly && (args.length < 1 || args.length > 2 || args.some(arg => arg.startsWith('--')))) fail('Usage: node scripts/update-catalog.cjs [--dry-run] {FULL_SONGLIST.json [PACKLIST.json] | --refresh-jackets}');
+    const { count, files } = jacketsOnly ? refreshJackets(dryRun) : updateCatalog(args[0], args[1], dryRun);
     console.log(`${count} songs validated. ${files.length ? `${dryRun ? 'Would update' : 'Updated'} ${files.join(', ')}` : 'No catalog changes.'}`);
   } catch (error) {
     console.error(error.message);
@@ -185,4 +212,4 @@ if (require.main === module) {
   }
 }
 
-module.exports = { convert, encodeCatalog, readJSON, readSongJackets, readViewerCatalog, updateCatalog };
+module.exports = { convert, encodeCatalog, readJSON, readSongJackets, readViewerCatalog, updateCatalog, refreshJackets };

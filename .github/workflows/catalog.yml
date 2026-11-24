@@ -11,14 +11,21 @@ on:
       - scripts/**
       - verify-api.mjs
       - .github/workflows/catalog.yml
+  schedule:
+    - cron: '17 9 * * *'
   workflow_dispatch:
+    inputs:
+      refresh_jackets:
+        description: Refresh jackets from the official rankings
+        type: boolean
+        default: false
 
 permissions:
   contents: read
 
 concurrency:
   group: catalog-${{ github.event_name == 'pull_request' && github.ref || 'main' }}
-  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+  queue: max
 
 jobs:
   validate:
@@ -44,6 +51,7 @@ jobs:
             python -m pip install fonttools==4.60.1
             python scripts/build-share-font.py --refresh
           fi
+          node scripts/update-catalog.cjs --refresh-jackets
           node verify-api.mjs
 
   publish:
@@ -71,7 +79,7 @@ jobs:
         if: hashFiles('uploads/songlist.json') != ''
         with:
           python-version: '3.12'
-      - name: Regenerate and validate the catalog
+      - name: Regenerate the catalog
         run: |
           if [[ -f uploads/songlist.json ]]; then
             args=(uploads/songlist.json)
@@ -80,15 +88,27 @@ jobs:
             python -m pip install fonttools==4.60.1
             python scripts/build-share-font.py --refresh
           fi
+      - name: Refresh jacket hashes from the official rankings
+        if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.refresh_jackets)
+        run: node scripts/update-jackets-from-rankings.mjs
+      - name: Validate the generated catalog
+        run: |
+          node scripts/update-catalog.cjs --refresh-jackets
           node verify-api.mjs
       - name: Publish generated files
         id: commit
         env:
           BEFORE: ${{ github.event.before }}
           EVENT_NAME: ${{ github.event_name }}
+          REFRESH_JACKETS: ${{ inputs.refresh_jackets }}
         run: |
           deploy_cloudflare=false
-          git add -- songlist.json song-difficulties.json docs/index.html share-assets/ai-chan-preview*.bin
+          git add -- songlist.json song-difficulties.json song-jackets.json docs/index.html share-assets/ai-chan-preview*.bin
+          if [[ "$EVENT_NAME" == schedule || "$REFRESH_JACKETS" == true ]] && git diff --cached --quiet; then
+            echo 'No generated catalog changes. No deployment is needed.' >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+
           if ! git diff --cached --quiet; then
             git -c user.name='github-actions[bot]' \
               -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
@@ -99,20 +119,25 @@ jobs:
 
           if [[ "$EVENT_NAME" == workflow_dispatch ]]; then
             deploy_cloudflare=true
-          elif ! git cat-file -e "${BEFORE}^{commit}" 2>/dev/null || ! git diff --quiet "$BEFORE" HEAD -- \
-              uploads/ songlist.json song-difficulties.json song-jackets.json \
-              api.mjs recommendations.cjs functions/ share-card.mjs share-data.mjs share-locales.json share-assets/ \
-              api-public/ share-public/ package.json package-lock.json wrangler.toml; then
-            deploy_cloudflare=true
+          elif [[ "$EVENT_NAME" == push ]]; then
+            if ! git cat-file -e "${BEFORE}^{commit}" 2>/dev/null || ! git diff --quiet "$BEFORE" HEAD -- \
+                uploads/ songlist.json song-difficulties.json song-jackets.json \
+                api.mjs recommendations.cjs functions/ share-card.mjs share-data.mjs share-locales.json share-assets/ \
+                api-public/ share-public/ package.json package-lock.json wrangler.toml; then
+              deploy_cloudflare=true
+            fi
           fi
 
           echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
           echo "cloudflare=$deploy_cloudflare" >> "$GITHUB_OUTPUT"
       - uses: actions/configure-pages@v5
+        if: steps.commit.outputs.sha != ''
       - uses: actions/upload-pages-artifact@v4
+        if: steps.commit.outputs.sha != ''
         with:
           path: docs
       - uses: actions/deploy-pages@v4
+        if: steps.commit.outputs.sha != ''
         id: pages
 
   deploy-cloudflare:

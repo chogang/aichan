@@ -83,7 +83,9 @@ node scripts/update-catalog.cjs FULL_SONGLIST.json PACKLIST.json
 node verify-api.mjs
 ```
 
-재킷 썸네일을 갱신하려면 `song-jackets.json`에 곡 ID와 32자리 소문자 16진수 해시를 추가합니다. `uploads/songlist.json`이 있으면 CI가 해시를 뷰어 데이터에 반영합니다. 게임 파일이 로컬에만 있다면 위 변환 명령을 실행합니다. 해시가 없거나 이미지를 불러올 수 없는 곡은 썸네일 없이 표시합니다.
+GitHub Actions는 매일 **한국 시간 오후 6시 17분**에 공식 무료·유료곡 랭킹을 확인합니다. 새 곡 ID의 재킷 해시는 `song-jackets.json`에 추가되고, 그 ID가 곡 목록에 들어오면 뷰어에 표시됩니다. 기존 해시는 우선 사용합니다. 새 해시를 찾았을 때 예약 작업이 변경을 게시하며, 지금 확인하려면 워크플로우 수동 실행에서 **Refresh jackets from the official rankings**를 선택하세요. [공식 악곡 랭킹](https://arcaea.lowiro.com/ko/song_ranking/Home)
+
+랭킹에 없는 곡은 `song-jackets.json`에 곡 ID와 32자리 소문자 16진수 해시를 추가할 수 있습니다. 로컬의 오프라인 뷰어에는 `node scripts/update-catalog.cjs --refresh-jackets`로 반영합니다. 재킷을 불러올 수 없는 곡은 썸네일 없이 표시합니다.
 
 선곡 알고리즘은 Arcaea 7.3.0을 기준으로 합니다. 곡 데이터를 갱신하면 과거 날짜의 추천곡도 달라질 수 있으며, 게임이 업데이트되면 알고리즘이 바뀌었는지 확인해야 합니다.
 

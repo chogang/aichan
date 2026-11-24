@@ -83,7 +83,9 @@ node scripts/update-catalog.cjs FULL_SONGLIST.json PACKLIST.json
 node verify-api.mjs
 ```
 
-To update jacket thumbnails, add song IDs and their 32-character lowercase hexadecimal hashes to `song-jackets.json`. CI refreshes the viewer catalog from these hashes when `uploads/songlist.json` exists. Run the local update command if the game file is only available locally. Songs without a known or available jacket are displayed without a thumbnail.
+GitHub Actions checks the official free and paid song rankings daily at **18:17 KST**. It adds hashes for new IDs to `song-jackets.json` and uses them in the viewer as soon as the IDs are in the song catalog. Existing hashes take precedence. The scheduled job publishes changes when it finds new hashes. To check immediately, enable **Refresh jackets from the official rankings** when running the workflow manually. [Official song rankings](https://arcaea.lowiro.com/ko/song_ranking/Home)
+
+For songs that do not appear in the rankings, add their IDs and 32-character lowercase hexadecimal hashes to `song-jackets.json`. Use `node scripts/update-catalog.cjs --refresh-jackets` to apply the hashes to the offline viewer locally. Songs without an available jacket are displayed without a thumbnail.
 
 The recommendation algorithm is based on Arcaea 7.3.0. A catalog update can change results for earlier dates, and a game update may require checking the algorithm again.
 
