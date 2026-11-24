@@ -7,6 +7,7 @@ import shareLocales from './share-locales.json' with { type: 'json' };
 export const shareOrigin = 'https://arcaea-aichan-api.pages.dev';
 export const viewerOrigin = 'https://chogang.github.io/aichan/';
 export const shareCardVersion = '2';
+export const shareCardRevision = '6';
 
 const highestPageDay = core.calendarDayIndex('2099-12-31');
 const previewDifficulties = new Set(['FTR', 'ETR', 'BYD', 'INS']);

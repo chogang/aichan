@@ -1,13 +1,12 @@
-import { selectShareDay, shareCardVersion, shareContent } from './share-data.mjs';
+import { selectShareDay, shareCardVersion, shareCardRevision, shareContent } from './share-data.mjs';
 
 const chartColors = {
   FTR: ['#342735', '#e9a5e6'],
-  ETR: ['#345d9e', '#eef4ff'],
-  BYD: ['#a33f54', '#fff0f3'],
+  ETR: ['#D8C9F0', '#302449'],
+  BYD: ['#BF0D25', '#fff0f3'],
   INS: ['#4949a0', '#efefff']
 };
 const maxJacketBytes = 512 * 1024;
-const renderRevision = '5';
 const jacketSize = 342;
 const jacketInset = 13;
 
@@ -182,6 +181,8 @@ export async function handleShareCard(request, renderPng, {
   const url = new URL(request.url);
   const versions = url.searchParams.getAll('v');
   if (versions.length === 1 && /^\d+$/.test(versions[0])) url.searchParams.delete('v');
+  const revisions = url.searchParams.getAll('rev');
+  if (revisions.length === 1 && /^\d+$/.test(revisions[0])) url.searchParams.delete('rev');
   const layout = versions[0] === '1' ? '1' : shareCardVersion;
   let selection;
   try {
@@ -191,7 +192,7 @@ export async function handleShareCard(request, renderPng, {
   }
 
   const hasDate = url.searchParams.has('date');
-  url.search = new URLSearchParams({ date: selection.day, lang: selection.locale, v: layout, rev: renderRevision }).toString();
+  url.search = new URLSearchParams({ date: selection.day, lang: selection.locale, v: layout, rev: shareCardRevision }).toString();
   const cacheKey = new Request(url);
   let datedResponse = await cache?.match(cacheKey);
   if (!datedResponse) {
