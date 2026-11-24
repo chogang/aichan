@@ -113,6 +113,14 @@ assert.deepEqual(longTitle.map(match => match[2]), ['Extradimensional', 'Cosmic 
 assert.equal(longTitle[0][1], longTitle[1][1]);
 assert.ok(Number(longTitle[0][1]) < 30);
 
+const etrContent = shareContent(selectShareDay(new Request(`${url}?date=2026-11-23&lang=en`)));
+for (const layout of ['1', '2']) {
+  const etrText = /<text\b([^>]*)>ETR 9\+<\/text>/.exec(shareCardSvg(etrContent, [], layout));
+  assert.ok(etrText);
+  assert.match(etrText[1], /fill="#39284f"/i);
+  assert.doesNotMatch(etrText[1], /\bstroke=/);
+}
+
 for (const query of [
   '?date=', '?date=2026-11-8', '?date=2026-02-29', '?date=2025-11-07', '?date=2100-01-01',
   '?date=2026-11-18&date=2026-11-18', '?date=2026-11-18&seed=20775', '?seed=20775',
