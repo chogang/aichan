@@ -1,4 +1,4 @@
-import { selectShareDay, shareContent, shareCardVersion, shareCardRevision, shareOrigin, viewerOrigin } from '../share-data.mjs';
+import { selectShareDay, shareContent, shareCardVersion, shareCardRevision, shareCardHeight, shareOrigin, viewerOrigin } from '../share-data.mjs';
 
 const forward = 'location.replace(document.getElementById("viewer").href)';
 const headers = {
@@ -32,7 +32,7 @@ export function sharePage(request, now = Date.now()) {
   const chartLabels = song => song.difficulties.map(({ difficulty, level }) => `${difficulty} ${level}`);
   const description = songs.map(song => [song.title, ...chartLabels(song)].join(' · ')).join(' | ');
   const imageDescription = songs.map(song => [
-    song.title, song.packName, labels[song.access], ...chartLabels(song)
+    song.title, song.artist, song.packName, labels[song.access], ...chartLabels(song)
   ].filter(Boolean).join(' · ')).join(' | ');
   const requested = new URL(request.url).searchParams;
   const query = `date=${day}&lang=${locale}`;
@@ -55,7 +55,7 @@ export function sharePage(request, now = Date.now()) {
   <meta property="og:image" content="${image}">
   <meta property="og:image:type" content="image/png">
   <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
+  <meta property="og:image:height" content="${shareCardHeight}">
   <meta property="og:image:alt" content="${escape(title + ' | ' + imageDescription)}">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${escape(title)}">

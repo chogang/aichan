@@ -1,4 +1,4 @@
-import { selectShareDay, shareCardVersion, shareCardRevision, shareContent } from './share-data.mjs';
+import { selectShareDay, shareCardVersion, shareCardRevision, shareCardHeight, shareContent } from './share-data.mjs';
 
 const chartColors = {
   FTR: ['#342735', '#e9a5e6'],
@@ -7,16 +7,27 @@ const chartColors = {
   INS: ['#4949a0', '#efefff']
 };
 const maxJacketBytes = 512 * 1024;
+const mutedText = '#bfbfc7';
+const canvasWidth = 1200;
+const outerMargin = 30;
+const cardGap = 24;
+const cardPadding = 24;
+const cardWidth = (canvasWidth - 2 * outerMargin - 2 * cardGap) / 3;
+const cardTop = 84;
 const jacketSize = 300;
-const jacketInset = 30;
-const cardWidth = jacketSize + 2 * jacketInset;
-const jacketTop = 30;
-const cardTop = -29;
-const headerCenter = (cardTop + jacketTop) / 2;
+const jacketInset = (cardWidth - jacketSize) / 2;
+const packHeight = 40;
+const jacketTop = cardPadding + packHeight + 12;
+const accessWidth = 84;
 const accessHeight = 34;
+const accessColors = {
+  free: ['#283B34', '#507D65', '#A0D9B6'],
+  purchase: ['#303037', '#666670', '#C8C8D0']
+};
 const titleAreaHeight = 76;
 const titleLineHeight = 33;
 const chartGap = 8;
+const chartHeight = 36;
 
 function escapeXml(text) {
   return String(text).replace(/[&<>"']/g, character => ({
@@ -71,9 +82,9 @@ function jacketDataUrl(bytes) {
 }
 
 function songCard(song, index, bytes, labels) {
-  const x = jacketInset + index * (cardWidth + jacketInset);
+  const x = outerMargin + index * (cardWidth + cardGap);
   const center = cardWidth / 2;
-  const titleTop = jacketTop + jacketSize;
+  const titleTop = jacketTop + jacketSize + 12;
   let titleSize = 30;
   let titleLines = fitText(song.title, jacketSize / titleSize, 2, false);
   while (!titleLines && titleSize > 24) {
@@ -81,37 +92,45 @@ function songCard(song, index, bytes, labels) {
     titleLines = fitText(song.title, jacketSize / titleSize, 2, false);
   }
   titleLines ??= fitText(song.title, jacketSize / titleSize, 2);
-  const titleBaseline = titleTop + (titleAreaHeight - (titleLines.length - 1) * titleLineHeight) / 2 + Math.round(titleSize * .34);
+  const titleBaseline = titleTop + titleLineHeight / 2 + Math.round(titleSize * .34);
   const title = titleLines.map((line, lineIndex) =>
     `<text x="${center}" y="${titleBaseline + lineIndex * titleLineHeight}" text-anchor="middle" fill="#f7f7f8" font-size="${titleSize}">${escapeXml(line)}</text>`
   ).join('');
+  const artistTop = titleTop + titleLines.length * titleLineHeight + 4;
+  const artist = fitText(song.artist || '', jacketSize / 16, 1)[0];
   const chartCount = song.difficulties.length;
-  const chartWidth = Math.min(92, Math.floor((cardWidth - 2 * chartGap - (chartCount - 1) * chartGap) / Math.max(1, chartCount)));
+  const chartWidth = Math.min(92, Math.floor((cardWidth - 2 * cardPadding - (chartCount - 1) * chartGap) / Math.max(1, chartCount)));
   const chartStart = (cardWidth - (chartCount * chartWidth + (chartCount - 1) * chartGap)) / 2;
-  const chartTop = titleTop + titleAreaHeight;
+  const chartTop = artistTop + 20 + 12;
+  const cardHeight = titleTop + titleAreaHeight + 4 + 20 + 12 + chartHeight + cardPadding;
   const charts = song.difficulties.map(({ difficulty, level }, chartIndex) => {
     const [background, color, border = color] = chartColors[difficulty];
     return `<g transform="translate(${chartStart + chartIndex * (chartWidth + chartGap)} ${chartTop})">
-      <rect width="${chartWidth}" height="36" rx="7" fill="${background}" stroke="${border}" stroke-opacity=".65"/>
+      <rect width="${chartWidth}" height="${chartHeight}" rx="7" fill="${background}" stroke="${border}" stroke-opacity=".65"/>
       <text x="${chartWidth / 2}" y="25" text-anchor="middle" font-size="20" fill="${color}">${difficulty} ${escapeXml(level)}</text>
     </g>`;
   }).join('');
   const accessLabel = labels[song.access];
-  const accessX = cardWidth - 84 - 8;
-  const access = accessLabel ? `<g transform="translate(${accessX} ${headerCenter - accessHeight / 2})">
-    <rect width="84" height="${accessHeight}" rx="7" fill="${song.access === 'free' ? '#e8e8ed' : '#25252a'}" stroke="#92929c"/>
-    <text x="42" y="22" text-anchor="middle" fill="${song.access === 'free' ? '#232329' : '#f3f3f5'}" font-size="15">${escapeXml(accessLabel)}</text>
+  const accessX = cardWidth - accessWidth - cardPadding;
+  const [accessBackground, accessBorder, accessText] = accessColors[song.access] || [];
+  const access = accessLabel ? `<g transform="translate(${accessX} ${cardPadding + (packHeight - accessHeight) / 2})">
+    <rect width="${accessWidth}" height="${accessHeight}" rx="7" fill="${accessBackground}" stroke="${accessBorder}"/>
+    <text x="${accessWidth / 2}" y="22" text-anchor="middle" fill="${accessText}" font-size="15">${escapeXml(accessLabel)}</text>
   </g>` : '';
-  const pack = fitText(song.packName, (accessLabel ? accessX - jacketInset - 8 : jacketSize) / 18, 3);
-  const packLineHeight = 19;
-  const packBaseline = headerCenter + 6 - (pack.length - 1) * packLineHeight / 2;
+  const packWidth = accessLabel ? accessX - cardPadding - 8 : cardWidth - 2 * cardPadding;
+  const [primaryPack, ...secondaryPack] = song.packName.split(' / ');
+  const pack = secondaryPack.length
+    ? [fitText(primaryPack, packWidth / 18, 1)[0], fitText(secondaryPack.join(' / '), packWidth / 16, 1)[0]]
+    : fitText(primaryPack, packWidth / 18, 2);
+  const packLineHeight = 20;
+  const packBaseline = cardPadding + (packHeight - (pack.length - 1) * packLineHeight) / 2 + 6;
   const packText = pack.map((line, i) =>
-    `<text x="${jacketInset}" y="${packBaseline + i * packLineHeight}" font-size="18" fill="#f3f3f5">${escapeXml(line)}</text>`
+    `<text x="${cardPadding}" y="${packBaseline + i * packLineHeight}" font-size="${i === 0 ? 18 : 16}" fill="${i === 0 ? '#f3f3f5' : mutedText}">${escapeXml(line || '')}</text>`
   ).join('');
   const jacket = bytes ? `<image href="${jacketDataUrl(bytes)}" width="${jacketSize}" height="${jacketSize}" preserveAspectRatio="xMidYMid slice"/>` : '';
 
-  return `<g transform="translate(${x} 105)">
-    <rect y="${cardTop}" width="${cardWidth}" height="503" rx="15" fill="#2a2a2e" stroke="#48484f"/>
+  return `<g transform="translate(${x} ${cardTop})">
+    <rect width="${cardWidth}" height="${cardHeight}" rx="15" fill="#2a2a2e" stroke="#48484f"/>
     <g transform="translate(${jacketInset} ${jacketTop})" clip-path="url(#jacket-clip)">
       <rect width="${jacketSize}" height="${jacketSize}" fill="#414147"/>
       <path transform="translate(84 81) scale(1.16)" d="M63 29v42c0 12-17 17-23 9-7-11 4-22 16-19V38l29-7v9z" fill="#888891"/>
@@ -120,6 +139,7 @@ function songCard(song, index, bytes, labels) {
     ${access}
     ${packText}
     ${title}
+    ${artist ? `<text x="${center}" y="${artistTop + 15}" text-anchor="middle" font-size="16" fill="${mutedText}">${escapeXml(artist)}</text>` : ''}
     ${charts}
   </g>`;
 }
@@ -156,17 +176,18 @@ function songRow(song, index, bytes, labels) {
 
 export function shareCardSvg({ day, songs, labels }, jackets, layout = '2') {
   const list = layout === '1';
+  const height = list ? 630 : shareCardHeight;
   const coverSize = list ? 112 : jacketSize;
   const drawSong = list ? songRow : songCard;
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${canvasWidth}" height="${height}" viewBox="0 0 ${canvasWidth} ${height}">
     <defs><clipPath id="jacket-clip"><rect width="${coverSize}" height="${coverSize}" rx="${list ? 10 : 9}"/></clipPath></defs>
-    <rect width="1200" height="630" fill="#202023"/>
+    <rect width="${canvasWidth}" height="${height}" fill="#202023"/>
     <g font-family="AiChan Preview, AiChan Hangul, AiChan Han">
-      <text x="36" y="${list ? 58 : 21}" font-size="${list ? 22 : 16}" fill="#bfbfc7" letter-spacing="1.2">ARCAEA</text>
-      <text x="36" y="${list ? 104 : 63}" font-size="${list ? 39 : 35}" fill="#f7f7f8">${escapeXml(labels.title)}</text>
-      <text x="1164" y="${list ? 102 : 62}" font-size="${list ? 34 : 31}" fill="#e6e6ea" text-anchor="end">${escapeXml(day)}</text>
+      <text x="${list ? 36 : outerMargin}" y="${list ? 58 : 28}" font-size="${list ? 22 : 16}" fill="${mutedText}" letter-spacing="${list ? 1.2 : 1.5}">ARCAEA</text>
+      <text x="${list ? 36 : outerMargin}" y="${list ? 104 : 67}" font-size="${list ? 39 : 35}" fill="#f7f7f8">${escapeXml(labels.title)}</text>
+      <text x="${list ? 1164 : canvasWidth - outerMargin}" y="${list ? 102 : 67}" font-size="${list ? 34 : 22}" fill="${list ? '#e6e6ea' : mutedText}" text-anchor="end">${escapeXml(day)}</text>
       ${songs.map((song, index) => drawSong(song, index, jackets[index], labels)).join('')}
-      <text x="36" y="${list ? 610 : 609}" font-size="15" fill="#bfbfc7">${escapeXml(labels.jacketCredit)}</text>
+      <text x="${list ? 36 : outerMargin}" y="${list ? 610 : height - 20}" font-size="${list ? 15 : 13}" fill="${mutedText}">${escapeXml(labels.jacketCredit)}</text>
     </g>
   </svg>`;
 }

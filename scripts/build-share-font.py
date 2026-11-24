@@ -45,6 +45,7 @@ def main():
     catalog = json.loads((root / "songlist.json").read_text(encoding="utf-8"))
     labels = json.loads((root / "share-locales.json").read_text(encoding="utf-8"))
     text = "".join(title for song in catalog["songs"] for title in strings(song.get("title_localized") or song["id"]))
+    text += "".join(song.get("artist") or "" for song in catalog["songs"])
     text += "".join(strings(catalog.get("packNames", {}))) + "".join(strings(labels))
 
     # Retain future Latin, Greek, Cyrillic, punctuation and kana titles too.

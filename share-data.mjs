@@ -7,7 +7,8 @@ import shareLocales from './share-locales.json' with { type: 'json' };
 export const shareOrigin = 'https://arcaea-aichan.pages.dev';
 export const viewerOrigin = 'https://chogang.github.io/aichan/';
 export const shareCardVersion = '2';
-export const shareCardRevision = '9';
+export const shareCardRevision = '10';
+export const shareCardHeight = 690;
 
 const highestPageDay = core.calendarDayIndex('2099-12-31');
 const previewDifficulties = new Set(['FTR', 'ETR', 'BYD', 'INS']);
@@ -32,12 +33,13 @@ export function shareContent({ day, seed, locale }) {
   const labels = shareLocales[locale];
   const songs = core.recommend(catalog.songs, seed).map(song => {
     const hash = jacketHashes[song.id];
-    const { purchase } = songsById.get(song.id);
+    const { purchase, artist } = songsById.get(song.id);
     const titles = song.title || {};
     const packName = catalog.packNames?.[song.set] || song.set || '';
     return {
       id: song.id,
       title: titles[locale] || titles.en || titles.ja || Object.values(titles)[0] || song.id,
+      artist: artist || '',
       packName: song.set === 'single' ? labels.singles : packName,
       access: typeof purchase === 'string' ? (purchase ? 'purchase' : 'free') : null,
       jacketUrl: typeof hash === 'string' && /^[a-f0-9]{32}$/.test(hash) ? `https://webassets.lowiro.com/${hash}.jpg?v=323` : null,

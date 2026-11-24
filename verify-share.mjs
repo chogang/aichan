@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import { sharePage } from './functions/share.js';
 import { handleShareCard, shareCardSvg } from './share-card.mjs';
-import { selectShareDay, shareContent, shareCardVersion, shareCardRevision, shareOrigin, viewerOrigin } from './share-data.mjs';
+import { selectShareDay, shareContent, shareCardVersion, shareCardRevision, shareCardHeight, shareOrigin, viewerOrigin } from './share-data.mjs';
 
 const url = 'https://example.com/share';
 const before = Date.parse('2026-11-18T04:59:59.999+09:00');
@@ -25,7 +25,7 @@ for (const [query, time, day, song] of [
   assert.ok(html.includes(`<meta property="og:image" content="${shareOrigin}/share-card?v=2&amp;date=${day}&amp;lang=ko&amp;rev=${shareCardRevision}">`));
   assert.ok(html.includes('<meta property="og:image:type" content="image/png">'));
   assert.ok(html.includes('<meta property="og:image:width" content="1200">'));
-  assert.ok(html.includes('<meta property="og:image:height" content="630">'));
+  assert.ok(html.includes(`<meta property="og:image:height" content="${shareCardHeight}">`));
   assert.ok(html.includes('<meta name="twitter:card" content="summary_large_image">'));
   assert.ok(html.includes('<meta property="og:description"') && html.includes(song));
   assert.ok(html.includes(`id="viewer" href="${viewerOrigin}?date=${day}"`));
@@ -47,6 +47,7 @@ const outsideBase = shareContent(selectShareDay(new Request(url + '?date=2026-12
 assert.equal(outsideBase.find(song => song.id === 'acheron')?.access, 'free');
 assert.equal(songs[0].packName, '개별곡');
 assert.equal(songs[2].packName, 'DJMAX / Collaboration Chapter 2');
+assert.equal(songs[1].artist, 'はがね');
 assert.match(songs[0].jacketUrl, /^https:\/\/webassets\.lowiro\.com\/[a-f\d]{32}\.jpg\?v=323$/);
 assert.deepEqual(songs[0].difficulties, [{ difficulty: 'FTR', level: '9+' }]);
 
@@ -100,7 +101,11 @@ assert.equal(await renderCard('?date=2026-11-18&lang=ja&v=4'), japaneseCard);
 const listCard = await renderCard('?date=2026-11-18&lang=ja&v=1');
 assert.match(listCard, /width="1128" height="140"/);
 assert.match(listCard, />有料</);
-assert.match(japaneseCard, /width="360" height="503"/);
+assert.match(listCard, /<svg[^>]*width="1200" height="630"/);
+assert.ok(japaneseCard.includes(`width="1200" height="${shareCardHeight}"`));
+assert.match(japaneseCard, /font-size="16"[^>]*>はがね<\/text>/);
+assert.match(japaneseCard, />DJMAX<\/text>/);
+assert.match(japaneseCard, />Collaboration Chapter 2<\/text>/);
 assert.notEqual(listCard, japaneseCard);
 assert.equal(await renderCard('?v=1&lang=ja&date=2026-11-18'), listCard);
 assert.equal(renders, 3);
