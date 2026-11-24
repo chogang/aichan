@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import { sharePage } from './functions/share.js';
 import { handleShareCard, shareCardSvg } from './share-card.mjs';
-import { selectShareDay, shareContent, shareCardVersion, shareCardHeight, shareOrigin, viewerOrigin } from './share-data.mjs';
+import { selectShareDay, shareContent, shareCardVersion, shareCardHeight, shareCatalogFingerprint, shareOrigin, viewerOrigin } from './share-data.mjs';
 
 const url = 'https://example.com/share';
 const before = Date.parse('2026-11-18T04:59:59.999+09:00');
@@ -115,6 +115,11 @@ assert.equal(await renderCard('?v=1&lang=ja&date=2026-11-18&rev=11'), listCard);
 assert.equal(renders, 3);
 assert.deepEqual([...cards.keys()].map(key => new URL(key).searchParams.get('v')), ['2', '2', '1']);
 assert.ok([...cards.keys()].every(key => !new URL(key).searchParams.has('rev')));
+const catalogFingerprint = shareCatalogFingerprint();
+assert.strictEqual(shareCatalogFingerprint(), catalogFingerprint);
+const catalogHash = await catalogFingerprint;
+assert.match(catalogHash, /^[a-f0-9]{64}$/);
+assert.ok([...cards.keys()].every(key => new URL(key).pathname.endsWith('/' + catalogHash)));
 
 const longTitleContent = shareContent(selectShareDay(new Request(`${url}?date=2026-12-25&lang=en`)));
 const titleLines = svg => [...svg.matchAll(/font-size="(2[4-9]|30)">(Extradimensional|Cosmic Phenomenon)<\/text>/g)];

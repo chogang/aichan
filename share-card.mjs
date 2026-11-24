@@ -1,4 +1,4 @@
-import { selectShareDay, shareCardVersion, shareCardHeight, shareContent } from './share-data.mjs';
+import { selectShareDay, shareCardVersion, shareCardHeight, shareCatalogFingerprint, shareContent } from './share-data.mjs';
 
 const chartColors = {
   FTR: ['#342735', '#e9a5e6'],
@@ -241,9 +241,12 @@ export async function handleShareCard(request, renderPng, {
   }
 
   const hasDate = url.searchParams.has('date');
-  url.pathname = shareCardCachePath;
-  url.search = new URLSearchParams({ date: selection.day, lang: selection.locale, v: layout }).toString();
-  const cacheKey = new Request(url);
+  let cacheKey;
+  if (cache) {
+    url.pathname = `${shareCardCachePath}/${await shareCatalogFingerprint()}`;
+    url.search = new URLSearchParams({ date: selection.day, lang: selection.locale, v: layout }).toString();
+    cacheKey = new Request(url);
+  }
   let datedResponse = await cache?.match(cacheKey);
   if (!datedResponse) {
     const content = shareContent(selection);

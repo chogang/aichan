@@ -13,6 +13,16 @@ const highestPageDay = core.calendarDayIndex('2099-12-31');
 const previewDifficulties = new Set(['FTR', 'ETR', 'BYD', 'INS']);
 const songsById = new Map(catalog.songs.map(song => [song.id, song]));
 
+let catalogFingerprint;
+export function shareCatalogFingerprint() {
+  if (!catalogFingerprint) {
+    const data = new TextEncoder().encode(JSON.stringify([catalog, songDifficulties, jacketHashes, shareLocales]));
+    catalogFingerprint = crypto.subtle.digest('SHA-256', data).then(digest =>
+      Array.from(new Uint8Array(digest), byte => byte.toString(16).padStart(2, '0')).join(''));
+  }
+  return catalogFingerprint;
+}
+
 export function selectShareDay(request, now = Date.now()) {
   const params = new URL(request.url).searchParams;
   const keys = [...params.keys()];

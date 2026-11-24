@@ -60,22 +60,34 @@ node aichan-recommend.js --seed 20775
 
 ## 곡 데이터 갱신
 
-Arcaea의 전체 `songlist.json`을 갱신 스크립트에 전달합니다. 팩 표시명을 반영하려면 `packlist.json`도 전달합니다. 생략하면 기존 팩 이름을 사용하고 새 팩은 ID로 표시합니다.
+각 곡의 `difficulties` 배열이 포함된 게임의 전체 `songlist.json`을 [`uploads/`](uploads/)에 업로드합니다. 팩 이름이나 상위 팩 관계가 바뀌었다면 `uploads/packlist.json`도 추가합니다. 업로드된 팩 목록이 없으면 기존 이름을 재사용하고, 이름을 알 수 없는 새 팩은 ID로 표시합니다.
+
+1. 업로드한 파일로 풀 리퀘스트를 열어 데이터를 미리 검증합니다.
+2. `main`에 병합하면 **Validate and publish the song catalog**가 다시 검증한 뒤 생성된 카탈로그와 글꼴 변경을 커밋하고 뷰어를 GitHub Pages에 배포합니다.
+3. 워크플로우 실행 결과에서 배포를 확인합니다. Cloudflare의 JSON API와 공유 서비스를 자동 배포하려면 GitHub Actions 변수 `CLOUDFLARE_ACCOUNT_ID`와 Cloudflare Pages 편집 권한을 가진 `CLOUDFLARE_API_TOKEN` 시크릿이 필요합니다. 배포를 건너뛰면 실행 결과에 표시되며, 설정 후 **Run workflow**로 다시 실행할 수 있습니다. [워크플로우 실행 내역](https://github.com/chogang/aichan/actions/workflows/catalog.yml) · [Cloudflare 토큰 설정](https://developers.cloudflare.com/pages/how-to/use-direct-upload-with-continuous-integration/)
+
+| 경로 | 역할 |
+|---|---|
+| `uploads/` | 게임에서 가져온 전체 곡 목록과 선택 팩 목록을 업로드하는 곳 |
+| `songlist.json`, `song-difficulties.json` | CLI와 API가 사용하는 경량 곡 목록 및 난이도 생성물 |
+| `song-jackets.json` | 곡별 재킷 해시 |
+| `docs/` | GitHub Pages 뷰어와 암호화된 곡 데이터 |
+| `functions/`, `api-public/`, `share-public/` | Cloudflare 함수와 배포 폴더 |
+| `scripts/`, `share-assets/`, `.github/workflows/` | 데이터 갱신 도구, 카드 글꼴, CI/CD |
+
+같은 변환을 로컬에서도 실행할 수 있습니다. 팩 목록 인자는 선택 사항입니다.
 
 ```sh
 node scripts/update-catalog.cjs --dry-run FULL_SONGLIST.json PACKLIST.json
 node scripts/update-catalog.cjs FULL_SONGLIST.json PACKLIST.json
 node verify-api.mjs
-node verify.js
 ```
 
-스크립트는 입력을 검증하고 CLI 곡 목록, API 난이도 데이터, 뷰어의 암호화된 곡 데이터 블록을 갱신합니다. 생성된 변경 사항을 확인하고 해당 파일을 커밋합니다. 뷰어는 단일 HTML로 오프라인에서 계속 열 수 있습니다. 공개 API에도 새 데이터를 반영하려면 GitHub Pages 뷰어와 별도로 API를 배포합니다.
-
-재킷 썸네일을 갱신하려면 `song-jackets.json`에 곡 ID와 32자리 소문자 16진수 해시를 적고 같은 명령을 다시 실행합니다. 뷰어는 목록을 표시할 때 `https://webassets.lowiro.com/<hash>.jpg?v=323` 주소를 만듭니다. 해시가 없거나 이미지를 불러올 수 없는 곡은 썸네일 없이 표시합니다.
+재킷 썸네일을 갱신하려면 `song-jackets.json`에 곡 ID와 32자리 소문자 16진수 해시를 추가합니다. `uploads/songlist.json`이 있으면 CI가 해시를 뷰어 데이터에 반영합니다. 게임 파일이 로컬에만 있다면 위 변환 명령을 실행합니다. 해시가 없거나 이미지를 불러올 수 없는 곡은 썸네일 없이 표시합니다.
 
 선곡 알고리즘은 Arcaea 7.3.0을 기준으로 합니다. 곡 데이터를 갱신하면 과거 날짜의 추천곡도 달라질 수 있으며, 게임이 업데이트되면 알고리즘이 바뀌었는지 확인해야 합니다.
 
-곡 목록이나 공유 카드 번역에 새 문자가 추가되면 `python -m pip install fonttools==4.60.1`과 `python scripts/build-share-font.py 'NotoSansJP[wght].ttf' 'NotoSansKR[wght].ttf' 'NotoSansSC[wght].ttf'`를 실행해 공유 카드 글꼴을 갱신합니다. `share-assets/`에 생성된 글꼴을 텍스트 변경과 함께 커밋합니다. 원본 글꼴의 라이선스는 `share-assets/OFL.txt`에 있습니다. [Noto Sans JP](https://github.com/google/fonts/tree/main/ofl/notosansjp) · [Noto Sans KR](https://github.com/google/fonts/tree/main/ofl/notosanskr) · [Noto Sans SC](https://github.com/google/fonts/tree/main/ofl/notosanssc)
+CI는 공유 카드의 글꼴을 검사하고 지원되는 새 문자가 필요할 때만 갱신합니다. 같은 검사를 로컬에서 실행하려면 `python -m pip install fonttools==4.60.1`로 설치하고 `python scripts/build-share-font.py --refresh`를 실행합니다. 원본 글꼴 라이선스는 `share-assets/OFL.txt`에 있습니다. [Noto Sans JP](https://github.com/google/fonts/tree/main/ofl/notosansjp) · [Noto Sans KR](https://github.com/google/fonts/tree/main/ofl/notosanskr) · [Noto Sans SC](https://github.com/google/fonts/tree/main/ofl/notosanssc)
 
 ## 추천곡을 고르는 순서
 

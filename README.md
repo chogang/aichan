@@ -60,22 +60,34 @@ Deploy `api-public` to the `arcaea-aichan-api` Pages project and `share-public` 
 
 ## Update the song catalog
 
-Pass a complete Arcaea `songlist.json` to the update script. You may also supply `packlist.json` for display names. Skip the pack list to reuse known names and display IDs for new packs.
+Upload the complete game `songlist.json` to [`uploads/`](uploads/), including each song's `difficulties` array. Add `uploads/packlist.json` when pack display names or relationships change. With no uploaded pack list, the converter reuses known names and marks new IDs as missing display names.
+
+1. Open a pull request with the uploaded files to validate them before publishing.
+2. Merge to `main`. **Validate and publish the song catalog** validates the inputs again, commits the generated catalog and any font updates, and deploys the viewer to GitHub Pages.
+3. Check the workflow run for deployment results. The Cloudflare job deploys the JSON API and share service when the repository has a `CLOUDFLARE_ACCOUNT_ID` Actions variable and a `CLOUDFLARE_API_TOKEN` Actions secret with Cloudflare Pages Edit access. The workflow reports when it skips those deployments. Use **Run workflow** to retry them after configuring the credentials. [Workflow runs](https://github.com/chogang/aichan/actions/workflows/catalog.yml) · [Cloudflare token setup](https://developers.cloudflare.com/pages/how-to/use-direct-upload-with-continuous-integration/)
+
+| Path | Role |
+|---|---|
+| `uploads/` | Full song list and optional pack list. Upload future game data here. |
+| `songlist.json`, `song-difficulties.json` | Generated catalog and chart levels used by the CLI and API. |
+| `song-jackets.json` | Optional per-song jacket hashes. |
+| `docs/` | GitHub Pages viewer and its generated encrypted catalog. |
+| `functions/`, `api-public/`, `share-public/` | Cloudflare handlers and publishing directories. |
+| `scripts/`, `share-assets/`, `.github/workflows/` | Catalog and font tools, card fonts, and CI/CD. |
+
+The update script also runs locally. The pack list argument is optional.
 
 ```sh
 node scripts/update-catalog.cjs --dry-run FULL_SONGLIST.json PACKLIST.json
 node scripts/update-catalog.cjs FULL_SONGLIST.json PACKLIST.json
 node verify-api.mjs
-node verify.js
 ```
 
-The script validates the input and regenerates the CLI catalog, API difficulties, and the viewer's encrypted data block. Review the generated changes and commit those files. The viewer still works offline as a single HTML file. Publish the updated API separately from the GitHub Pages viewer when the public API should use the new catalog.
-
-To update jacket thumbnails, add song IDs and their 32-character lowercase hexadecimal hashes to `song-jackets.json`, then run the same catalog update command. The viewer builds the official URL as `https://webassets.lowiro.com/<hash>.jpg?v=323` when rendering the list. Songs without a known or available jacket are displayed without a thumbnail.
+To update jacket thumbnails, add song IDs and their 32-character lowercase hexadecimal hashes to `song-jackets.json`. CI refreshes the viewer catalog from these hashes when `uploads/songlist.json` exists. Run the local update command if the game file is only available locally. Songs without a known or available jacket are displayed without a thumbnail.
 
 The recommendation algorithm is based on Arcaea 7.3.0. A catalog update can change results for earlier dates, and a game update may require checking the algorithm again.
 
-After adding text with new characters to the catalog or share card translations, install FontTools with `python -m pip install fonttools==4.60.1` and rebuild the font subsets with `python scripts/build-share-font.py 'NotoSansJP[wght].ttf' 'NotoSansKR[wght].ttf' 'NotoSansSC[wght].ttf'`. Commit the updated subsets in `share-assets/` with the text changes. The source fonts are distributed under the SIL Open Font License in `share-assets/OFL.txt`. [Noto Sans JP](https://github.com/google/fonts/tree/main/ofl/notosansjp) · [Noto Sans KR](https://github.com/google/fonts/tree/main/ofl/notosanskr) · [Noto Sans SC](https://github.com/google/fonts/tree/main/ofl/notosanssc)
+CI checks share card font coverage and refreshes the fonts when it encounters supported new characters. To run the same check locally, install FontTools with `python -m pip install fonttools==4.60.1`, then run `python scripts/build-share-font.py --refresh`. The source fonts are distributed under the SIL Open Font License in `share-assets/OFL.txt`. [Noto Sans JP](https://github.com/google/fonts/tree/main/ofl/notosansjp) · [Noto Sans KR](https://github.com/google/fonts/tree/main/ofl/notosanskr) · [Noto Sans SC](https://github.com/google/fonts/tree/main/ofl/notosanssc)
 
 ## How the recommendations are selected
 

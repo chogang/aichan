@@ -75,10 +75,13 @@ function convert(source, packSource, previous, jackets = new Map()) {
     if ((row.deleted !== true || artist !== undefined) && typeof artist !== 'string') fail(`Invalid artist for ${id}`);
     if ((row.deleted !== true || set !== undefined) && (typeof set !== 'string' || !idPattern.test(set))) fail(`Invalid pack ID for ${id}`);
     if (purchase !== undefined && typeof purchase !== 'string') fail(`Invalid purchase ID for ${id}`);
-    if ((row.deleted !== true || row.difficulties !== undefined) && !Array.isArray(row.difficulties)) fail(`Missing chart data for ${id}; use the full game songlist`);
+    const chartData = row.deleted === true && row.difficulties === undefined ? [] : row.difficulties;
+    if (!Array.isArray(chartData) || (row.deleted !== true && chartData.length === 0)) fail(`Missing chart data for ${id}; use the full game songlist`);
 
     const classes = new Set();
-    const charts = (row.difficulties || []).map(({ ratingClass, ratingClassAlias, rating, ratingPlus }) => {
+    const charts = chartData.map(item => {
+      if (!object(item)) fail(`Invalid chart data for ${id}`);
+      const { ratingClass, ratingClassAlias, rating, ratingPlus } = item;
       if (!kinds.has(ratingClass) || classes.has(ratingClass) || !Number.isInteger(rating) || rating < 0 || rating > 99 || (ratingPlus !== undefined && typeof ratingPlus !== 'boolean')) fail(`Invalid or duplicate chart for ${id}`);
       classes.add(ratingClass);
       const chart = { ratingClass, rating, ratingPlus: ratingPlus === true };

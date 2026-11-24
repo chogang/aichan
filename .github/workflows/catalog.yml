@@ -1,0 +1,157 @@
+name: Validate and publish the song catalog
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+    paths:
+      - uploads/**
+      - song-jackets.json
+      - scripts/**
+      - verify-api.mjs
+      - .github/workflows/catalog.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: catalog-${{ github.event_name == 'pull_request' && github.ref || 'main' }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  validate:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v6
+        if: hashFiles('uploads/songlist.json') != ''
+        with:
+          python-version: '3.12'
+      - name: Validate the uploaded catalog
+        run: |
+          if [[ -f uploads/songlist.json ]]; then
+            args=(uploads/songlist.json)
+            if [[ -f uploads/packlist.json ]]; then args+=(uploads/packlist.json); fi
+            node scripts/update-catalog.cjs "${args[@]}"
+            python -m pip install fonttools==4.60.1
+            python scripts/build-share-font.py --refresh
+          fi
+          node verify-api.mjs
+
+  publish:
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.pages.outputs.page_url }}
+    outputs:
+      commit: ${{ steps.commit.outputs.sha }}
+      cloudflare: ${{ steps.commit.outputs.cloudflare }}
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v6
+        if: hashFiles('uploads/songlist.json') != ''
+        with:
+          python-version: '3.12'
+      - name: Regenerate and validate the catalog
+        run: |
+          if [[ -f uploads/songlist.json ]]; then
+            args=(uploads/songlist.json)
+            if [[ -f uploads/packlist.json ]]; then args+=(uploads/packlist.json); fi
+            node scripts/update-catalog.cjs "${args[@]}"
+            python -m pip install fonttools==4.60.1
+            python scripts/build-share-font.py --refresh
+          fi
+          node verify-api.mjs
+      - name: Publish generated files
+        id: commit
+        env:
+          BEFORE: ${{ github.event.before }}
+          EVENT_NAME: ${{ github.event_name }}
+        run: |
+          deploy_cloudflare=false
+          git add -- songlist.json song-difficulties.json docs/index.html share-assets/ai-chan-preview*.bin
+          if ! git diff --cached --quiet; then
+            git -c user.name='github-actions[bot]' \
+              -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
+              commit -m 'Update generated song catalog'
+            git push origin HEAD:main
+            deploy_cloudflare=true
+          fi
+
+          if [[ "$EVENT_NAME" == workflow_dispatch ]]; then
+            deploy_cloudflare=true
+          elif ! git cat-file -e "${BEFORE}^{commit}" 2>/dev/null || ! git diff --quiet "$BEFORE" HEAD -- \
+              uploads/ songlist.json song-difficulties.json song-jackets.json \
+              api.mjs recommendations.cjs functions/ share-card.mjs share-data.mjs share-locales.json share-assets/ \
+              api-public/ share-public/ package.json package-lock.json wrangler.toml; then
+            deploy_cloudflare=true
+          fi
+
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+          echo "cloudflare=$deploy_cloudflare" >> "$GITHUB_OUTPUT"
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: docs
+      - uses: actions/deploy-pages@v4
+        id: pages
+
+  deploy-cloudflare:
+    needs: publish
+    if: needs.publish.outputs.cloudflare == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Cloudflare configuration
+        id: cloudflare
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: |
+          if [[ -n "$CLOUDFLARE_ACCOUNT_ID" && -n "$CLOUDFLARE_API_TOKEN" ]]; then
+            echo 'configured=true' >> "$GITHUB_OUTPUT"
+          else
+            echo '::warning::Cloudflare API and share deployments skipped. Set CLOUDFLARE_ACCOUNT_ID and CLOUDFLARE_API_TOKEN, then run this workflow manually.'
+            echo 'Cloudflare API and share deployments were skipped because repository credentials are not configured.' >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - uses: actions/checkout@v6
+        if: steps.cloudflare.outputs.configured == 'true'
+        with:
+          ref: ${{ needs.publish.outputs.commit }}
+          persist-credentials: false
+      - uses: actions/setup-node@v6
+        if: steps.cloudflare.outputs.configured == 'true'
+        with:
+          node-version: '22'
+      - name: Install Pages build dependencies
+        if: steps.cloudflare.outputs.configured == 'true'
+        run: |
+          npm ci
+          npm install --global wrangler@4.92.0
+      - name: Deploy the JSON API and share service
+        if: steps.cloudflare.outputs.configured == 'true'
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          DEPLOY_SHA: ${{ needs.publish.outputs.commit }}
+        run: |
+          wrangler pages deploy api-public --project-name arcaea-aichan-api --branch main --commit-hash "$DEPLOY_SHA"
+          wrangler pages deploy share-public --project-name arcaea-aichan --branch main --commit-hash "$DEPLOY_SHA"
