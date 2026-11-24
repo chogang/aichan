@@ -10,6 +10,8 @@ An offline tool that reproduces the three daily song recommendations from `skill
 
 Choose Korean, English, Japanese, or Simplified Chinese from the menu below the version number. The **EN** and **JP** checkboxes under the filters control which song titles appear in the results and exports.
 
+The viewer shows reset times in Korean Standard Time, US Eastern Time, Japan Standard Time, or China Standard Time, depending on the interface language. The selected date and its recommendations stay the same when you change the language.
+
 1. Enter a start date. Leave both the end date and the number of days blank to look up just the start date, or fill in one field for a range. Filling one field disables the other. **Reset** (**초기화**) clears both fields and keeps the start date. The start date counts as day 1. **Today** (**오늘**) opens a single day, and the **7-day**, **30-day**, and **365-day** buttons query ranges starting today.
 2. Click **Find recommendations** (**추천곡 조회**). The viewer shows three songs per date. Ranges include both endpoints and are split into pages of up to 365 days. Use the pagination buttons to view the rest of the range.
 3. Under **Text export** (**텍스트 내보내기**), choose **Copy all** (**전체 복사**) or **Save as TXT** (**TXT 저장**) to export the current page. Pack and chart details are enabled by default. The browser remembers each of these two options when local storage is available.
