@@ -7,7 +7,8 @@
         "en": "Sayonara Hatsukoi"
       },
       "artist": "REDSHiFT",
-      "set": "base"
+      "set": "base",
+      "purchase": ""
     },
     {
       "idx": 1,
@@ -16,7 +17,8 @@
         "en": "Lost Civilization"
       },
       "artist": "Laur vs CK",
-      "set": "base"
+      "set": "base",
+      "purchase": ""
     },
     {
       "idx": 2,
@@ -25,7 +27,8 @@
         "en": "GOODTEK (Arcaea Edit)"
       },
       "artist": "EBIMAYO",
-      "set": "base"
+      "set": "base",
+      "purchase": ""
     },
     {
       "idx": 3,
@@ -34,7 +37,8 @@
         "en": "cry of viyella"
       },
       "artist": "Laur",
-      "set": "core"
+      "set": "core",
+      "purchase": "core"
     },
     {
       "idx": 4,
@@ -43,7 +47,8 @@
         "en": "Rise"
       },
       "artist": "Combatplayer",
-      "set": "base"
+      "set": "base",
+      "purchase": ""
     },
     {
       "idx": 5,
@@ -52,7 +57,8 @@
         "en": "Lucifer"
       },
       "artist": "chitose",
-      "set": "base"
+      "set": "base",
+      "purchase": ""
     },
     {
       "idx": 6,
@@ -61,7 +67,8 @@
         "en": "Fairytale"
       },
       "artist": "chitose",
-      "set": "base"
+      "set": "base",
+      "purchase": ""
     },
     {
       "idx": 7,
@@ -70,7 +77,8 @@
         "en": "I've heard it said"
       },
       "artist": "Combatplayer",
-      "set": "core"
+      "set": "core",
+      "purchase": "core"
     },
     {
       "idx": 8,
@@ -79,7 +87,8 @@
         "en": "Babaroque"
       },
       "artist": "cYsmix",
-      "set": "base"
+      "set": "base",
+      "purchase": ""
     },
     {
       "idx": 9,
@@ -88,7 +97,8 @@
         "en": "memoryfactory.lzh"
       },
       "artist": "Frums",
-      "set": "core"
+      "set": "core",
+      "purchase": "core"
     },
     {
       "idx": 10,
@@ -97,7 +107,8 @@
         "en": "Snow White"
       },
       "artist": "Puru",
-      "set": "base"
+      "set": "base",
+      "purchase": ""
     },
     {
       "idx": 11,
@@ -106,7 +117,8 @@
         "en": "Relentless"
       },
       "artist": "Akira Complex",
-      "set": "core"
+      "set": "core",
+      "purchase": "core"
     },
     {
       "idx": 12,
@@ -115,7 +127,8 @@
         "en": "Shades of Light in a Transcendent Realm"
       },
       "artist": "ak+q",
-      "set": "base"
+      "set": "base",
+      "purchase": ""
     },
     {
       "idx": 13,
@@ -124,7 +137,8 @@
         "en": "Vexaria"
       },
       "artist": "ak+q",
-      "set": "base"
+      "set": "base",
+      "purchase": ""
     },
     {
       "idx": 14,
@@ -133,7 +147,8 @@
         "en": "Essence of Twilight"
       },
       "artist": "ak+q",
-      "set": "core"
+      "set": "core",
+      "purchase": "core"
     },
     {
       "idx": 15,
@@ -142,7 +157,8 @@
         "en": "qualia -ideaesthesia-"
       },
       "artist": "nitro",
-      "set": "base"
+      "set": "base",
+      "purchase": ""
     },
     {
       "idx": 16,
@@ -151,7 +167,8 @@
         "en": "PRAGMATISM"
       },
       "artist": "Laur",
-      "set": "core"
+      "set": "core",
+      "purchase": "core"
     },
     {
       "idx": 17,
@@ -160,7 +177,8 @@
         "en": "Sheriruth"
       },
       "artist": "Team Grimoire",
-      "set": "core"
+      "set": "core",
+      "purchase": "core"
     },
     {
       "idx": 18,
@@ -169,7 +187,8 @@
         "en": "Lumia"
       },
       "artist": "sky_delta",
-      "set": "core"
+      "set": "core",
+      "purchase": "core"
     },
     {
       "idx": 19,
@@ -178,7 +197,8 @@
         "en": "Dement ~after legend~"
       },
       "artist": "Cosmograph",
-      "set": "base"
+      "set": "base",
+      "purchase": ""
     },
     {
       "idx": 20,
@@ -187,7 +207,8 @@
         "en": "Dandelion"
       },
       "artist": "Farhan",
-      "set": "base"
+      "set": "base",
+      "purchase": ""
     },
     {
       "idx": 21,
@@ -199,7 +220,8 @@
         "zh-Hans": "Anokumene"
       },
       "artist": "Jun Kuroda",
-      "set": "base"
+      "set": "base",
+      "purchase": ""
     },
     {
       "idx": 22,
@@ -208,7 +230,8 @@
         "en": "Infinity Heaven"
       },
       "artist": "HyuN",
-      "set": "base"
+      "set": "base",
+      "purchase": ""
     },
     {
       "idx": 23,
@@ -217,7 +240,8 @@
         "en": "Party Vinyl"
       },
       "artist": "モリモリあつし",
-      "set": "shiawase"
+      "set": "shiawase",
+      "purchase": "shiawase"
     },
     {
       "idx": 24,
@@ -226,7 +250,8 @@
         "en": "Flashback"
       },
       "artist": "ARForest",
-      "set": "shiawase"
+      "set": "shiawase",
+      "purchase": "shiawase"
     },
     {
       "idx": 25,
@@ -236,7 +261,8 @@
         "ja": "フライブルクとエンドロウル"
       },
       "artist": "アリスシャッハと魔法の楽団",
-      "set": "shiawase"
+      "set": "shiawase",
+      "purchase": "shiawase"
     },
     {
       "idx": 26,
@@ -245,7 +271,8 @@
         "en": "Nirv lucE"
       },
       "artist": "しーけー",
-      "set": "shiawase"
+      "set": "shiawase",
+      "purchase": "shiawase"
     },
     {
       "idx": 27,
@@ -254,7 +281,8 @@
         "en": "Paradise"
       },
       "artist": "Sound Souler",
-      "set": "shiawase"
+      "set": "shiawase",
+      "purchase": "shiawase"
     },
     {
       "idx": 28,
@@ -263,7 +291,8 @@
         "en": "Brand new world"
       },
       "artist": "U-ske",
-      "set": "base"
+      "set": "base",
+      "purchase": ""
     },
     {
       "idx": 29,
@@ -272,7 +301,8 @@
         "en": "DataErr0r"
       },
       "artist": "Cosmograph",
-      "set": "single"
+      "set": "single",
+      "purchase": "dataerror"
     },
     {
       "idx": 30,
@@ -281,7 +311,8 @@
         "en": "CROSS†SOUL"
       },
       "artist": "HyuN feat. Syepias",
-      "set": "single"
+      "set": "single",
+      "purchase": "crosssoul"
     },
     {
       "idx": 31,
@@ -290,7 +321,8 @@
         "en": "Your voice so... feat. Such"
       },
       "artist": "PSYQUI",
-      "set": "single"
+      "set": "single",
+      "purchase": "yourvoiceso"
     },
     {
       "idx": 32,
@@ -299,7 +331,8 @@
         "en": "Chronostasis"
       },
       "artist": "黒皇帝",
-      "set": "base"
+      "set": "base",
+      "purchase": ""
     },
     {
       "idx": 33,
@@ -309,7 +342,8 @@
         "ja": "神奈川電脳暗渠"
       },
       "artist": "南ゆに",
-      "set": "base"
+      "set": "base",
+      "purchase": ""
     },
     {
       "idx": 34,
@@ -318,7 +352,8 @@
         "en": "Moonlight of Sand Castle"
       },
       "artist": "旅人E",
-      "set": "dynamix"
+      "set": "dynamix",
+      "purchase": "dynamix"
     },
     {
       "idx": 35,
@@ -327,7 +362,8 @@
         "en": "REconstruction"
       },
       "artist": "Ryazan",
-      "set": "dynamix"
+      "set": "dynamix",
+      "purchase": "dynamix"
     },
     {
       "idx": 36,
@@ -336,7 +372,8 @@
         "en": "Evoltex (poppi'n mix)"
       },
       "artist": "Arch vs n3pu",
-      "set": "dynamix"
+      "set": "dynamix",
+      "purchase": "dynamix"
     },
     {
       "idx": 37,
@@ -345,7 +382,8 @@
         "en": "Oracle"
       },
       "artist": "TQ☆",
-      "set": "dynamix"
+      "set": "dynamix",
+      "purchase": "dynamix"
     },
     {
       "idx": 38,
@@ -356,7 +394,8 @@
         "zh-Hans": "aterlbus"
       },
       "artist": "Aoi",
-      "set": "dynamix"
+      "set": "dynamix",
+      "purchase": "dynamix"
     },
     {
       "idx": 39,
@@ -366,7 +405,8 @@
         "ja": "クロートーと星の観測者"
       },
       "artist": "しーけー",
-      "set": "base"
+      "set": "base",
+      "purchase": ""
     },
     {
       "idx": 40,
@@ -376,7 +416,8 @@
         "ja": "不浄な白い鳥"
       },
       "artist": "MIssionary",
-      "set": "single"
+      "set": "single",
+      "purchase": "impurebird"
     },
     {
       "idx": 41,
@@ -385,7 +426,8 @@
         "en": "Ignotus"
       },
       "artist": "ak+q",
-      "set": "base"
+      "set": "base",
+      "purchase": ""
     },
     {
       "idx": 42,
@@ -394,7 +436,8 @@
         "en": "Lethaeus"
       },
       "artist": "Silentroom",
-      "set": "mirai"
+      "set": "mirai",
+      "purchase": "mirai"
     },
     {
       "idx": 43,
@@ -404,7 +447,8 @@
         "ja": "vsキミ戦争"
       },
       "artist": "U-ske (feat. lueur)",
-      "set": "mirai"
+      "set": "mirai",
+      "purchase": "mirai"
     },
     {
       "idx": 44,
@@ -413,7 +457,8 @@
         "en": "Blossoms"
       },
       "artist": "T2Kazuya",
-      "set": "mirai"
+      "set": "mirai",
+      "purchase": "mirai"
     },
     {
       "idx": 45,
@@ -422,7 +467,8 @@
         "en": "Moonheart"
       },
       "artist": "翡乃イスカ",
-      "set": "mirai"
+      "set": "mirai",
+      "purchase": "mirai"
     },
     {
       "idx": 46,
@@ -431,7 +477,8 @@
         "en": "Genesis"
       },
       "artist": "Iris",
-      "set": "mirai"
+      "set": "mirai",
+      "purchase": "mirai"
     },
     {
       "idx": 47,
@@ -441,7 +488,8 @@
         "en": "Harutopia ~Utopia of Spring~"
       },
       "artist": "A-zu-ra",
-      "set": "base"
+      "set": "base",
+      "purchase": ""
     },
     {
       "idx": 48,
@@ -450,7 +498,8 @@
         "en": "Auxesia"
       },
       "artist": "ginkiha",
-      "set": "single"
+      "set": "single",
+      "purchase": "auxesia"
     },
     {
       "idx": 49,
@@ -459,7 +508,8 @@
         "en": "Rabbit In The Black Room"
       },
       "artist": "Rabbit House",
-      "set": "base"
+      "set": "base",
+      "purchase": ""
     },
     {
       "idx": 50,
@@ -468,7 +518,8 @@
         "en": "Modelista"
       },
       "artist": "HiTECH NINJA",
-      "set": "single"
+      "set": "single",
+      "purchase": "modelista"
     },
     {
       "idx": 51,
@@ -477,7 +528,8 @@
         "en": "SOUNDWiTCH"
       },
       "artist": "HATE",
-      "set": "yugamu"
+      "set": "yugamu",
+      "purchase": "yugamu"
     },
     {
       "idx": 52,
@@ -487,7 +539,8 @@
         "ja": "妖艶魔女 -trappola bewitching-"
       },
       "artist": "gmtn.",
-      "set": "yugamu"
+      "set": "yugamu",
+      "purchase": "yugamu"
     },
     {
       "idx": 53,
@@ -496,7 +549,8 @@
         "en": "Iconoclast"
       },
       "artist": "Yamajet",
-      "set": "yugamu"
+      "set": "yugamu",
+      "purchase": "yugamu"
     },
     {
       "idx": 54,
@@ -505,7 +559,8 @@
         "en": "conflict"
       },
       "artist": "siromaru + cranky",
-      "set": "yugamu"
+      "set": "yugamu",
+      "purchase": "yugamu"
     },
     {
       "idx": 55,
@@ -514,7 +569,8 @@
         "en": "Axium Crisis"
       },
       "artist": "ak+q",
-      "set": "yugamu"
+      "set": "yugamu",
+      "purchase": "yugamu"
     },
     {
       "idx": 56,
@@ -523,7 +579,8 @@
         "en": "Grievous Lady"
       },
       "artist": "Team Grimoire vs Laur",
-      "set": "yugamu"
+      "set": "yugamu",
+      "purchase": "yugamu"
     },
     {
       "idx": 57,
@@ -532,7 +589,8 @@
         "en": "Dreamin' Attraction!!"
       },
       "artist": "翡乃イスカ",
-      "set": "base"
+      "set": "base",
+      "purchase": ""
     },
     {
       "idx": 58,
@@ -541,7 +599,8 @@
         "en": "Red and Blue"
       },
       "artist": "Silentroom",
-      "set": "base"
+      "set": "base",
+      "purchase": ""
     },
     {
       "idx": 59,
@@ -550,7 +609,8 @@
         "en": "One Last Drive"
       },
       "artist": "REDSHiFT",
-      "set": "base"
+      "set": "base",
+      "purchase": ""
     },
     {
       "idx": 60,
@@ -559,7 +619,8 @@
         "en": "Surrender"
       },
       "artist": "void",
-      "set": "single"
+      "set": "single",
+      "purchase": "surrender"
     },
     {
       "idx": 61,
@@ -569,7 +630,8 @@
         "ja": "夜桜吹雪"
       },
       "artist": "A.SAKA",
-      "set": "single"
+      "set": "single",
+      "purchase": "yozakurafubuki"
     },
     {
       "idx": 62,
@@ -578,7 +640,8 @@
         "en": "cyanine"
       },
       "artist": "jioyi",
-      "set": "lanota"
+      "set": "lanota",
+      "purchase": "lanota"
     },
     {
       "idx": 63,
@@ -587,7 +650,8 @@
         "en": "Dream goes on"
       },
       "artist": "Tiny Minim",
-      "set": "lanota"
+      "set": "lanota",
+      "purchase": "lanota"
     },
     {
       "idx": 64,
@@ -596,7 +660,8 @@
         "en": "Journey"
       },
       "artist": "ARForest",
-      "set": "lanota"
+      "set": "lanota",
+      "purchase": "lanota"
     },
     {
       "idx": 65,
@@ -605,7 +670,8 @@
         "en": "Specta"
       },
       "artist": "Junk",
-      "set": "lanota"
+      "set": "lanota",
+      "purchase": "lanota"
     },
     {
       "idx": 66,
@@ -614,7 +680,8 @@
         "en": "Quon"
       },
       "artist": "Feryquitous",
-      "set": "lanota"
+      "set": "lanota",
+      "purchase": "lanota"
     },
     {
       "idx": 67,
@@ -623,7 +690,8 @@
         "en": "Syro"
       },
       "artist": "Mitomoro",
-      "set": "base"
+      "set": "base",
+      "purchase": ""
     },
     {
       "idx": 68,
@@ -632,7 +700,8 @@
         "en": "Reinvent"
       },
       "artist": "Sound Souler",
-      "set": "base"
+      "set": "base",
+      "purchase": ""
     },
     {
       "idx": 69,
@@ -641,7 +710,8 @@
         "en": "Silent Rush"
       },
       "artist": "Soleily",
-      "set": "nijuusei"
+      "set": "nijuusei",
+      "purchase": "nijuusei"
     },
     {
       "idx": 70,
@@ -650,7 +720,8 @@
         "en": "Singularity"
       },
       "artist": "ETIA.",
-      "set": "nijuusei"
+      "set": "nijuusei",
+      "purchase": "nijuusei"
     },
     {
       "idx": 71,
@@ -659,7 +730,8 @@
         "en": "Memory Forest"
       },
       "artist": "ETIA.",
-      "set": "nijuusei"
+      "set": "nijuusei",
+      "purchase": "nijuusei"
     },
     {
       "idx": 72,
@@ -668,7 +740,8 @@
         "en": "Strongholds"
       },
       "artist": "Yooh",
-      "set": "nijuusei"
+      "set": "nijuusei",
+      "purchase": "nijuusei"
     },
     {
       "idx": 73,
@@ -677,7 +750,8 @@
         "en": "next to you"
       },
       "artist": "uma feat. 橘花音",
-      "set": "nijuusei"
+      "set": "nijuusei",
+      "purchase": "nijuusei"
     },
     {
       "idx": 74,
@@ -686,7 +760,8 @@
         "en": "Metallic Punisher"
       },
       "artist": "INNOCENT NOIZE",
-      "set": "single"
+      "set": "single",
+      "purchase": "metallicpunisher"
     },
     {
       "idx": 75,
@@ -695,7 +770,8 @@
         "en": "Blaster"
       },
       "artist": "Massive New Krew",
-      "set": "base"
+      "set": "base",
+      "purchase": ""
     },
     {
       "idx": 76,
@@ -707,7 +783,8 @@
         "zh-Hans": "guardina"
       },
       "artist": "Aoi",
-      "set": "single"
+      "set": "single",
+      "purchase": "dynamix"
     },
     {
       "idx": 77,
@@ -716,7 +793,8 @@
         "en": "carmine:scythe"
       },
       "artist": "かゆき",
-      "set": "single"
+      "set": "single",
+      "purchase": "carminescythe"
     },
     {
       "idx": 78,
@@ -725,7 +803,8 @@
         "en": "Be There"
       },
       "artist": "PSYQUI",
-      "set": "single"
+      "set": "single",
+      "purchase": "bethere"
     },
     {
       "idx": 79,
@@ -734,7 +813,8 @@
         "en": "Cybernecia Catharsis"
       },
       "artist": "Tanchiky",
-      "set": "base"
+      "set": "base",
+      "purchase": ""
     },
     {
       "idx": 80,
@@ -743,7 +823,8 @@
         "en": "Call My Name feat. Yukacco"
       },
       "artist": "Mameyudoufu",
-      "set": "single"
+      "set": "single",
+      "purchase": "callmyname"
     },
     {
       "idx": 81,
@@ -752,7 +833,8 @@
         "en": "inkar-usi"
       },
       "artist": "DIA",
-      "set": "base"
+      "set": "base",
+      "purchase": ""
     },
     {
       "idx": 82,
@@ -762,7 +844,8 @@
         "ja": "九番目の迷路"
       },
       "artist": "アリスシャッハと魔法の楽団",
-      "set": "rei"
+      "set": "rei",
+      "purchase": "rei"
     },
     {
       "idx": 83,
@@ -771,7 +854,8 @@
         "en": "The Message"
       },
       "artist": "Jun Kuroda",
-      "set": "rei"
+      "set": "rei",
+      "purchase": "rei"
     },
     {
       "idx": 84,
@@ -780,7 +864,8 @@
         "en": "Sulfur"
       },
       "artist": "ぺのれり",
-      "set": "rei"
+      "set": "rei",
+      "purchase": "rei"
     },
     {
       "idx": 85,
@@ -789,7 +874,8 @@
         "en": "Halcyon"
       },
       "artist": "xi",
-      "set": "rei"
+      "set": "rei",
+      "purchase": "rei"
     },
     {
       "idx": 86,
@@ -798,7 +884,8 @@
         "en": "Ether Strike"
       },
       "artist": "Akira Complex",
-      "set": "rei"
+      "set": "rei",
+      "purchase": "rei"
     },
     {
       "idx": 87,
@@ -807,7 +894,8 @@
         "en": "Fracture Ray"
       },
       "artist": "Sakuzyo",
-      "set": "rei"
+      "set": "rei",
+      "purchase": "rei"
     },
     {
       "idx": 88,
@@ -816,7 +904,8 @@
         "en": "Suomi"
       },
       "artist": "Aire",
-      "set": "base"
+      "set": "base",
+      "purchase": ""
     },
     {
       "idx": 89,
@@ -825,7 +914,8 @@
         "en": "Bookmaker (2D Version)"
       },
       "artist": "Kobaryo",
-      "set": "base"
+      "set": "base",
+      "purchase": ""
     },
     {
       "idx": 90,
@@ -835,7 +925,8 @@
         "en": "Illegal Paradise"
       },
       "artist": "gmtn. (witch's slave)",
-      "set": "base"
+      "set": "base",
+      "purchase": ""
     },
     {
       "idx": 91,
@@ -844,7 +935,8 @@
         "en": "dropdead"
       },
       "artist": "Frums",
-      "set": "single"
+      "set": "single",
+      "purchase": "dropdead"
     },
     {
       "idx": 92,
@@ -853,7 +945,8 @@
         "en": "Fallensquare"
       },
       "artist": "Silentroom",
-      "set": "single"
+      "set": "single",
+      "purchase": "fallensquare"
     },
     {
       "idx": 93,
@@ -862,7 +955,8 @@
         "en": "Nhelv"
       },
       "artist": "Silentroom",
-      "set": "base"
+      "set": "base",
+      "purchase": ""
     },
     {
       "idx": 94,
@@ -872,7 +966,8 @@
         "en": "LunarOrbit -believe in the Espebranch road-"
       },
       "artist": "Apo11o program ft. 大瀬良あい",
-      "set": "base"
+      "set": "base",
+      "purchase": ""
     },
     {
       "idx": 95,
@@ -881,7 +976,8 @@
         "en": "Purgatorium"
       },
       "artist": "お月さま交響曲",
-      "set": "base"
+      "set": "base",
+      "purchase": ""
     },
     {
       "idx": 96,
@@ -891,7 +987,8 @@
         "en": "Hikari"
       },
       "artist": "THB",
-      "set": "tonesphere"
+      "set": "tonesphere",
+      "purchase": "tonesphere"
     },
     {
       "idx": 97,
@@ -900,7 +997,8 @@
         "en": "STAGER (ALL STAGE CLEAR)"
       },
       "artist": "Ras",
-      "set": "tonesphere"
+      "set": "tonesphere",
+      "purchase": "tonesphere"
     },
     {
       "idx": 98,
@@ -909,7 +1007,8 @@
         "en": "Hall of Mirrors"
       },
       "artist": "Sta",
-      "set": "tonesphere"
+      "set": "tonesphere",
+      "purchase": "tonesphere"
     },
     {
       "idx": 99,
@@ -918,7 +1017,8 @@
         "en": "Linear Accelerator"
       },
       "artist": "THE SHAFT",
-      "set": "tonesphere"
+      "set": "tonesphere",
+      "purchase": "tonesphere"
     },
     {
       "idx": 100,
@@ -927,7 +1027,8 @@
         "en": "Tiferet"
       },
       "artist": "xi + Sta",
-      "set": "tonesphere"
+      "set": "tonesphere",
+      "purchase": "tonesphere"
     },
     {
       "idx": 101,
@@ -936,7 +1037,8 @@
         "en": "Alexandrite"
       },
       "artist": "WAiKURO",
-      "set": "single"
+      "set": "single",
+      "purchase": "alexandrite"
     },
     {
       "idx": 102,
@@ -945,7 +1047,8 @@
         "en": "Rugie"
       },
       "artist": "Feryquitous feat.Sennzai",
-      "set": "base"
+      "set": "base",
+      "purchase": ""
     },
     {
       "idx": 103,
@@ -954,7 +1057,8 @@
         "en": "Astral tale"
       },
       "artist": "Noah",
-      "set": "single"
+      "set": "single",
+      "purchase": "astraltale"
     },
     {
       "idx": 104,
@@ -963,7 +1067,8 @@
         "en": "Phantasia"
       },
       "artist": "Yunosuke",
-      "set": "single"
+      "set": "single",
+      "purchase": "phantasia"
     },
     {
       "idx": 105,
@@ -972,7 +1077,8 @@
         "en": "Empire of Winter"
       },
       "artist": "Street",
-      "set": "single"
+      "set": "single",
+      "purchase": "empireofwinter"
     },
     {
       "idx": 106,
@@ -981,7 +1087,8 @@
         "en": "MERLIN"
       },
       "artist": "REDALiCE",
-      "set": "groovecoaster"
+      "set": "groovecoaster",
+      "purchase": "groovecoaster"
     },
     {
       "idx": 107,
@@ -991,7 +1098,8 @@
         "en": "DX Choseinou Full Metal Shojo"
       },
       "artist": "IOSYS TRAX (uno with.ちよこ)",
-      "set": "groovecoaster"
+      "set": "groovecoaster",
+      "purchase": "groovecoaster"
     },
     {
       "idx": 108,
@@ -1000,7 +1108,8 @@
         "en": "OMAKENO Stroke"
       },
       "artist": "t+pazolite",
-      "set": "groovecoaster"
+      "set": "groovecoaster",
+      "purchase": "groovecoaster"
     },
     {
       "idx": 109,
@@ -1009,7 +1118,8 @@
         "en": "Scarlet Lance"
       },
       "artist": "MASAKI (ZUNTATA)",
-      "set": "groovecoaster"
+      "set": "groovecoaster",
+      "purchase": "groovecoaster"
     },
     {
       "idx": 110,
@@ -1018,7 +1128,8 @@
         "en": "ouroboros -twin stroke of the end-"
       },
       "artist": "Cranky VS MASAKI",
-      "set": "groovecoaster"
+      "set": "groovecoaster",
+      "purchase": "groovecoaster"
     },
     {
       "idx": 111,
@@ -1027,7 +1138,8 @@
         "en": "Libertas"
       },
       "artist": "Zekk",
-      "set": "single"
+      "set": "single",
+      "purchase": "libertas"
     },
     {
       "idx": 112,
@@ -1037,7 +1149,8 @@
         "ja": "虚空の夢"
       },
       "artist": "ak+q feat. Sennzai",
-      "set": "core"
+      "set": "core",
+      "purchase": "core"
     },
     {
       "idx": 113,
@@ -1046,7 +1159,8 @@
         "en": "Antithese"
       },
       "artist": "Blacklolita",
-      "set": "zettai"
+      "set": "zettai",
+      "purchase": "zettai"
     },
     {
       "idx": 114,
@@ -1055,7 +1169,8 @@
         "en": "Corruption"
       },
       "artist": "3R2",
-      "set": "zettai"
+      "set": "zettai",
+      "purchase": "zettai"
     },
     {
       "idx": 115,
@@ -1064,7 +1179,8 @@
         "en": "Black Territory"
       },
       "artist": "DJ Myosuke",
-      "set": "zettai"
+      "set": "zettai",
+      "purchase": "zettai"
     },
     {
       "idx": 116,
@@ -1073,7 +1189,8 @@
         "en": "Vicious Heroism"
       },
       "artist": "Kobaryo",
-      "set": "zettai"
+      "set": "zettai",
+      "purchase": "zettai"
     },
     {
       "idx": 117,
@@ -1082,7 +1199,8 @@
         "en": "Cyaegha"
       },
       "artist": "USAO",
-      "set": "zettai"
+      "set": "zettai",
+      "purchase": "zettai"
     },
     {
       "idx": 118,
@@ -1091,7 +1209,8 @@
         "en": "ReviXy"
       },
       "artist": "ikaruga_nex",
-      "set": "base"
+      "set": "base",
+      "purchase": ""
     },
     {
       "idx": 119,
@@ -1100,7 +1219,8 @@
         "en": "Grimheart"
       },
       "artist": "Puru",
-      "set": "base"
+      "set": "base",
+      "purchase": ""
     },
     {
       "idx": 120,
@@ -1109,7 +1229,8 @@
         "en": "VECTOЯ"
       },
       "artist": "WHITEFISTS",
-      "set": "base"
+      "set": "base",
+      "purchase": ""
     },
     {
       "idx": 121,
@@ -1118,7 +1239,8 @@
         "en": "SUPERNOVA"
       },
       "artist": "BACO",
-      "set": "base"
+      "set": "base",
+      "purchase": ""
     },
     {
       "idx": 122,
@@ -1127,7 +1249,8 @@
         "en": "Dot to Dot feat. shully"
       },
       "artist": "Mameyudoufu",
-      "set": "single"
+      "set": "single",
+      "purchase": "dottodot"
     },
     {
       "idx": 123,
@@ -1136,7 +1259,8 @@
         "en": "Garakuta Doll Play"
       },
       "artist": "t+pazolite",
-      "set": "chunithm"
+      "set": "chunithm",
+      "purchase": "chunithm"
     },
     {
       "idx": 124,
@@ -1146,7 +1270,8 @@
         "ja": "怒槌"
       },
       "artist": "光吉猛修",
-      "set": "chunithm"
+      "set": "chunithm",
+      "purchase": "chunithm"
     },
     {
       "idx": 125,
@@ -1155,7 +1280,8 @@
         "en": "World Vanquisher"
       },
       "artist": "void (Mournfinale)",
-      "set": "chunithm"
+      "set": "chunithm",
+      "purchase": "chunithm"
     },
     {
       "idx": 126,
@@ -1164,7 +1290,8 @@
         "en": "Dreadnought"
       },
       "artist": "Mastermind (xi + nora2r)",
-      "set": "single"
+      "set": "single",
+      "purchase": "dreadnought"
     },
     {
       "idx": 127,
@@ -1177,7 +1304,8 @@
         "en": "Vindication"
       },
       "artist": "Laur",
-      "set": "prelude"
+      "set": "prelude",
+      "purchase": "prelude"
     },
     {
       "idx": 129,
@@ -1186,7 +1314,8 @@
         "en": "Heavensdoor"
       },
       "artist": "LeaF",
-      "set": "prelude"
+      "set": "prelude",
+      "purchase": "prelude"
     },
     {
       "idx": 130,
@@ -1195,7 +1324,8 @@
         "en": "Ringed Genesis"
       },
       "artist": "Edelritter",
-      "set": "prelude"
+      "set": "prelude",
+      "purchase": "prelude"
     },
     {
       "idx": 131,
@@ -1204,7 +1334,8 @@
         "en": "Chelsea"
       },
       "artist": "7mai",
-      "set": "omatsuri"
+      "set": "omatsuri",
+      "purchase": "omatsuri"
     },
     {
       "idx": 132,
@@ -1213,7 +1344,8 @@
         "en": "AI[UE]OON"
       },
       "artist": "MYUKKE.",
-      "set": "omatsuri"
+      "set": "omatsuri",
+      "purchase": "omatsuri"
     },
     {
       "idx": 133,
@@ -1223,7 +1355,8 @@
         "ja": "迷える音色は恋の唄"
       },
       "artist": "からとPαnchii少年 feat.はるの",
-      "set": "omatsuri"
+      "set": "omatsuri",
+      "purchase": "omatsuri"
     },
     {
       "idx": 134,
@@ -1232,7 +1365,8 @@
         "en": "Tie me down gently"
       },
       "artist": "溝口ゆうま feat. 大瀬良あい",
-      "set": "omatsuri"
+      "set": "omatsuri",
+      "purchase": "omatsuri"
     },
     {
       "idx": 135,
@@ -1241,7 +1375,8 @@
         "en": "Valhalla:0"
       },
       "artist": "Juggernaut.",
-      "set": "omatsuri"
+      "set": "omatsuri",
+      "purchase": "omatsuri"
     },
     {
       "idx": 136,
@@ -1250,7 +1385,8 @@
         "en": "Mirzam"
       },
       "artist": "Aoi vs. siqlo",
-      "set": "single"
+      "set": "single",
+      "purchase": "mirzam"
     },
     {
       "idx": 137,
@@ -1259,7 +1395,8 @@
         "en": "Diode"
       },
       "artist": "Kolaa",
-      "set": "base"
+      "set": "base",
+      "purchase": ""
     },
     {
       "idx": 138,
@@ -1268,7 +1405,8 @@
         "en": "FREEF4LL"
       },
       "artist": "YUKIYANAGI",
-      "set": "base"
+      "set": "base",
+      "purchase": ""
     },
     {
       "idx": 139,
@@ -1277,7 +1415,8 @@
         "en": "GLORY：ROAD"
       },
       "artist": "uma vs. モリモリあつし",
-      "set": "shiawase"
+      "set": "shiawase",
+      "purchase": "shiawase"
     },
     {
       "idx": 140,
@@ -1286,7 +1425,8 @@
         "en": "Monochrome Princess"
       },
       "artist": "polysha",
-      "set": "base"
+      "set": "base",
+      "purchase": ""
     },
     {
       "idx": 141,
@@ -1295,7 +1435,8 @@
         "en": "Heavenly caress"
       },
       "artist": "Noah",
-      "set": "single"
+      "set": "single",
+      "purchase": "heavenlycaress"
     },
     {
       "idx": 142,
@@ -1304,7 +1445,8 @@
         "en": "Senkyou"
       },
       "artist": "MYTK",
-      "set": "base"
+      "set": "base",
+      "purchase": ""
     },
     {
       "idx": 143,
@@ -1313,7 +1455,8 @@
         "en": "Filament"
       },
       "artist": "Puru",
-      "set": "single"
+      "set": "single",
+      "purchase": "filament"
     },
     {
       "idx": 144,
@@ -1322,7 +1465,8 @@
         "en": "Avant Raze"
       },
       "artist": "Sampling Masters MEGA",
-      "set": "single"
+      "set": "single",
+      "purchase": "avantraze"
     },
     {
       "idx": 145,
@@ -1331,7 +1475,8 @@
         "en": "BATTLE NO.1"
       },
       "artist": "TANO*C Sound Team",
-      "set": "single"
+      "set": "single",
+      "purchase": "battlenoone"
     },
     {
       "idx": 146,
@@ -1340,7 +1485,8 @@
         "en": "La'qryma of the Wasteland"
       },
       "artist": "DJ Noriken",
-      "set": "single"
+      "set": "single",
+      "purchase": "laqryma"
     },
     {
       "idx": 147,
@@ -1349,7 +1495,8 @@
         "en": "Einherjar Joker"
       },
       "artist": "DJ Genki vs Gram",
-      "set": "single"
+      "set": "single",
+      "purchase": "einherjar"
     },
     {
       "idx": 148,
@@ -1358,7 +1505,8 @@
         "en": "IZANA"
       },
       "artist": "t+pazolite vs P*Light",
-      "set": "single"
+      "set": "single",
+      "purchase": "izana"
     },
     {
       "idx": 149,
@@ -1368,7 +1516,8 @@
         "ja": "最強STRONGER"
       },
       "artist": "REDALiCE vs USAO",
-      "set": "single"
+      "set": "single",
+      "purchase": "saikyostronger"
     },
     {
       "idx": 150,
@@ -1377,7 +1526,8 @@
         "en": "world.execute(me);"
       },
       "artist": "Mili",
-      "set": "base"
+      "set": "base",
+      "purchase": ""
     },
     {
       "idx": 151,
@@ -1386,7 +1536,8 @@
         "en": "BLRINK"
       },
       "artist": "Sta",
-      "set": "prelude"
+      "set": "prelude",
+      "purchase": "prelude"
     },
     {
       "idx": 152,
@@ -1395,7 +1546,8 @@
         "en": "Oblivia"
       },
       "artist": "Saiph",
-      "set": "base"
+      "set": "base",
+      "purchase": ""
     },
     {
       "idx": 153,
@@ -1404,7 +1556,8 @@
         "en": "amygdata"
       },
       "artist": "nitro",
-      "set": "single"
+      "set": "single",
+      "purchase": "amygdata"
     },
     {
       "idx": 154,
@@ -1413,7 +1566,8 @@
         "en": "corps-sans-organes"
       },
       "artist": "cybermiso",
-      "set": "mirai"
+      "set": "mirai",
+      "purchase": "mirai"
     },
     {
       "idx": 155,
@@ -1422,7 +1576,8 @@
         "en": "Equilibrium"
       },
       "artist": "Maozon",
-      "set": "vs"
+      "set": "vs",
+      "purchase": "vs"
     },
     {
       "idx": 156,
@@ -1431,7 +1586,8 @@
         "en": "Antagonism"
       },
       "artist": "Yooh vs. siromaru",
-      "set": "vs"
+      "set": "vs",
+      "purchase": "vs"
     },
     {
       "idx": 157,
@@ -1440,7 +1596,8 @@
         "en": "Lost Desire"
       },
       "artist": "Powerless feat. Sennzai",
-      "set": "vs"
+      "set": "vs",
+      "purchase": "vs"
     },
     {
       "idx": 158,
@@ -1449,7 +1606,8 @@
         "en": "Dantalion"
       },
       "artist": "Team Grimoire",
-      "set": "vs"
+      "set": "vs",
+      "purchase": "vs"
     },
     {
       "idx": 159,
@@ -1458,7 +1616,8 @@
         "en": "#1f1e33"
       },
       "artist": "かめりあ(EDP)",
-      "set": "vs"
+      "set": "vs",
+      "purchase": "vs"
     },
     {
       "idx": 160,
@@ -1467,7 +1626,8 @@
         "en": "Tempestissimo"
       },
       "artist": "t+pazolite",
-      "set": "vs"
+      "set": "vs",
+      "purchase": "vs"
     },
     {
       "idx": 161,
@@ -1476,7 +1636,8 @@
         "en": "Arcahv"
       },
       "artist": "Feryquitous",
-      "set": "vs"
+      "set": "vs",
+      "purchase": "vs"
     },
     {
       "idx": 162,
@@ -1485,7 +1646,8 @@
         "en": "Altale"
       },
       "artist": "Sakuzyo",
-      "set": "single"
+      "set": "single",
+      "purchase": "altale"
     },
     {
       "idx": 163,
@@ -1494,7 +1656,8 @@
         "en": "Give Me a Nightmare"
       },
       "artist": "アリスシャッハと魔法の楽団",
-      "set": "extend"
+      "set": "extend",
+      "purchase": "extend"
     },
     {
       "idx": 164,
@@ -1503,7 +1666,8 @@
         "en": "Black Lotus"
       },
       "artist": "wa.",
-      "set": "extend"
+      "set": "extend",
+      "purchase": "extend"
     },
     {
       "idx": 165,
@@ -1512,7 +1676,8 @@
         "en": "Gekka (Short Version)"
       },
       "artist": "Nhato",
-      "set": "extend"
+      "set": "extend",
+      "purchase": "extend"
     },
     {
       "idx": 166,
@@ -1521,7 +1686,8 @@
         "en": "Vivid Theory"
       },
       "artist": "ak+q",
-      "set": "extend"
+      "set": "extend",
+      "purchase": "extend"
     },
     {
       "idx": 167,
@@ -1530,7 +1696,8 @@
         "en": "1F√"
       },
       "artist": "WHITEFISTS",
-      "set": "extend"
+      "set": "extend",
+      "purchase": "extend"
     },
     {
       "idx": 168,
@@ -1539,7 +1706,8 @@
         "en": "Scarlet Cage"
       },
       "artist": "Daisuke Kurosawa",
-      "set": "single"
+      "set": "single",
+      "purchase": "scarletcage"
     },
     {
       "idx": 169,
@@ -1548,7 +1716,8 @@
         "en": "Faint Light (Arcaea Edit)"
       },
       "artist": "Taishi",
-      "set": "extend"
+      "set": "extend",
+      "purchase": "extend"
     },
     {
       "idx": 170,
@@ -1557,7 +1726,8 @@
         "en": "Feels So Right feat. Renko"
       },
       "artist": "Mysteka",
-      "set": "single"
+      "set": "single",
+      "purchase": "feelssoright"
     },
     {
       "idx": 171,
@@ -1566,7 +1736,8 @@
         "en": "Teriqma"
       },
       "artist": "owl＊tree",
-      "set": "single"
+      "set": "single",
+      "purchase": "teriqma"
     },
     {
       "idx": 172,
@@ -1575,7 +1746,8 @@
         "en": "MAHOROBA"
       },
       "artist": "Zekk",
-      "set": "single"
+      "set": "single",
+      "purchase": "mahoroba"
     },
     {
       "idx": 173,
@@ -1584,7 +1756,8 @@
         "en": "BADTEK"
       },
       "artist": "EBIMAYO",
-      "set": "single"
+      "set": "single",
+      "purchase": "badtek"
     },
     {
       "idx": 174,
@@ -1593,7 +1766,8 @@
         "en": "Malicious Mischance"
       },
       "artist": "s-don",
-      "set": "single"
+      "set": "single",
+      "purchase": "maliciousmischance"
     },
     {
       "idx": 175,
@@ -1602,7 +1776,8 @@
         "en": "Got hive of Ra"
       },
       "artist": "E.G.G.",
-      "set": "groovecoaster"
+      "set": "groovecoaster",
+      "purchase": "groovecoaster"
     },
     {
       "idx": 176,
@@ -1611,7 +1786,8 @@
         "en": "BUCHiGiRE Berserker"
       },
       "artist": "REDALiCE vs MASAKI",
-      "set": "single"
+      "set": "single",
+      "purchase": "buchigireberserker"
     },
     {
       "idx": 177,
@@ -1620,7 +1796,8 @@
         "en": "Galaxy Friends"
       },
       "artist": "Kobaryo",
-      "set": "single"
+      "set": "single",
+      "purchase": "galaxyfriends"
     },
     {
       "idx": 178,
@@ -1629,7 +1806,8 @@
         "en": "CROSS†OVER"
       },
       "artist": "HyuN feat. LyuU",
-      "set": "extend"
+      "set": "extend",
+      "purchase": "extend"
     },
     {
       "idx": 179,
@@ -1638,7 +1816,8 @@
         "en": "Xeraphinite"
       },
       "artist": "BlackY",
-      "set": "single"
+      "set": "single",
+      "purchase": "xeraphinite"
     },
     {
       "idx": 180,
@@ -1647,7 +1826,8 @@
         "en": "Lapis"
       },
       "artist": "SHIKI",
-      "set": "extend"
+      "set": "extend",
+      "purchase": "extend"
     },
     {
       "idx": 181,
@@ -1656,7 +1836,8 @@
         "en": "Xanatos"
       },
       "artist": "Tatsh",
-      "set": "single"
+      "set": "single",
+      "purchase": "xanatos"
     },
     {
       "idx": 182,
@@ -1665,7 +1846,8 @@
         "en": "Purple Verse"
       },
       "artist": "Hommarju",
-      "set": "extend"
+      "set": "extend",
+      "purchase": "extend"
     },
     {
       "idx": 183,
@@ -1675,7 +1857,8 @@
         "ko": "Alice a la mode"
       },
       "artist": "Masanori Akita",
-      "set": "alice"
+      "set": "alice",
+      "purchase": "alice"
     },
     {
       "idx": 184,
@@ -1684,7 +1867,8 @@
         "en": "Eccentric Tale"
       },
       "artist": "Yamajet",
-      "set": "alice"
+      "set": "alice",
+      "purchase": "alice"
     },
     {
       "idx": 185,
@@ -1693,7 +1877,8 @@
         "en": "Alice's Suitcase"
       },
       "artist": "Endorfin.",
-      "set": "alice"
+      "set": "alice",
+      "purchase": "alice"
     },
     {
       "idx": 186,
@@ -1702,7 +1887,8 @@
         "en": "Jump"
       },
       "artist": "Rasmus Faber",
-      "set": "alice"
+      "set": "alice",
+      "purchase": "alice"
     },
     {
       "idx": 187,
@@ -1711,7 +1897,8 @@
         "en": "Felis"
       },
       "artist": "M2U",
-      "set": "alice"
+      "set": "alice",
+      "purchase": "alice"
     },
     {
       "idx": 188,
@@ -1720,7 +1907,8 @@
         "en": "Beside You"
       },
       "artist": "江口孝宏",
-      "set": "alice_append_1"
+      "set": "alice_append_1",
+      "purchase": "alice_append_1"
     },
     {
       "idx": 189,
@@ -1729,7 +1917,8 @@
         "en": "Heart Jackin'"
       },
       "artist": "Yu_Asahina",
-      "set": "alice_append_1"
+      "set": "alice_append_1",
+      "purchase": "alice_append_1"
     },
     {
       "idx": 190,
@@ -1739,7 +1928,8 @@
         "ja": "アリス・リデルに捧ぐ"
       },
       "artist": "モリモリあつし",
-      "set": "alice_append_1"
+      "set": "alice_append_1",
+      "purchase": "alice_append_1"
     },
     {
       "idx": 191,
@@ -1748,7 +1938,8 @@
         "en": "Lazy Addiction"
       },
       "artist": "sky_delta",
-      "set": "ongeki"
+      "set": "ongeki",
+      "purchase": "ongeki"
     },
     {
       "idx": 192,
@@ -1757,7 +1948,8 @@
         "en": "Dazzle hop"
       },
       "artist": "Sampling Masters MEGA",
-      "set": "ongeki"
+      "set": "ongeki",
+      "purchase": "ongeki"
     },
     {
       "idx": 193,
@@ -1766,7 +1958,8 @@
         "en": "Viyella's Tears"
       },
       "artist": "Laur",
-      "set": "ongeki"
+      "set": "ongeki",
+      "purchase": "ongeki"
     },
     {
       "idx": 194,
@@ -1777,7 +1970,8 @@
         "zh-Hans": "w4"
       },
       "artist": "穴山大輔 VS 光吉猛修 VS Kai",
-      "set": "ongeki"
+      "set": "ongeki",
+      "purchase": "ongeki"
     },
     {
       "idx": 195,
@@ -1787,7 +1981,8 @@
         "ja": "四月の雨"
       },
       "artist": "cubesato",
-      "set": "maimai"
+      "set": "maimai",
+      "purchase": "maimai"
     },
     {
       "idx": 196,
@@ -1796,7 +1991,8 @@
         "en": "7thSense"
       },
       "artist": "削除",
-      "set": "maimai"
+      "set": "maimai",
+      "purchase": "maimai"
     },
     {
       "idx": 197,
@@ -1805,7 +2001,8 @@
         "en": "Oshama Scramble!"
       },
       "artist": "t+pazolite",
-      "set": "maimai"
+      "set": "maimai",
+      "purchase": "maimai"
     },
     {
       "idx": 198,
@@ -1814,7 +2011,8 @@
         "en": "AMAZING MIGHTYYYY!!!!"
       },
       "artist": "WAiKURO",
-      "set": "maimai"
+      "set": "maimai",
+      "purchase": "maimai"
     },
     {
       "idx": 199,
@@ -1823,7 +2021,8 @@
         "en": "Climax"
       },
       "artist": "USAO",
-      "set": "chunithm_append_1"
+      "set": "chunithm_append_1",
+      "purchase": "chunithm_append_1"
     },
     {
       "idx": 200,
@@ -1832,7 +2031,8 @@
         "en": "Last Celebration"
       },
       "artist": "Laur vs CK",
-      "set": "chunithm_append_1"
+      "set": "chunithm_append_1",
+      "purchase": "chunithm_append_1"
     },
     {
       "idx": 201,
@@ -1843,7 +2043,8 @@
         "ja": "業 -善なる神とこの世の悪について-"
       },
       "artist": "光吉猛修 VS 穴山大輔",
-      "set": "chunithm_append_1"
+      "set": "chunithm_append_1",
+      "purchase": "chunithm_append_1"
     },
     {
       "idx": 202,
@@ -1852,7 +2053,8 @@
         "en": "Glow"
       },
       "artist": "SPACELECTRO",
-      "set": "extend"
+      "set": "extend",
+      "purchase": "extend"
     },
     {
       "idx": 203,
@@ -1861,7 +2063,8 @@
         "en": "AttraqtiA"
       },
       "artist": "かめりあ",
-      "set": "single"
+      "set": "single",
+      "purchase": "attraqtia"
     },
     {
       "idx": 204,
@@ -1870,7 +2073,8 @@
         "en": "enchanted love"
       },
       "artist": "linear ring",
-      "set": "extend"
+      "set": "extend",
+      "purchase": "extend"
     },
     {
       "idx": 205,
@@ -1880,7 +2084,8 @@
         "ja": "竹"
       },
       "artist": "立秋 feat.ちょこ",
-      "set": "extend"
+      "set": "extend",
+      "purchase": "extend"
     },
     {
       "idx": 206,
@@ -1889,7 +2094,8 @@
         "en": "GIMME DA BLOOD"
       },
       "artist": "C-Show",
-      "set": "single"
+      "set": "single",
+      "purchase": "gimmedablood"
     },
     {
       "idx": 207,
@@ -1899,7 +2105,8 @@
         "ja": "ベースラインやってる？ｗ"
       },
       "artist": "かめりあ feat. ななひら",
-      "set": "single"
+      "set": "single",
+      "purchase": "bassline"
     },
     {
       "idx": 208,
@@ -1908,7 +2115,8 @@
         "en": "Life is PIANO"
       },
       "artist": "Junk",
-      "set": "extend"
+      "set": "extend",
+      "purchase": "extend"
     },
     {
       "idx": 209,
@@ -1917,7 +2125,8 @@
         "en": "Paper Witch"
       },
       "artist": "Yu-dachi",
-      "set": "observer"
+      "set": "observer",
+      "purchase": "observer"
     },
     {
       "idx": 210,
@@ -1926,7 +2135,8 @@
         "en": "Crystal Gravity"
       },
       "artist": "Tanchiky vs. siromaru",
-      "set": "observer"
+      "set": "observer",
+      "purchase": "observer"
     },
     {
       "idx": 211,
@@ -1935,7 +2145,8 @@
         "en": "Far Away Light"
       },
       "artist": "technoplanet feat. はるの & 黒沢ダイスケ",
-      "set": "observer"
+      "set": "observer",
+      "purchase": "observer"
     },
     {
       "idx": 212,
@@ -1945,7 +2156,8 @@
         "ko_dialog": "Loschen"
       },
       "artist": "BlackY feat. Risa Yuzuki",
-      "set": "observer"
+      "set": "observer",
+      "purchase": "observer"
     },
     {
       "idx": 213,
@@ -1954,7 +2166,8 @@
         "en": "Aegleseeker"
       },
       "artist": "Silentroom vs Frums",
-      "set": "observer"
+      "set": "observer",
+      "purchase": "observer"
     },
     {
       "idx": 214,
@@ -1963,7 +2176,8 @@
         "en": "Coastal Highway"
       },
       "artist": "Glitch Droids",
-      "set": "observer_append_1"
+      "set": "observer_append_1",
+      "purchase": "observer_append_1"
     },
     {
       "idx": 215,
@@ -1972,7 +2186,8 @@
         "en": "ΟΔΥΣΣΕΙΑ"
       },
       "artist": "Sober Bear",
-      "set": "observer_append_1"
+      "set": "observer_append_1",
+      "purchase": "observer_append_1"
     },
     {
       "idx": 216,
@@ -1981,7 +2196,8 @@
         "en": "Overwhelm"
       },
       "artist": "xi",
-      "set": "observer_append_1"
+      "set": "observer_append_1",
+      "purchase": "observer_append_1"
     },
     {
       "idx": 217,
@@ -1990,7 +2206,8 @@
         "en": "Vandalism"
       },
       "artist": "Ashrount",
-      "set": "extend"
+      "set": "extend",
+      "purchase": "extend"
     },
     {
       "idx": 218,
@@ -1999,7 +2216,8 @@
         "en": "Turbocharger"
       },
       "artist": "A/I",
-      "set": "extend"
+      "set": "extend",
+      "purchase": "extend"
     },
     {
       "idx": 219,
@@ -2008,7 +2226,8 @@
         "en": "THE ULTIMACY"
       },
       "artist": "aran vs Massive New Krew",
-      "set": "single"
+      "set": "single",
+      "purchase": "theultimacy"
     },
     {
       "idx": 220,
@@ -2018,7 +2237,8 @@
         "ja": "烈華RESONANCE"
       },
       "artist": "REDALiCE vs Kobaryo",
-      "set": "single"
+      "set": "single",
+      "purchase": "rekkaresonance"
     },
     {
       "idx": 221,
@@ -2028,7 +2248,8 @@
         "ja": "狂言綺語"
       },
       "artist": "影虎。 & ikaruga_nex",
-      "set": "extend"
+      "set": "extend",
+      "purchase": "extend"
     },
     {
       "idx": 222,
@@ -2037,7 +2258,8 @@
         "en": "HIVEMIND"
       },
       "artist": "かたぎり",
-      "set": "extend"
+      "set": "extend",
+      "purchase": "extend"
     },
     {
       "idx": 223,
@@ -2046,7 +2268,8 @@
         "en": "Seclusion"
       },
       "artist": "Laur feat. Sennzai",
-      "set": "observer"
+      "set": "observer",
+      "purchase": "observer"
     },
     {
       "idx": 224,
@@ -2055,7 +2278,8 @@
         "en": "Small Cloud Sugar Candy"
       },
       "artist": "テヅカ x Aoi feat.桃雛なの",
-      "set": "observer_append_2"
+      "set": "observer_append_2",
+      "purchase": "observer_append_2"
     },
     {
       "idx": 225,
@@ -2064,7 +2288,8 @@
         "en": "AlterAle"
       },
       "artist": "Arik Kau Delay (アラ＆かゆき＆でり）",
-      "set": "observer_append_2"
+      "set": "observer_append_2",
+      "purchase": "observer_append_2"
     },
     {
       "idx": 226,
@@ -2074,7 +2299,8 @@
         "ja": "光速神授説 - Divine Light of Myriad -"
       },
       "artist": "yoho",
-      "set": "observer_append_2"
+      "set": "observer_append_2",
+      "purchase": "observer_append_2"
     },
     {
       "idx": 227,
@@ -2083,7 +2309,8 @@
         "en": "Mazy Metroplex"
       },
       "artist": "aran",
-      "set": "wacca"
+      "set": "wacca",
+      "purchase": "wacca"
     },
     {
       "idx": 228,
@@ -2092,7 +2319,8 @@
         "en": "Quon"
       },
       "artist": "DJ Noriken",
-      "set": "wacca"
+      "set": "wacca",
+      "purchase": "wacca"
     },
     {
       "idx": 229,
@@ -2101,7 +2329,8 @@
         "en": "with U"
       },
       "artist": "t+pazolite & Massive New Krew feat. リリィ(CV:青木志貴)",
-      "set": "wacca"
+      "set": "wacca",
+      "purchase": "wacca"
     },
     {
       "idx": 230,
@@ -2110,7 +2339,8 @@
         "en": "GENOCIDER"
       },
       "artist": "DJ Myosuke",
-      "set": "wacca"
+      "set": "wacca",
+      "purchase": "wacca"
     },
     {
       "idx": 231,
@@ -2119,7 +2349,8 @@
         "en": "Let you DIVE! (nitro rmx)"
       },
       "artist": "nitro (lowiro)",
-      "set": "wacca"
+      "set": "wacca",
+      "purchase": "wacca"
     },
     {
       "idx": 232,
@@ -2128,7 +2359,8 @@
         "en": "Sheriruth (Laur Remix)"
       },
       "artist": "Laur",
-      "set": "single"
+      "set": "single",
+      "purchase": "sheriruthrmx"
     },
     {
       "idx": 233,
@@ -2138,7 +2370,8 @@
         "ja": "緋纏いの宵"
       },
       "artist": "Freezer feat.妃苺",
-      "set": "single"
+      "set": "single",
+      "purchase": "eveninginscarlet"
     },
     {
       "idx": 234,
@@ -2147,7 +2380,8 @@
         "en": "blue comet"
       },
       "artist": "ああああ",
-      "set": "extend"
+      "set": "extend",
+      "purchase": "extend"
     },
     {
       "idx": 235,
@@ -2156,7 +2390,8 @@
         "en": "ENERGY SYNERGY MATRIX"
       },
       "artist": "Tanchiky",
-      "set": "extend"
+      "set": "extend",
+      "purchase": "extend"
     },
     {
       "idx": 236,
@@ -2165,7 +2400,8 @@
         "en": "G e n g a o z o"
       },
       "artist": "-45",
-      "set": "extend"
+      "set": "extend",
+      "purchase": "extend"
     },
     {
       "idx": 237,
@@ -2174,7 +2410,8 @@
         "en": "goldenslaughterer"
       },
       "artist": "zts",
-      "set": "single"
+      "set": "single",
+      "purchase": "goldenslaughterer"
     },
     {
       "idx": 238,
@@ -2183,7 +2420,8 @@
         "en": "lastendconductor"
       },
       "artist": "zts",
-      "set": "single"
+      "set": "single",
+      "purchase": "lastendconductor"
     },
     {
       "idx": 239,
@@ -2192,7 +2430,8 @@
         "en": "Redolent Shape"
       },
       "artist": "Sanaas",
-      "set": "single"
+      "set": "single",
+      "purchase": "redolentshape"
     },
     {
       "idx": 240,
@@ -2201,7 +2440,8 @@
         "en": "Cosmica"
       },
       "artist": "Nhato",
-      "set": "nijuusei_append_1"
+      "set": "nijuusei_append_1",
+      "purchase": "nijuusei_append_1"
     },
     {
       "idx": 241,
@@ -2210,7 +2450,8 @@
         "en": "Ascent"
       },
       "artist": "TANUKI",
-      "set": "nijuusei_append_1"
+      "set": "nijuusei_append_1",
+      "purchase": "nijuusei_append_1"
     },
     {
       "idx": 242,
@@ -2219,7 +2460,8 @@
         "en": "Live Fast Die Young"
       },
       "artist": "anubasu-anubasu",
-      "set": "nijuusei_append_1"
+      "set": "nijuusei_append_1",
+      "purchase": "nijuusei_append_1"
     },
     {
       "idx": 243,
@@ -2229,7 +2471,8 @@
         "ja": "彩る夏の恋花火"
       },
       "artist": "karatoPαnchii feat.はるの",
-      "set": "single"
+      "set": "single",
+      "purchase": "summerfireworks"
     },
     {
       "idx": 244,
@@ -2238,7 +2481,8 @@
         "en": "First Snow"
       },
       "artist": "黒魔",
-      "set": "dividedheart"
+      "set": "dividedheart",
+      "purchase": "dividedheart"
     },
     {
       "idx": 245,
@@ -2247,7 +2491,8 @@
         "en": "Blue Rose"
       },
       "artist": "Cosmograph",
-      "set": "dividedheart"
+      "set": "dividedheart",
+      "purchase": "dividedheart"
     },
     {
       "idx": 246,
@@ -2256,7 +2501,8 @@
         "en": "Blocked Library"
       },
       "artist": "影虎。",
-      "set": "dividedheart"
+      "set": "dividedheart",
+      "purchase": "dividedheart"
     },
     {
       "idx": 247,
@@ -2268,7 +2514,8 @@
         "zh-Hans": "neo kosmo"
       },
       "artist": "ak+q × Street",
-      "set": "dividedheart"
+      "set": "dividedheart",
+      "purchase": "dividedheart"
     },
     {
       "idx": 248,
@@ -2277,7 +2524,8 @@
         "en": "Lightning Screw"
       },
       "artist": "HiTECH NINJA",
-      "set": "dividedheart"
+      "set": "dividedheart",
+      "purchase": "dividedheart"
     },
     {
       "idx": 249,
@@ -2286,7 +2534,8 @@
         "en": "Lights of Muse"
       },
       "artist": "Ayatsugu_Otowa",
-      "set": "musedash"
+      "set": "musedash",
+      "purchase": "musedash"
     },
     {
       "idx": 250,
@@ -2295,7 +2544,8 @@
         "en": "Final Step!"
       },
       "artist": "Lime",
-      "set": "musedash"
+      "set": "musedash",
+      "purchase": "musedash"
     },
     {
       "idx": 251,
@@ -2305,7 +2555,8 @@
         "ja": "秋の陽炎"
       },
       "artist": "karatoPαnchii feat.はるの",
-      "set": "musedash"
+      "set": "musedash",
+      "purchase": "musedash"
     },
     {
       "idx": 252,
@@ -2314,7 +2565,8 @@
         "en": "Medusa"
       },
       "artist": "HiTECH NINJA",
-      "set": "musedash"
+      "set": "musedash",
+      "purchase": "musedash"
     },
     {
       "idx": 253,
@@ -2323,7 +2575,8 @@
         "en": "init()"
       },
       "artist": "kamome sano",
-      "set": "single"
+      "set": "single",
+      "purchase": "init"
     },
     {
       "idx": 254,
@@ -2332,7 +2585,8 @@
         "en": "INTERNET OVERDOSE"
       },
       "artist": "Aiobahn feat. KOTOKO",
-      "set": "single"
+      "set": "single",
+      "purchase": "internetoverdose"
     },
     {
       "idx": 255,
@@ -2341,7 +2595,8 @@
         "en": "Sakura Fubuki"
       },
       "artist": "Street",
-      "set": "base"
+      "set": "base",
+      "purchase": ""
     },
     {
       "idx": 256,
@@ -2350,7 +2605,8 @@
         "en": "NULCTRL"
       },
       "artist": "Silentroom",
-      "set": "base"
+      "set": "base",
+      "purchase": ""
     },
     {
       "idx": 257,
@@ -2359,7 +2615,8 @@
         "en": "Macrocosmic Modulation"
       },
       "artist": "JAKAZiD",
-      "set": "single"
+      "set": "single",
+      "purchase": "macromod"
     },
     {
       "idx": 258,
@@ -2368,7 +2625,8 @@
         "en": "NEO WINGS"
       },
       "artist": "SOUND HOLIC feat. Nana Takahashi",
-      "set": "single"
+      "set": "single",
+      "purchase": "neowings"
     },
     {
       "idx": 259,
@@ -2377,7 +2635,8 @@
         "en": "Kissing Lucifer"
       },
       "artist": "ETIA.",
-      "set": "single"
+      "set": "single",
+      "purchase": "kissinglucifer"
     },
     {
       "idx": 260,
@@ -2387,7 +2646,8 @@
         "ko_dialog": "Avril -Flicka i krans-"
       },
       "artist": "Rigël Theatre",
-      "set": "base"
+      "set": "base",
+      "purchase": ""
     },
     {
       "idx": 261,
@@ -2396,7 +2656,8 @@
         "en": "Aurgelmir"
       },
       "artist": "溝口ゆうま feat. 大瀬良あい",
-      "set": "single"
+      "set": "single",
+      "purchase": "aurgelmir"
     },
     {
       "idx": 262,
@@ -2405,7 +2666,8 @@
         "en": "Head BONK ache"
       },
       "artist": "saaa ft. MC iwata Bros.",
-      "set": "single"
+      "set": "single",
+      "purchase": "headbonkache"
     },
     {
       "idx": 263,
@@ -2414,7 +2676,8 @@
         "en": "DDD"
       },
       "artist": "はがね",
-      "set": "base"
+      "set": "base",
+      "purchase": ""
     },
     {
       "idx": 264,
@@ -2423,7 +2686,8 @@
         "en": "Prism"
       },
       "artist": "bermei.inazawa ft. Chata",
-      "set": "lanota_append_1"
+      "set": "lanota_append_1",
+      "purchase": "lanota_append_1"
     },
     {
       "idx": 265,
@@ -2432,7 +2696,8 @@
         "en": "Protoflicker"
       },
       "artist": "Silentroom",
-      "set": "lanota_append_1"
+      "set": "lanota_append_1",
+      "purchase": "lanota_append_1"
     },
     {
       "idx": 266,
@@ -2441,7 +2706,8 @@
         "en": "Stasis"
       },
       "artist": "Maozon",
-      "set": "lanota_append_1"
+      "set": "lanota_append_1",
+      "purchase": "lanota_append_1"
     },
     {
       "idx": 267,
@@ -2451,7 +2717,8 @@
         "ja": "ピコPico*とらんすれーしょんっ！"
       },
       "artist": "t+pazolite,ななひら,Cranky,Pico*",
-      "set": "single"
+      "set": "single",
+      "purchase": "picopicotranslation"
     },
     {
       "idx": 268,
@@ -2461,7 +2728,8 @@
         "ja": "ネコノテ・カリタガール"
       },
       "artist": "Ino(chronoize)",
-      "set": "base"
+      "set": "base",
+      "purchase": ""
     },
     {
       "idx": 269,
@@ -2470,7 +2738,8 @@
         "en": "μ"
       },
       "artist": "Frums",
-      "set": "single"
+      "set": "single",
+      "purchase": "mu"
     },
     {
       "idx": 270,
@@ -2479,7 +2748,8 @@
         "en": "san skia"
       },
       "artist": "ユアミトス",
-      "set": "base"
+      "set": "base",
+      "purchase": ""
     },
     {
       "idx": 271,
@@ -2488,7 +2758,8 @@
         "en": "Altair (feat. *spiLa*)"
       },
       "artist": "kamome sano & you",
-      "set": "base"
+      "set": "base",
+      "purchase": ""
     },
     {
       "idx": 272,
@@ -2498,7 +2769,8 @@
         "ja": "無機質世界に彩を"
       },
       "artist": "MisomyL",
-      "set": "base"
+      "set": "base",
+      "purchase": ""
     },
     {
       "idx": 273,
@@ -2507,7 +2779,8 @@
         "en": "Trap Crow"
       },
       "artist": "Puru",
-      "set": "base"
+      "set": "base",
+      "purchase": ""
     },
     {
       "idx": 274,
@@ -2516,7 +2789,8 @@
         "en": "PUPA"
       },
       "artist": "モリモリあつし",
-      "set": "single"
+      "set": "single",
+      "purchase": "pupa"
     },
     {
       "idx": 275,
@@ -2525,7 +2799,8 @@
         "en": "Defection"
       },
       "artist": "TeddyLoid feat. DELTA",
-      "set": "finale"
+      "set": "finale",
+      "purchase": "finale"
     },
     {
       "idx": 276,
@@ -2534,7 +2809,8 @@
         "en": "Infinite Strife,"
       },
       "artist": "BlackYooh vs. siromaru",
-      "set": "finale"
+      "set": "finale",
+      "purchase": "finale"
     },
     {
       "idx": 277,
@@ -2544,7 +2820,8 @@
         "ja": "魔王"
       },
       "artist": "sasakure.UK × TJ.hangneil",
-      "set": "finale"
+      "set": "finale",
+      "purchase": "finale"
     },
     {
       "idx": 278,
@@ -2553,7 +2830,8 @@
         "en": "Pentiment"
       },
       "artist": "Nothing But Requiem with Museo",
-      "set": "finale"
+      "set": "finale",
+      "purchase": "finale"
     },
     {
       "idx": 279,
@@ -2562,7 +2840,8 @@
         "en": "Arcana Eden"
       },
       "artist": "Team Grimoire vs Sakuzyo vs Laur",
-      "set": "finale"
+      "set": "finale",
+      "purchase": "finale"
     },
     {
       "idx": 280,
@@ -2571,7 +2850,8 @@
         "en": "Testify"
       },
       "artist": "void (Mournfinale) feat. 星熊南巫",
-      "set": "finale"
+      "set": "finale",
+      "purchase": "finale"
     },
     {
       "idx": 281,
@@ -2580,7 +2860,8 @@
         "en": "Loveless Dress"
       },
       "artist": "かねこちはる",
-      "set": "epilogue"
+      "set": "epilogue",
+      "purchase": "finale"
     },
     {
       "idx": 282,
@@ -2589,7 +2870,8 @@
         "en": "Last"
       },
       "artist": "onoken",
-      "set": "epilogue"
+      "set": "epilogue",
+      "purchase": "finale"
     },
     {
       "idx": 283,
@@ -2598,7 +2880,8 @@
         "en": "Last | Eternity"
       },
       "artist": "onoken",
-      "set": "epilogue"
+      "set": "epilogue",
+      "purchase": "finale"
     },
     {
       "idx": 284,
@@ -2607,7 +2890,8 @@
         "en": "Callima Karma"
       },
       "artist": "t+pazolite vs Feryquitous",
-      "set": "epilogue"
+      "set": "epilogue",
+      "purchase": "finale"
     },
     {
       "idx": 285,
@@ -2617,7 +2901,8 @@
         "ja": "心"
       },
       "artist": "削除 (Violin : Katali)",
-      "set": "ongeki_append_1"
+      "set": "ongeki_append_1",
+      "purchase": "ongeki_append_1"
     },
     {
       "idx": 286,
@@ -2626,7 +2911,8 @@
         "en": "Ai Drew"
       },
       "artist": "Feryquitous",
-      "set": "ongeki_append_1"
+      "set": "ongeki_append_1",
+      "purchase": "ongeki_append_1"
     },
     {
       "idx": 287,
@@ -2635,7 +2921,8 @@
         "en": "FLUFFY FLASH"
       },
       "artist": "Kobaryo",
-      "set": "ongeki_append_1"
+      "set": "ongeki_append_1",
+      "purchase": "ongeki_append_1"
     },
     {
       "idx": 288,
@@ -2644,7 +2931,8 @@
         "en": "Good bye, Merry-Go-Round."
       },
       "artist": "Yooh",
-      "set": "ongeki_append_1"
+      "set": "ongeki_append_1",
+      "purchase": "ongeki_append_1"
     },
     {
       "idx": 289,
@@ -2653,7 +2941,8 @@
         "en": "LAMIA"
       },
       "artist": "BlackY",
-      "set": "ongeki_append_1"
+      "set": "ongeki_append_1",
+      "purchase": "ongeki_append_1"
     },
     {
       "idx": 290,
@@ -2662,7 +2951,8 @@
         "en": "Free Myself"
       },
       "artist": "lapix feat. mami",
-      "set": "single"
+      "set": "single",
+      "purchase": "freemyself"
     },
     {
       "idx": 291,
@@ -2671,7 +2961,8 @@
         "en": "cocoro*cosmetic"
       },
       "artist": "KOTONOHOUSE",
-      "set": "single"
+      "set": "single",
+      "purchase": "cocorocosmetic"
     },
     {
       "idx": 292,
@@ -2680,7 +2971,8 @@
         "en": "Capella"
       },
       "artist": "ARForest",
-      "set": "single"
+      "set": "single",
+      "purchase": "capella"
     },
     {
       "idx": 293,
@@ -2690,7 +2982,8 @@
         "ja": "だいあるのーと"
       },
       "artist": "七草くりむ",
-      "set": "base"
+      "set": "base",
+      "purchase": ""
     },
     {
       "idx": 294,
@@ -2700,7 +2993,8 @@
         "ja": "月に叢雲華に風"
       },
       "artist": "幽閉サテライト",
-      "set": "extend_2"
+      "set": "extend_2",
+      "purchase": "extend_2"
     },
     {
       "idx": 295,
@@ -2709,7 +3003,8 @@
         "en": "MANTIS (Arcaea Ultra-Bloodrush VIP)"
       },
       "artist": "Akira Complex feat. kiraku",
-      "set": "extend_2"
+      "set": "extend_2",
+      "purchase": "extend_2"
     },
     {
       "idx": 296,
@@ -2718,7 +3013,8 @@
         "en": "World Fragments III(radio edit)"
       },
       "artist": "xi",
-      "set": "extend_2"
+      "set": "extend_2",
+      "purchase": "extend_2"
     },
     {
       "idx": 297,
@@ -2727,7 +3023,8 @@
         "en": "Astra walkthrough"
       },
       "artist": "paraoka",
-      "set": "extend_2"
+      "set": "extend_2",
+      "purchase": "extend_2"
     },
     {
       "idx": 298,
@@ -2736,7 +3033,8 @@
         "en": "Chronicle"
       },
       "artist": "Lime",
-      "set": "extend_2"
+      "set": "extend_2",
+      "purchase": "extend_2"
     },
     {
       "idx": 299,
@@ -2745,7 +3043,8 @@
         "en": "NULL APOPHENIA"
       },
       "artist": "N²",
-      "set": "single"
+      "set": "single",
+      "purchase": "nullapophenia"
     },
     {
       "idx": 300,
@@ -2754,7 +3053,8 @@
         "en": "Crimson Throne"
       },
       "artist": "Dimier√Lisb",
-      "set": "single"
+      "set": "single",
+      "purchase": "crimsonthrone"
     },
     {
       "idx": 301,
@@ -2763,7 +3063,8 @@
         "en": "Manic Jeer"
       },
       "artist": "ルゼ",
-      "set": "single"
+      "set": "single",
+      "purchase": "manicjeer"
     },
     {
       "idx": 302,
@@ -2773,7 +3074,8 @@
         "ja": "緋色月下、狂咲ノ絶 (nayuta 2017 ver.)"
       },
       "artist": "nayuta x 黒鳥(EastNewSound)",
-      "set": "single"
+      "set": "single",
+      "purchase": "hiirogekka"
     },
     {
       "idx": 303,
@@ -2782,7 +3084,8 @@
         "en": "Let's Rock (Arcaea mix)"
       },
       "artist": "ikaruga_nex vs FALCHiON",
-      "set": "extend_2"
+      "set": "extend_2",
+      "purchase": "extend_2"
     },
     {
       "idx": 304,
@@ -2791,7 +3094,8 @@
         "en": "CYCLES"
       },
       "artist": "Masayoshi Minoshima feat. 綾倉盟",
-      "set": "maimai_append_1"
+      "set": "maimai_append_1",
+      "purchase": "maimai_append_1"
     },
     {
       "idx": 305,
@@ -2800,7 +3104,8 @@
         "en": "MAXRAGE"
       },
       "artist": "EBIMAYO",
-      "set": "maimai_append_1"
+      "set": "maimai_append_1",
+      "purchase": "maimai_append_1"
     },
     {
       "idx": 306,
@@ -2809,7 +3114,8 @@
         "en": "[X]"
       },
       "artist": "Blacklolita",
-      "set": "maimai_append_1"
+      "set": "maimai_append_1",
+      "purchase": "maimai_append_1"
     },
     {
       "idx": 307,
@@ -2818,7 +3124,8 @@
         "en": "TEmPTaTiON"
       },
       "artist": "かねこちはる",
-      "set": "maimai_append_1"
+      "set": "maimai_append_1",
+      "purchase": "maimai_append_1"
     },
     {
       "idx": 308,
@@ -2827,7 +3134,8 @@
         "en": "PRIMITIVE LIGHTS"
       },
       "artist": "TAG",
-      "set": "single"
+      "set": "single",
+      "purchase": "primitivelights"
     },
     {
       "idx": 309,
@@ -2837,7 +3145,8 @@
         "ja": "コスモポップファンクラブ"
       },
       "artist": "ナユタン星人",
-      "set": "chunithm_append_2"
+      "set": "chunithm_append_2",
+      "purchase": "chunithm_append_2"
     },
     {
       "idx": 310,
@@ -2846,7 +3155,8 @@
         "en": "IMPACT"
       },
       "artist": "USAO feat. 光吉猛修",
-      "set": "chunithm_append_2"
+      "set": "chunithm_append_2",
+      "purchase": "chunithm_append_2"
     },
     {
       "idx": 311,
@@ -2855,7 +3165,8 @@
         "en": "Genesis"
       },
       "artist": "Morrigan feat.Lily",
-      "set": "chunithm_append_2"
+      "set": "chunithm_append_2",
+      "purchase": "chunithm_append_2"
     },
     {
       "idx": 312,
@@ -2864,7 +3175,8 @@
         "en": "Trrricksters!!"
       },
       "artist": "s-don vs. 翡乃イスカ",
-      "set": "chunithm_append_2"
+      "set": "chunithm_append_2",
+      "purchase": "chunithm_append_2"
     },
     {
       "idx": 313,
@@ -2874,7 +3186,8 @@
         "ja": "蜘蛛の糸"
       },
       "artist": "きくお×cosMo＠暴走P feat.影縫英",
-      "set": "chunithm_append_2"
+      "set": "chunithm_append_2",
+      "purchase": "chunithm_append_2"
     },
     {
       "idx": 314,
@@ -2883,7 +3196,8 @@
         "en": "Lost Emotion feat. nomico"
       },
       "artist": "Masayoshi Minoshima(ALR)",
-      "set": "extend_2"
+      "set": "extend_2",
+      "purchase": "extend_2"
     },
     {
       "idx": 315,
@@ -2892,7 +3206,8 @@
         "en": "GIMMICK"
       },
       "artist": "Ms.Sill",
-      "set": "extend_2"
+      "set": "extend_2",
+      "purchase": "extend_2"
     },
     {
       "idx": 316,
@@ -2901,7 +3216,8 @@
         "en": "The Survivor (Game Edit)"
       },
       "artist": "Taishi",
-      "set": "single"
+      "set": "single",
+      "purchase": "thesurvivor"
     },
     {
       "idx": 317,
@@ -2910,7 +3226,8 @@
         "en": "New York Back Raise"
       },
       "artist": "saaa + kei_iwata + stuv + わかどり",
-      "set": "single"
+      "set": "single",
+      "purchase": "newyorkbackraise"
     },
     {
       "idx": 318,
@@ -2919,7 +3236,8 @@
         "en": "Galactic Love"
       },
       "artist": "La prière",
-      "set": "single"
+      "set": "single",
+      "purchase": "galacticlove"
     },
     {
       "idx": 319,
@@ -2929,7 +3247,8 @@
         "ja": "無法地点"
       },
       "artist": "La prière",
-      "set": "extend_2"
+      "set": "extend_2",
+      "purchase": "extend_2"
     },
     {
       "idx": 320,
@@ -2938,7 +3257,8 @@
         "en": "Lost in the Abyss"
       },
       "artist": "FELT",
-      "set": "single"
+      "set": "single",
+      "purchase": "lostintheabyss"
     },
     {
       "idx": 321,
@@ -2948,7 +3268,8 @@
         "ja": "ヒュブリスの頂に聳えるのは"
       },
       "artist": "qfeileadh feat.のあ",
-      "set": "extend_2"
+      "set": "extend_2",
+      "purchase": "extend_2"
     },
     {
       "idx": 322,
@@ -2957,7 +3278,8 @@
         "en": "To the Milky Way"
       },
       "artist": "黒魔",
-      "set": "single"
+      "set": "single",
+      "purchase": "tothemilkyway"
     },
     {
       "idx": 323,
@@ -2966,7 +3288,8 @@
         "en": "INTERNET YAMERO"
       },
       "artist": "Aiobahn feat. KOTOKO",
-      "set": "single"
+      "set": "single",
+      "purchase": "internetyamero"
     },
     {
       "idx": 324,
@@ -2975,7 +3298,8 @@
         "en": "Bullet Waiting for Me (James Landino remix)"
       },
       "artist": "Nikki Simmons",
-      "set": "cytusii"
+      "set": "cytusii",
+      "purchase": "cytusii"
     },
     {
       "idx": 325,
@@ -2984,7 +3308,8 @@
         "en": "Devillic Sphere"
       },
       "artist": "3R2",
-      "set": "cytusii"
+      "set": "cytusii",
+      "purchase": "cytusii"
     },
     {
       "idx": 326,
@@ -2993,7 +3318,8 @@
         "en": "Lucid Traveler"
       },
       "artist": "Akira Complex vs 3R2",
-      "set": "cytusii"
+      "set": "cytusii",
+      "purchase": "cytusii"
     },
     {
       "idx": 327,
@@ -3002,7 +3328,8 @@
         "en": "CHAOS"
       },
       "artist": "Æsir",
-      "set": "cytusii"
+      "set": "cytusii",
+      "purchase": "cytusii"
     },
     {
       "idx": 328,
@@ -3011,7 +3338,8 @@
         "en": "Used to be"
       },
       "artist": "KIVΛ",
-      "set": "cytusii"
+      "set": "cytusii",
+      "purchase": "cytusii"
     },
     {
       "idx": 329,
@@ -3020,7 +3348,8 @@
         "en": "Ultimate taste"
       },
       "artist": "ぱらどっと",
-      "set": "extend_2"
+      "set": "extend_2",
+      "purchase": "extend_2"
     },
     {
       "idx": 330,
@@ -3030,7 +3359,8 @@
         "ko_dialog": "syuten"
       },
       "artist": "Apo11o\"COLLAPSAR\"program ft. 大瀬良あい",
-      "set": "cytusii_append_1"
+      "set": "cytusii_append_1",
+      "purchase": "cytusii_append_1"
     },
     {
       "idx": 331,
@@ -3039,7 +3369,8 @@
         "en": "DRG"
       },
       "artist": "onoken",
-      "set": "cytusii_append_1"
+      "set": "cytusii_append_1",
+      "purchase": "cytusii_append_1"
     },
     {
       "idx": 332,
@@ -3048,7 +3379,8 @@
         "en": "99 Glooms"
       },
       "artist": "Sta",
-      "set": "cytusii_append_1"
+      "set": "cytusii_append_1",
+      "purchase": "cytusii_append_1"
     },
     {
       "idx": 333,
@@ -3060,7 +3392,8 @@
         "ko": "II"
       },
       "artist": "Cytus",
-      "set": "cytusii_append_1"
+      "set": "cytusii_append_1",
+      "purchase": "cytusii_append_1"
     },
     {
       "idx": 334,
@@ -3069,7 +3402,8 @@
         "en": "Magnolia"
       },
       "artist": "M2U Vocal by Guriri",
-      "set": "cytusii_append_1"
+      "set": "cytusii_append_1",
+      "purchase": "cytusii_append_1"
     },
     {
       "idx": 335,
@@ -3078,7 +3412,8 @@
         "en": "SACRIFICE feat. ayame"
       },
       "artist": "Masayoshi Minoshima(ALR)",
-      "set": "single"
+      "set": "single",
+      "purchase": "sacrifice"
     },
     {
       "idx": 336,
@@ -3087,7 +3422,8 @@
         "en": "RGB"
       },
       "artist": "MEMODEMO X AQUASINE",
-      "set": "extend_2"
+      "set": "extend_2",
+      "purchase": "extend_2"
     },
     {
       "idx": 337,
@@ -3096,7 +3432,8 @@
         "en": "WAIT FOR DAWN"
       },
       "artist": "U-ske feat. 棗いつき",
-      "set": "eden"
+      "set": "eden",
+      "purchase": "eden"
     },
     {
       "idx": 338,
@@ -3106,7 +3443,8 @@
         "ja": "レイヴンズ・プライド"
       },
       "artist": "みーに feat. はらもりよしな",
-      "set": "eden"
+      "set": "eden",
+      "purchase": "eden"
     },
     {
       "idx": 339,
@@ -3115,7 +3453,8 @@
         "en": "Rise of the World"
       },
       "artist": "cosMo＠暴走P",
-      "set": "eden"
+      "set": "eden",
+      "purchase": "eden"
     },
     {
       "idx": 340,
@@ -3124,7 +3463,8 @@
         "en": "UNKNOWN LEVELS"
       },
       "artist": "Yuta Imai",
-      "set": "eden"
+      "set": "eden",
+      "purchase": "eden"
     },
     {
       "idx": 341,
@@ -3133,7 +3473,8 @@
         "en": "Abstruse Dilemma"
       },
       "artist": "Ashrount vs. 打打だいず",
-      "set": "eden"
+      "set": "eden",
+      "purchase": "eden"
     },
     {
       "idx": 342,
@@ -3143,7 +3484,8 @@
         "ja": "感情の摩天楼 ～Arr.Demetori"
       },
       "artist": "Demetori",
-      "set": "extend_2"
+      "set": "extend_2",
+      "purchase": "extend_2"
     },
     {
       "idx": 343,
@@ -3153,7 +3495,8 @@
         "ja": "彼方の夢へと"
       },
       "artist": "ii/night feat. 綺良雪",
-      "set": "single"
+      "set": "single",
+      "purchase": "tothefurthestdream"
     },
     {
       "idx": 344,
@@ -3162,7 +3505,8 @@
         "en": "Remind the Souls (Short Version)"
       },
       "artist": "Nhato",
-      "set": "base"
+      "set": "base",
+      "purchase": ""
     },
     {
       "idx": 345,
@@ -3172,7 +3516,8 @@
         "ko_dialog": "Dynitikos"
       },
       "artist": "Prower",
-      "set": "extend_2"
+      "set": "extend_2",
+      "purchase": "extend_2"
     },
     {
       "idx": 346,
@@ -3182,7 +3527,8 @@
         "ja": "雨神楽"
       },
       "artist": "荒谷サトル",
-      "set": "extend_2"
+      "set": "extend_2",
+      "purchase": "extend_2"
     },
     {
       "idx": 347,
@@ -3191,7 +3537,8 @@
         "en": "B.B.K.K.B.K.K."
       },
       "artist": "nora2r",
-      "set": "single"
+      "set": "single",
+      "purchase": "bbkkbkk"
     },
     {
       "idx": 348,
@@ -3200,7 +3547,8 @@
         "en": "Primeval Texture"
       },
       "artist": "くるぶっこちゃん",
-      "set": "eden_append_1"
+      "set": "eden_append_1",
+      "purchase": "eden_append_1"
     },
     {
       "idx": 349,
@@ -3209,7 +3557,8 @@
         "en": "Technicolour"
       },
       "artist": "Maozon",
-      "set": "eden_append_1"
+      "set": "eden_append_1",
+      "purchase": "eden_append_1"
     },
     {
       "idx": 350,
@@ -3218,7 +3567,8 @@
         "en": "Logos"
       },
       "artist": "polysha feat. 高城みよ",
-      "set": "eden_append_1"
+      "set": "eden_append_1",
+      "purchase": "eden_append_1"
     },
     {
       "idx": 351,
@@ -3227,7 +3577,8 @@
         "en": "Ego Eimi"
       },
       "artist": "BlackY feat. Risa Yuzuki",
-      "set": "eden_append_1"
+      "set": "eden_append_1",
+      "purchase": "eden_append_1"
     },
     {
       "idx": 352,
@@ -3236,7 +3587,8 @@
         "en": "Arghena"
       },
       "artist": "Feryquitous vs Laur",
-      "set": "eden_append_1"
+      "set": "eden_append_1",
+      "purchase": "eden_append_1"
     },
     {
       "idx": 353,
@@ -3245,7 +3597,8 @@
         "en": "FANTA5Y"
       },
       "artist": "Moon Jelly & YUKIYANAGI",
-      "set": "extend_2"
+      "set": "extend_2",
+      "purchase": "extend_2"
     },
     {
       "idx": 354,
@@ -3254,7 +3607,8 @@
         "en": "Transient Space"
       },
       "artist": "sleepless, Gardens, aspect",
-      "set": "eden_append_2"
+      "set": "eden_append_2",
+      "purchase": "eden_append_2"
     },
     {
       "idx": 355,
@@ -3263,7 +3617,8 @@
         "en": "Nameless Passion"
       },
       "artist": "天束 feat.Sennzai",
-      "set": "eden_append_2"
+      "set": "eden_append_2",
+      "purchase": "eden_append_2"
     },
     {
       "idx": 356,
@@ -3272,7 +3627,8 @@
         "en": "TeraVolt"
       },
       "artist": "Katali",
-      "set": "eden_append_2"
+      "set": "eden_append_2",
+      "purchase": "eden_append_2"
     },
     {
       "idx": 357,
@@ -3281,7 +3637,8 @@
         "en": "Stratoliner"
       },
       "artist": "C-Show",
-      "set": "wacca_append_1"
+      "set": "wacca_append_1",
+      "purchase": "wacca_append_1"
     },
     {
       "idx": 358,
@@ -3291,7 +3648,8 @@
         "ko_dialog": "Ouverture"
       },
       "artist": "USAO & DJ Genki feat. ルーン(CV:河瀬茉希)",
-      "set": "wacca_append_1"
+      "set": "wacca_append_1",
+      "purchase": "wacca_append_1"
     },
     {
       "idx": 359,
@@ -3300,7 +3658,8 @@
         "en": "XTREME"
       },
       "artist": "USAO",
-      "set": "wacca_append_1"
+      "set": "wacca_append_1",
+      "purchase": "wacca_append_1"
     },
     {
       "idx": 360,
@@ -3309,7 +3668,8 @@
         "en": "eden"
       },
       "artist": "\"漆黒\"の堕天使《Gram》†Versus†\"聖刻\"の熾天使《Gram》",
-      "set": "wacca_append_1"
+      "set": "wacca_append_1",
+      "purchase": "wacca_append_1"
     },
     {
       "idx": 361,
@@ -3318,7 +3678,8 @@
         "en": "Meta-Mysteria"
       },
       "artist": "DJ Noriken",
-      "set": "wacca_append_1"
+      "set": "wacca_append_1",
+      "purchase": "wacca_append_1"
     },
     {
       "idx": 362,
@@ -3328,7 +3689,8 @@
         "ja": "アローンアンドローン"
       },
       "artist": "Ponchi♪ feat.はぁち",
-      "set": "extend_2"
+      "set": "extend_2",
+      "purchase": "extend_2"
     },
     {
       "idx": 363,
@@ -3337,7 +3699,8 @@
         "en": "Wish Upon a Snow"
       },
       "artist": "打打だいず",
-      "set": "single"
+      "set": "single",
+      "purchase": "wishuponasnow"
     },
     {
       "idx": 364,
@@ -3347,7 +3710,8 @@
         "ja": "患部で止まってすぐ溶ける　〜 狂気の優曇華院"
       },
       "artist": "ARM＋夕野ヨシミ (IOSYS) feat. miko",
-      "set": "single"
+      "set": "single",
+      "purchase": "overdrive"
     },
     {
       "idx": 365,
@@ -3356,7 +3720,8 @@
         "en": "felys final remix"
       },
       "artist": "onoken",
-      "set": "extend_2"
+      "set": "extend_2",
+      "purchase": "extend_2"
     },
     {
       "idx": 366,
@@ -3365,7 +3730,8 @@
         "en": "On And On!! feat. Jenga"
       },
       "artist": "ETIA.",
-      "set": "extend_2"
+      "set": "extend_2",
+      "purchase": "extend_2"
     },
     {
       "idx": 367,
@@ -3374,7 +3740,8 @@
         "en": "LIVHT MY WΔY"
       },
       "artist": "かめりあ feat. STΔRLIVHT",
-      "set": "single"
+      "set": "single",
+      "purchase": "lightmyway"
     },
     {
       "idx": 368,
@@ -3384,7 +3751,8 @@
         "ja": "蛍火の雪"
       },
       "artist": "Endorfin.",
-      "set": "omatsuri"
+      "set": "omatsuri",
+      "purchase": "omatsuri"
     },
     {
       "idx": 369,
@@ -3393,7 +3761,8 @@
         "en": "The Formula"
       },
       "artist": "Junk",
-      "set": "base"
+      "set": "base",
+      "purchase": ""
     },
     {
       "idx": 370,
@@ -3402,7 +3771,8 @@
         "en": "Luna Rossa"
       },
       "artist": "r0y",
-      "set": "single"
+      "set": "single",
+      "purchase": "lunarossa"
     },
     {
       "idx": 371,
@@ -3411,7 +3781,8 @@
         "en": "Jingle"
       },
       "artist": "DJ Noriken",
-      "set": "base"
+      "set": "base",
+      "purchase": ""
     },
     {
       "idx": 372,
@@ -3420,7 +3791,8 @@
         "en": "Innocence"
       },
       "artist": "Powerless feat. Sennzai",
-      "set": "single"
+      "set": "single",
+      "purchase": ""
     },
     {
       "idx": 373,
@@ -3429,7 +3801,8 @@
         "en": "IONOSTREAM"
       },
       "artist": "Tatsh",
-      "set": "single"
+      "set": "single",
+      "purchase": "ionostream"
     },
     {
       "idx": 374,
@@ -3438,7 +3811,8 @@
         "en": "Aleph-0"
       },
       "artist": "LeaF",
-      "set": "extend_2"
+      "set": "extend_2",
+      "purchase": "extend_2"
     },
     {
       "idx": 375,
@@ -3447,7 +3821,8 @@
         "en": "Masquerade Legion"
       },
       "artist": "Srav3R & DJ Noriken",
-      "set": "single"
+      "set": "single",
+      "purchase": "masqueradelegion"
     },
     {
       "idx": 376,
@@ -3457,7 +3832,8 @@
         "ja": "狂恋ROMANCE"
       },
       "artist": "REDALiCE vs DJ Myosuke feat. DELUTAYA",
-      "set": "single"
+      "set": "single",
+      "purchase": "kyorenromance"
     },
     {
       "idx": 377,
@@ -3466,7 +3842,8 @@
         "en": "Qovat"
       },
       "artist": "owl＊tree",
-      "set": "single"
+      "set": "single",
+      "purchase": "qovat"
     },
     {
       "idx": 378,
@@ -3475,7 +3852,8 @@
         "en": "HELLOHELL"
       },
       "artist": "暁Records",
-      "set": "extend_3"
+      "set": "extend_3",
+      "purchase": "extend_3"
     },
     {
       "idx": 379,
@@ -3485,7 +3863,8 @@
         "ko_dialog": "、"
       },
       "artist": "Kolaa & 熊子",
-      "set": "extend_3"
+      "set": "extend_3",
+      "purchase": "extend_3"
     },
     {
       "idx": 380,
@@ -3494,7 +3873,8 @@
         "en": "Awaken In Ruins"
       },
       "artist": "Supa7onyz",
-      "set": "extend_3"
+      "set": "extend_3",
+      "purchase": "extend_3"
     },
     {
       "idx": 381,
@@ -3503,7 +3883,8 @@
         "en": "MORNINGLOOM"
       },
       "artist": "saaa",
-      "set": "extend_3"
+      "set": "extend_3",
+      "purchase": "extend_3"
     },
     {
       "idx": 382,
@@ -3512,7 +3893,8 @@
         "en": "Lethal Voltage"
       },
       "artist": "siqlo",
-      "set": "extend_3"
+      "set": "extend_3",
+      "purchase": "extend_3"
     },
     {
       "idx": 383,
@@ -3521,7 +3903,8 @@
         "en": "MIRINAE"
       },
       "artist": "TAK × Zekk",
-      "set": "single"
+      "set": "single",
+      "purchase": "mirinae"
     },
     {
       "idx": 384,
@@ -3530,7 +3913,8 @@
         "en": "ultradiaxon-N3"
       },
       "artist": "nitro (lowiro)",
-      "set": "single"
+      "set": "single",
+      "purchase": "ultradiaxon"
     },
     {
       "idx": 385,
@@ -3539,7 +3923,8 @@
         "en": "Leave All Behind"
       },
       "artist": "rider",
-      "set": "extend_3"
+      "set": "extend_3",
+      "purchase": "extend_3"
     },
     {
       "idx": 386,
@@ -3548,7 +3933,8 @@
         "en": "Distorted Fate"
       },
       "artist": "Sakuzyo",
-      "set": "single"
+      "set": "single",
+      "purchase": "distortedfate"
     },
     {
       "idx": 387,
@@ -3557,7 +3943,8 @@
         "en": "Floating World"
       },
       "artist": "baker feat. botan",
-      "set": "single"
+      "set": "single",
+      "purchase": "floatingworld"
     },
     {
       "idx": 388,
@@ -3566,7 +3953,8 @@
         "en": "Chromafill"
       },
       "artist": "ていぬ",
-      "set": "single"
+      "set": "single",
+      "purchase": "chromafill"
     },
     {
       "idx": 389,
@@ -3576,7 +3964,8 @@
         "ko_dialog": "Desive"
       },
       "artist": "MisomyL",
-      "set": "single"
+      "set": "single",
+      "purchase": ""
     },
     {
       "idx": 390,
@@ -3586,7 +3975,8 @@
         "ja": "エピクロスの虹はもう見えない"
       },
       "artist": "SYNC.ART'S feat.Misato",
-      "set": "base"
+      "set": "base",
+      "purchase": ""
     },
     {
       "idx": 391,
@@ -3596,7 +3986,8 @@
         "ja": "黄昏の協奏曲"
       },
       "artist": "Scarlette",
-      "set": "single"
+      "set": "single",
+      "purchase": "tasogare"
     },
     {
       "idx": 392,
@@ -3605,7 +3996,8 @@
         "en": "Old School Salvage"
       },
       "artist": "DJ SHARPNEL",
-      "set": "extend_3"
+      "set": "extend_3",
+      "purchase": "extend_3"
     },
     {
       "idx": 393,
@@ -3614,7 +4006,8 @@
         "en": "Beautiful Dreamer"
       },
       "artist": "M-Project",
-      "set": "single"
+      "set": "single",
+      "purchase": "beautifuldreamer"
     },
     {
       "idx": 394,
@@ -3623,7 +4016,8 @@
         "en": "Back to Basics"
       },
       "artist": "m1dy",
-      "set": "single"
+      "set": "single",
+      "purchase": "backtobasics"
     },
     {
       "idx": 395,
@@ -3632,7 +4026,8 @@
         "en": "STARGATE EXTREME"
       },
       "artist": "KARUT",
-      "set": "single"
+      "set": "single",
+      "purchase": "stargateextreme"
     },
     {
       "idx": 396,
@@ -3641,7 +4036,8 @@
         "en": "Sign of \"10.5km\""
       },
       "artist": "渡部恭久",
-      "set": "groovecoaster_append_1"
+      "set": "groovecoaster_append_1",
+      "purchase": "groovecoaster_append_1"
     },
     {
       "idx": 397,
@@ -3650,7 +4046,8 @@
         "en": "10pt8ion"
       },
       "artist": "Lite Show Magic",
-      "set": "groovecoaster_append_1"
+      "set": "groovecoaster_append_1",
+      "purchase": "groovecoaster_append_1"
     },
     {
       "idx": 398,
@@ -3659,7 +4056,8 @@
         "en": "Black MInD"
       },
       "artist": "COSIO",
-      "set": "groovecoaster_append_1"
+      "set": "groovecoaster_append_1",
+      "purchase": "groovecoaster_append_1"
     },
     {
       "idx": 399,
@@ -3668,7 +4066,8 @@
         "en": "HYPER VISION"
       },
       "artist": "VOLTA",
-      "set": "single"
+      "set": "single",
+      "purchase": "hypervision"
     },
     {
       "idx": 401,
@@ -3678,7 +4077,8 @@
         "ja": "ディストーション・ニンゲン"
       },
       "artist": "DJ Myosuke & KAJI",
-      "set": "extend_3"
+      "set": "extend_3",
+      "purchase": "extend_3"
     },
     {
       "idx": 402,
@@ -3687,7 +4087,8 @@
         "en": "shrink"
       },
       "artist": "Shohei Tsuchiya(ZUNTATA)",
-      "set": "single"
+      "set": "single",
+      "purchase": "shrink"
     },
     {
       "idx": 403,
@@ -3696,7 +4097,8 @@
         "en": "In Vain"
       },
       "artist": "ryhki",
-      "set": "nihil"
+      "set": "nihil",
+      "purchase": "nihil"
     },
     {
       "idx": 404,
@@ -3705,7 +4107,8 @@
         "en": "Hypnotize"
       },
       "artist": "rejection",
-      "set": "nihil"
+      "set": "nihil",
+      "purchase": "nihil"
     },
     {
       "idx": 405,
@@ -3714,7 +4117,8 @@
         "en": "Ashen 6oundary"
       },
       "artist": "YUKIYANAGI",
-      "set": "nihil"
+      "set": "nihil",
+      "purchase": "nihil"
     },
     {
       "idx": 406,
@@ -3723,7 +4127,8 @@
         "en": "Judgement"
       },
       "artist": "Tatsunoshin",
-      "set": "nihil"
+      "set": "nihil",
+      "purchase": "nihil"
     },
     {
       "idx": 400,
@@ -3732,7 +4137,8 @@
         "en": "ALTER EGO"
       },
       "artist": "Yuta Imai vs Qlarabelle",
-      "set": "nihil"
+      "set": "nihil",
+      "purchase": "nihil"
     },
     {
       "idx": 407,
@@ -3741,7 +4147,8 @@
         "en": "epitaxy"
       },
       "artist": "Camellia",
-      "set": "extend_3"
+      "set": "extend_3",
+      "purchase": "extend_3"
     },
     {
       "idx": 408,
@@ -3750,7 +4157,8 @@
         "en": "Waltz for Lorelei"
       },
       "artist": "Sobrem & 庭師",
-      "set": "rotaeno"
+      "set": "rotaeno",
+      "purchase": "rotaeno"
     },
     {
       "idx": 409,
@@ -3759,7 +4167,8 @@
         "en": "Dual Doom Deathmatch"
       },
       "artist": "Kobaryo vs HyuN",
-      "set": "rotaeno"
+      "set": "rotaeno",
+      "purchase": "rotaeno"
     },
     {
       "idx": 410,
@@ -3768,7 +4177,8 @@
         "en": "Inverted World"
       },
       "artist": "ARForest",
-      "set": "rotaeno"
+      "set": "rotaeno",
+      "purchase": "rotaeno"
     },
     {
       "idx": 411,
@@ -3777,7 +4187,8 @@
         "en": "MVURBD"
       },
       "artist": "ETIA.",
-      "set": "rotaeno"
+      "set": "rotaeno",
+      "purchase": "rotaeno"
     },
     {
       "idx": 412,
@@ -3787,7 +4198,8 @@
         "ko_dialog": "Vulcanus"
       },
       "artist": "Team Grimoire vs Aoi",
-      "set": "rotaeno"
+      "set": "rotaeno",
+      "purchase": "rotaeno"
     },
     {
       "idx": 413,
@@ -3796,7 +4208,8 @@
         "en": "Rain of Conflict in a Radiant Abyss"
       },
       "artist": "ak+q",
-      "set": "single"
+      "set": "single",
+      "purchase": "rainofconflict"
     },
     {
       "idx": 414,
@@ -3805,7 +4218,8 @@
         "en": "Saint or Sinner"
       },
       "artist": "crayvxn",
-      "set": "prelude"
+      "set": "prelude",
+      "purchase": "prelude"
     },
     {
       "idx": 415,
@@ -3814,7 +4228,8 @@
         "en": "Hailstone"
       },
       "artist": "Kazki Misora",
-      "set": "extend_3"
+      "set": "extend_3",
+      "purchase": "extend_3"
     },
     {
       "idx": 416,
@@ -3824,7 +4239,8 @@
         "ja": "フレテミタイ"
       },
       "artist": "みきとP",
-      "set": "extend_3"
+      "set": "extend_3",
+      "purchase": "extend_3"
     },
     {
       "idx": 417,
@@ -3834,7 +4250,8 @@
         "ja": "幻想のサテライト"
       },
       "artist": "豚乙女",
-      "set": "single"
+      "set": "single",
+      "purchase": "gensounosatellite"
     },
     {
       "idx": 418,
@@ -3844,7 +4261,8 @@
         "ja": "プレヤ"
       },
       "artist": "qfeileadh&レゾナンスもえこ",
-      "set": "extend_3"
+      "set": "extend_3",
+      "purchase": "extend_3"
     },
     {
       "idx": 419,
@@ -3853,7 +4271,8 @@
         "en": "Crimson Quartz"
       },
       "artist": "DiGiTAL WiNG with 空音",
-      "set": "single"
+      "set": "single",
+      "purchase": "crimsonquartz"
     },
     {
       "idx": 420,
@@ -3862,7 +4281,8 @@
         "en": "Third Sun"
       },
       "artist": "Ash Astral",
-      "set": "single"
+      "set": "single",
+      "purchase": "thirdsun"
     },
     {
       "idx": 421,
@@ -3871,7 +4291,8 @@
         "en": "Spirit of the Dauntless"
       },
       "artist": "KO3 & Relect",
-      "set": "single"
+      "set": "single",
+      "purchase": "spiritdauntless"
     },
     {
       "idx": 422,
@@ -3880,7 +4301,8 @@
         "en": "Dies irae"
       },
       "artist": "お月さま交響曲",
-      "set": "single"
+      "set": "single",
+      "purchase": "diesirae"
     },
     {
       "idx": 423,
@@ -3889,7 +4311,8 @@
         "en": "astral.exe"
       },
       "artist": "Synzak & Laxeno57",
-      "set": "extend_3"
+      "set": "extend_3",
+      "purchase": "extend_3"
     },
     {
       "idx": 424,
@@ -3898,7 +4321,8 @@
         "en": "LiftOff"
       },
       "artist": "MAYA AKAI",
-      "set": "ongeki_append_2"
+      "set": "ongeki_append_2",
+      "purchase": "ongeki_append_2"
     },
     {
       "idx": 425,
@@ -3907,7 +4331,8 @@
         "en": "SUPER AMBULANCE"
       },
       "artist": "AJURIKA",
-      "set": "ongeki_append_2"
+      "set": "ongeki_append_2",
+      "purchase": "ongeki_append_2"
     },
     {
       "idx": 426,
@@ -3916,7 +4341,8 @@
         "en": "Don't Fight The Music"
       },
       "artist": "黒魔",
-      "set": "ongeki_append_2"
+      "set": "ongeki_append_2",
+      "purchase": "ongeki_append_2"
     },
     {
       "idx": 427,
@@ -3925,7 +4351,8 @@
         "en": "And Revive The Melody"
       },
       "artist": "黒魔",
-      "set": "ongeki_append_2"
+      "set": "ongeki_append_2",
+      "purchase": "ongeki_append_2"
     },
     {
       "idx": 428,
@@ -3934,7 +4361,8 @@
         "en": "Swan Song"
       },
       "artist": "void (Mournfinale)",
-      "set": "lephon"
+      "set": "lephon",
+      "purchase": "lephon"
     },
     {
       "idx": 429,
@@ -3943,7 +4371,8 @@
         "en": "Renegade"
       },
       "artist": "sky_delta",
-      "set": "lephon"
+      "set": "lephon",
+      "purchase": "lephon"
     },
     {
       "idx": 430,
@@ -3952,7 +4381,8 @@
         "en": "Rays of Remnant"
       },
       "artist": "May × Felysrator",
-      "set": "lephon"
+      "set": "lephon",
+      "purchase": "lephon"
     },
     {
       "idx": 431,
@@ -3961,7 +4391,8 @@
         "en": "Breach of Faith"
       },
       "artist": "Supire feat.eili",
-      "set": "lephon"
+      "set": "lephon",
+      "purchase": "lephon"
     },
     {
       "idx": 432,
@@ -3970,7 +4401,8 @@
         "en": "Lament Rain"
       },
       "artist": "Ashrount vs. 打打だいず",
-      "set": "lephon"
+      "set": "lephon",
+      "purchase": "lephon"
     },
     {
       "idx": 433,
@@ -3979,7 +4411,8 @@
         "en": "Designant."
       },
       "artist": "Designant",
-      "set": "lephon"
+      "set": "lephon",
+      "purchase": "lephon"
     },
     {
       "idx": 434,
@@ -3988,7 +4421,8 @@
         "en": "Astral Quantization"
       },
       "artist": "Dj Grimoire",
-      "set": "lephon"
+      "set": "lephon",
+      "purchase": "lephon"
     },
     {
       "idx": 435,
@@ -3997,7 +4431,8 @@
         "en": "Ignition"
       },
       "artist": "パソコン音楽クラブ",
-      "set": "chunithm_append_3"
+      "set": "chunithm_append_3",
+      "purchase": "chunithm_append_3"
     },
     {
       "idx": 436,
@@ -4006,7 +4441,8 @@
         "en": "BlazinG AIR"
       },
       "artist": "kanone",
-      "set": "chunithm_append_3"
+      "set": "chunithm_append_3",
+      "purchase": "chunithm_append_3"
     },
     {
       "idx": 437,
@@ -4015,7 +4451,8 @@
         "en": "8-EM"
       },
       "artist": "Sampling Masters AYA",
-      "set": "chunithm_append_3"
+      "set": "chunithm_append_3",
+      "purchase": "chunithm_append_3"
     },
     {
       "idx": 438,
@@ -4024,7 +4461,8 @@
         "en": "DA'AT -The First Seeker of Souls-"
       },
       "artist": "水野健治 VS 大国奏音",
-      "set": "chunithm_append_3"
+      "set": "chunithm_append_3",
+      "purchase": "chunithm_append_3"
     },
     {
       "idx": 439,
@@ -4033,7 +4471,8 @@
         "en": "BREaK! BREaK! BREaK!"
       },
       "artist": "HiTECH NINJA vs Cranky",
-      "set": "maimai_append_2"
+      "set": "maimai_append_2",
+      "purchase": "maimai_append_2"
     },
     {
       "idx": 440,
@@ -4042,7 +4481,8 @@
         "en": "Straight into the lights"
       },
       "artist": "Cosmograph",
-      "set": "maimai_append_2"
+      "set": "maimai_append_2",
+      "purchase": "maimai_append_2"
     },
     {
       "idx": 441,
@@ -4051,7 +4491,8 @@
         "en": "ViRTUS"
       },
       "artist": "Hiro",
-      "set": "maimai_append_2"
+      "set": "maimai_append_2",
+      "purchase": "maimai_append_2"
     },
     {
       "idx": 442,
@@ -4061,7 +4502,8 @@
         "ja": "ヨミビトシラズ"
       },
       "artist": "Limonène (サノカモメ+月島春果)",
-      "set": "maimai_append_2"
+      "set": "maimai_append_2",
+      "purchase": "maimai_append_2"
     },
     {
       "idx": 443,
@@ -4070,7 +4512,8 @@
         "en": "Aether Crest: Astral"
       },
       "artist": "void (Mournfinale) × 水野健治",
-      "set": "chunithm_append_3"
+      "set": "chunithm_append_3",
+      "purchase": "chunithm_append_3"
     },
     {
       "idx": 444,
@@ -4080,7 +4523,8 @@
         "ja": "心の痛み"
       },
       "artist": "Toby Fox",
-      "set": "undertale"
+      "set": "undertale",
+      "purchase": "undertale"
     },
     {
       "idx": 445,
@@ -4090,7 +4534,8 @@
         "ja": "華麗なる死闘"
       },
       "artist": "Toby Fox",
-      "set": "undertale"
+      "set": "undertale",
+      "purchase": "undertale"
     },
     {
       "idx": 446,
@@ -4100,7 +4545,8 @@
         "ja": "最高の悪夢"
       },
       "artist": "Toby Fox",
-      "set": "undertale"
+      "set": "undertale",
+      "purchase": "undertale"
     },
     {
       "idx": 447,
@@ -4110,7 +4556,8 @@
         "ja": "これでホントにサヨナラ"
       },
       "artist": "Toby Fox",
-      "set": "undertale"
+      "set": "undertale",
+      "purchase": "undertale"
     },
     {
       "idx": 448,
@@ -4119,7 +4566,8 @@
         "en": "MEGALOVANIA"
       },
       "artist": "Toby Fox",
-      "set": "undertale"
+      "set": "undertale",
+      "purchase": "undertale"
     },
     {
       "idx": 449,
@@ -4128,7 +4576,8 @@
         "en": "MEGALOVANIA (Camellia Remix)"
       },
       "artist": "Camellia",
-      "set": "single"
+      "set": "single",
+      "purchase": "megalovaniarmx"
     },
     {
       "idx": 450,
@@ -4138,7 +4587,8 @@
         "ja": "プラシイボ♥バトラー"
       },
       "artist": "OSTER project",
-      "set": "single"
+      "set": "single",
+      "purchase": "placebobattler"
     },
     {
       "idx": 451,
@@ -4147,7 +4597,8 @@
         "en": "Black Mirror on the Wall"
       },
       "artist": "暁Records",
-      "set": "extend_3"
+      "set": "extend_3",
+      "purchase": "extend_3"
     },
     {
       "idx": 452,
@@ -4157,7 +4608,8 @@
         "ja": "進捗どうですか?"
       },
       "artist": "sumijun feat. ななひら",
-      "set": "single"
+      "set": "single",
+      "purchase": "shinchoku"
     },
     {
       "idx": 453,
@@ -4166,7 +4618,8 @@
         "en": "TRPNO"
       },
       "artist": "Nauts",
-      "set": "extend_3"
+      "set": "extend_3",
+      "purchase": "extend_3"
     },
     {
       "idx": 454,
@@ -4175,7 +4628,8 @@
         "en": "τ (tau)"
       },
       "artist": "Wooden",
-      "set": "extend_3"
+      "set": "extend_3",
+      "purchase": "extend_3"
     },
     {
       "idx": 455,
@@ -4184,7 +4638,8 @@
         "en": "Dull Blade"
       },
       "artist": "stuv",
-      "set": "single"
+      "set": "single",
+      "purchase": "dullblade"
     },
     {
       "idx": 456,
@@ -4193,7 +4648,8 @@
         "en": "Won't Back Down"
       },
       "artist": "Pure 100% / KASA",
-      "set": "extend_3"
+      "set": "extend_3",
+      "purchase": "extend_3"
     },
     {
       "idx": 457,
@@ -4202,7 +4658,8 @@
         "en": "Don't Die"
       },
       "artist": "Paul Bazooka",
-      "set": "single"
+      "set": "single",
+      "purchase": "dontdie"
     },
     {
       "idx": 458,
@@ -4211,7 +4668,8 @@
         "en": "Ladymade Star"
       },
       "artist": "ESTi",
-      "set": "djmax"
+      "set": "djmax",
+      "purchase": "djmax"
     },
     {
       "idx": 459,
@@ -4220,7 +4678,8 @@
         "en": "End of The Moonlight"
       },
       "artist": "Forte Escape",
-      "set": "djmax"
+      "set": "djmax",
+      "purchase": "djmax"
     },
     {
       "idx": 460,
@@ -4229,7 +4688,8 @@
         "en": "U.A.D"
       },
       "artist": "HAYAKO",
-      "set": "djmax"
+      "set": "djmax",
+      "purchase": "djmax"
     },
     {
       "idx": 461,
@@ -4238,7 +4698,8 @@
         "en": "OBLIVION"
       },
       "artist": "ESTi",
-      "set": "djmax"
+      "set": "djmax",
+      "purchase": "djmax"
     },
     {
       "idx": 462,
@@ -4247,7 +4708,8 @@
         "en": "Nightmare"
       },
       "artist": "M2U",
-      "set": "djmax"
+      "set": "djmax",
+      "purchase": "djmax"
     },
     {
       "idx": 463,
@@ -4256,7 +4718,8 @@
         "en": "Tic! Tac! Toe!"
       },
       "artist": "TAK x Corbin",
-      "set": "single"
+      "set": "single",
+      "purchase": "tictactoe"
     },
     {
       "idx": 464,
@@ -4265,7 +4728,8 @@
         "en": "SATISFACTION"
       },
       "artist": "P*Light & DJ Noriken feat. KMNZ",
-      "set": "base"
+      "set": "base",
+      "purchase": ""
     },
     {
       "idx": 465,
@@ -4274,7 +4738,8 @@
         "en": "Someday"
       },
       "artist": "NieN",
-      "set": "extend_3"
+      "set": "extend_3",
+      "purchase": "extend_3"
     },
     {
       "idx": 466,
@@ -4283,7 +4748,8 @@
         "en": "Miles"
       },
       "artist": "Electronic Boutique",
-      "set": "single"
+      "set": "single",
+      "purchase": "miles"
     },
     {
       "idx": 467,
@@ -4292,7 +4758,8 @@
         "en": "I want You"
       },
       "artist": "Lin-G",
-      "set": "djmax_append_1"
+      "set": "djmax_append_1",
+      "purchase": "djmax_append_1"
     },
     {
       "idx": 468,
@@ -4301,7 +4768,8 @@
         "en": "Syriana"
       },
       "artist": "BEXTER",
-      "set": "djmax_append_1"
+      "set": "djmax_append_1",
+      "purchase": "djmax_append_1"
     },
     {
       "idx": 469,
@@ -4310,7 +4778,8 @@
         "en": "Liar"
       },
       "artist": "zts",
-      "set": "djmax_append_1"
+      "set": "djmax_append_1",
+      "purchase": "djmax_append_1"
     },
     {
       "idx": 470,
@@ -4319,7 +4788,8 @@
         "en": "BlythE"
       },
       "artist": "M2U",
-      "set": "djmax_append_1"
+      "set": "djmax_append_1",
+      "purchase": "djmax_append_1"
     },
     {
       "idx": 471,
@@ -4328,7 +4798,8 @@
         "en": "We're All Gonna Die"
       },
       "artist": "Paul Bazooka",
-      "set": "djmax_append_1"
+      "set": "djmax_append_1",
+      "purchase": "djmax_append_1"
     },
     {
       "idx": 472,
@@ -4337,7 +4808,8 @@
         "en": "Dematerialized"
       },
       "artist": "In Love With A Ghost",
-      "set": "base"
+      "set": "base",
+      "purchase": ""
     },
     {
       "idx": 473,
@@ -4346,7 +4818,8 @@
         "en": "See the Lights!"
       },
       "artist": "polysha feat. しろさきあや",
-      "set": "anima"
+      "set": "anima",
+      "purchase": "anima"
     },
     {
       "idx": 474,
@@ -4356,7 +4829,8 @@
         "ja": "朱月ノ姫"
       },
       "artist": "technoplanet feat. 夕月ティア",
-      "set": "anima"
+      "set": "anima",
+      "purchase": "anima"
     },
     {
       "idx": 475,
@@ -4365,7 +4839,8 @@
         "en": "Dual Dependency"
       },
       "artist": "seatrus",
-      "set": "anima"
+      "set": "anima",
+      "purchase": "anima"
     },
     {
       "idx": 476,
@@ -4374,7 +4849,8 @@
         "en": "Lilly"
       },
       "artist": "Juggernaut.",
-      "set": "anima"
+      "set": "anima",
+      "purchase": "anima"
     },
     {
       "idx": 477,
@@ -4384,7 +4860,8 @@
         "ja": "多次元宇宙融合論"
       },
       "artist": "TAKIO feat. つぐ",
-      "set": "anima"
+      "set": "anima",
+      "purchase": "anima"
     },
     {
       "idx": 478,
@@ -4393,7 +4870,8 @@
         "en": "disintegration"
       },
       "artist": "ひゅ〜ぶ",
-      "set": "extend_3"
+      "set": "extend_3",
+      "purchase": "extend_3"
     },
     {
       "idx": 479,
@@ -4402,7 +4880,8 @@
         "en": "Factorder"
       },
       "artist": "瀬名 feat. 梨雛",
-      "set": "anima_append_1"
+      "set": "anima_append_1",
+      "purchase": "anima_append_1"
     },
     {
       "idx": 480,
@@ -4411,7 +4890,8 @@
         "en": "incomplete the one"
       },
       "artist": "Halv feat.Kuroa*",
-      "set": "anima_append_1"
+      "set": "anima_append_1",
+      "purchase": "anima_append_1"
     },
     {
       "idx": 481,
@@ -4420,7 +4900,8 @@
         "en": "CHAOSBLAST"
       },
       "artist": "QURELESS + 柚子花",
-      "set": "anima_append_1"
+      "set": "anima_append_1",
+      "purchase": "anima_append_1"
     },
     {
       "idx": 482,
@@ -4429,7 +4910,8 @@
         "en": "Welcome, Queen of Fiction."
       },
       "artist": "打打だいず",
-      "set": "anima_append_1"
+      "set": "anima_append_1",
+      "purchase": "anima_append_1"
     },
     {
       "idx": 483,
@@ -4438,7 +4920,8 @@
         "en": "AlterGate"
       },
       "artist": "MisoilePunch♪ ~タケノコ添え~",
-      "set": "anima_append_1"
+      "set": "anima_append_1",
+      "purchase": "anima_append_1"
     },
     {
       "idx": 484,
@@ -4447,7 +4930,8 @@
         "en": "Acheron"
       },
       "artist": "KARUT",
-      "set": "single"
+      "set": "single",
+      "purchase": ""
     },
     {
       "idx": 485,
@@ -4456,7 +4940,8 @@
         "en": "Eternity Break"
       },
       "artist": "Puru",
-      "set": "single"
+      "set": "single",
+      "purchase": "eternitybreak"
     },
     {
       "idx": 486,
@@ -4465,7 +4950,8 @@
         "en": "ROST PAGE GENE"
       },
       "artist": "MYUKKE.",
-      "set": "extend_3"
+      "set": "extend_3",
+      "purchase": "extend_3"
     },
     {
       "idx": 487,
@@ -4474,7 +4960,8 @@
         "en": "Viola Illyria"
       },
       "artist": "Kolaa",
-      "set": "eclipse"
+      "set": "eclipse",
+      "purchase": "eclipse"
     },
     {
       "idx": 488,
@@ -4483,7 +4970,8 @@
         "en": "Vainspire"
       },
       "artist": "satella",
-      "set": "eclipse"
+      "set": "eclipse",
+      "purchase": "eclipse"
     },
     {
       "idx": 489,
@@ -4492,7 +4980,8 @@
         "en": "No Way Back"
       },
       "artist": "Nhato",
-      "set": "eclipse"
+      "set": "eclipse",
+      "purchase": "eclipse"
     },
     {
       "idx": 490,
@@ -4501,7 +4990,8 @@
         "en": "ANDORXOR"
       },
       "artist": "Sobrem",
-      "set": "eclipse"
+      "set": "eclipse",
+      "purchase": "eclipse"
     },
     {
       "idx": 491,
@@ -4510,7 +5000,8 @@
         "en": "Undying Macula"
       },
       "artist": "Ashrount",
-      "set": "eclipse"
+      "set": "eclipse",
+      "purchase": "eclipse"
     },
     {
       "idx": 493,
@@ -4520,7 +5011,8 @@
         "ja": "始マリノ詩"
       },
       "artist": "有村京悟 feat.July",
-      "set": "extend_4"
+      "set": "extend_4",
+      "purchase": "extend_4"
     },
     {
       "idx": 494,
@@ -4529,7 +5021,8 @@
         "en": "mod"
       },
       "artist": "kalsoer",
-      "set": "extend_4"
+      "set": "extend_4",
+      "purchase": "extend_4"
     },
     {
       "idx": 495,
@@ -4538,7 +5031,8 @@
         "en": "Particle"
       },
       "artist": "Lime / Kankitsu",
-      "set": "extend_4"
+      "set": "extend_4",
+      "purchase": "extend_4"
     },
     {
       "idx": 496,
@@ -4547,7 +5041,8 @@
         "en": "Paradox Palette"
       },
       "artist": "Aethoro",
-      "set": "extend_4"
+      "set": "extend_4",
+      "purchase": "extend_4"
     },
     {
       "idx": 497,
@@ -4556,7 +5051,8 @@
         "en": "Xxium and Purple haze"
       },
       "artist": "D.watt",
-      "set": "extend_4"
+      "set": "extend_4",
+      "purchase": "extend_4"
     },
     {
       "idx": 498,
@@ -4565,7 +5061,8 @@
         "en": "Angel's Boundary"
       },
       "artist": "MEMODEMO",
-      "set": "single"
+      "set": "single",
+      "purchase": "angelsboundary"
     },
     {
       "idx": 499,
@@ -4574,7 +5071,8 @@
         "en": "Xterfusion"
       },
       "artist": "REDALiCE × t+pazolite",
-      "set": "single"
+      "set": "single",
+      "purchase": "xterfusion"
     },
     {
       "idx": 500,
@@ -4583,7 +5081,8 @@
         "en": "INFINITE DIMENSION"
       },
       "artist": "DJ Noriken × P*Light",
-      "set": "nextstage"
+      "set": "nextstage",
+      "purchase": "nextstage"
     },
     {
       "idx": 501,
@@ -4595,7 +5094,8 @@
         "zh-Hant_dialog": "INCARNATOR00"
       },
       "artist": "Silentroom × N²",
-      "set": "nextstage"
+      "set": "nextstage",
+      "purchase": "nextstage"
     },
     {
       "idx": 502,
@@ -4604,7 +5104,8 @@
         "en": "zephyrlasting"
       },
       "artist": "s-don × nitro (lowiro)",
-      "set": "nextstage"
+      "set": "nextstage",
+      "purchase": "nextstage"
     },
     {
       "idx": 503,
@@ -4613,7 +5114,8 @@
         "en": "MARENYX"
       },
       "artist": "BlackY × Aoi",
-      "set": "nextstage"
+      "set": "nextstage",
+      "purchase": "nextstage"
     },
     {
       "idx": 504,
@@ -4622,7 +5124,8 @@
         "en": "Code: Oblivion"
       },
       "artist": "Kobaryo × Gram",
-      "set": "nextstage"
+      "set": "nextstage",
+      "purchase": "nextstage"
     },
     {
       "idx": 505,
@@ -4631,7 +5134,8 @@
         "en": "ΛZΛLEΛ"
       },
       "artist": "ak+q × onoken",
-      "set": "nextstage"
+      "set": "nextstage",
+      "purchase": "nextstage"
     },
     {
       "idx": 506,
@@ -4640,7 +5144,8 @@
         "en": "taboo tears you up 2017"
       },
       "artist": "REDALiCE",
-      "set": "extend_4"
+      "set": "extend_4",
+      "purchase": "extend_4"
     },
     {
       "idx": 507,
@@ -4649,7 +5154,8 @@
         "en": "Grandspell"
       },
       "artist": "Hylen",
-      "set": "single"
+      "set": "single",
+      "purchase": "grandspell"
     },
     {
       "idx": 508,
@@ -4658,7 +5164,8 @@
         "en": "undefined"
       },
       "artist": "planless & 乃花こより",
-      "set": "extend_4"
+      "set": "extend_4",
+      "purchase": "extend_4"
     },
     {
       "idx": 509,
@@ -4667,7 +5174,8 @@
         "en": "~_+"
       },
       "artist": "AQUASINE ~ MEMODEMO + METAROOM",
-      "set": "extend_4"
+      "set": "extend_4",
+      "purchase": "extend_4"
     },
     {
       "idx": 510,
@@ -4676,7 +5184,8 @@
         "en": "Paranoid Arc"
       },
       "artist": "t+pazolite",
-      "set": "single"
+      "set": "single",
+      "purchase": "paranoidarc"
     },
     {
       "idx": 511,
@@ -4686,7 +5195,8 @@
         "ja": "羽化する亜球体"
       },
       "artist": "窓辺リカ",
-      "set": "single"
+      "set": "single",
+      "purchase": "subsphere"
     },
     {
       "idx": 512,
@@ -4696,7 +5206,8 @@
         "ja": "［筏］は云う。幾ら漂流すれど不撓の心さえ有れば軈て行到ると。"
       },
       "artist": "庭師",
-      "set": "single"
+      "set": "single",
+      "purchase": "theraft"
     },
     {
       "idx": 513,
@@ -4706,7 +5217,8 @@
         "ja": "おまじない"
       },
       "artist": "Tsubusare BOZZ × Madoka*",
-      "set": "extend_4"
+      "set": "extend_4",
+      "purchase": "extend_4"
     },
     {
       "idx": 514,
@@ -4715,7 +5227,8 @@
         "en": "CHAIN2NITE"
       },
       "artist": "asuzora feat. cyber milk ちゃん",
-      "set": "megarex"
+      "set": "megarex",
+      "purchase": "megarex"
     },
     {
       "idx": 515,
@@ -4724,7 +5237,8 @@
         "en": "One Step Closer"
       },
       "artist": "Mameyudoufu × 藍月なくる",
-      "set": "megarex"
+      "set": "megarex",
+      "purchase": "megarex"
     },
     {
       "idx": 516,
@@ -4733,7 +5247,8 @@
         "en": "My life is mine alone!"
       },
       "artist": "Mylta feat. ねんね",
-      "set": "megarex"
+      "set": "megarex",
+      "purchase": "megarex"
     },
     {
       "idx": 517,
@@ -4743,7 +5258,8 @@
         "ja": "メルティーラプソディー"
       },
       "artist": "lapix feat. PANXI",
-      "set": "megarex"
+      "set": "megarex",
+      "purchase": "megarex"
     },
     {
       "idx": 518,
@@ -4752,7 +5268,8 @@
         "en": "Signal"
       },
       "artist": "rejection feat. Such",
-      "set": "megarex"
+      "set": "megarex",
+      "purchase": "megarex"
     },
     {
       "idx": 519,
@@ -4762,7 +5279,8 @@
         "ja": "キャラメルポップコーンたべたいよ〜"
       },
       "artist": "ヤミナベレコーズ feat. 繭糸",
-      "set": "base"
+      "set": "base",
+      "purchase": ""
     },
     {
       "idx": 520,
@@ -4772,7 +5290,8 @@
         "ja": "森奥虚跡"
       },
       "artist": "ShiBa",
-      "set": "extend_4"
+      "set": "extend_4",
+      "purchase": "extend_4"
     },
     {
       "idx": 521,
@@ -4781,7 +5300,8 @@
         "en": "+1(UNKNOWN)-NUMBER"
       },
       "artist": "MEMODEMO × AQUASINE ^ (hackerling)",
-      "set": "single"
+      "set": "single",
+      "purchase": "unknownnum"
     },
     {
       "idx": 522,
@@ -4790,7 +5310,8 @@
         "en": "3rd Avenue"
       },
       "artist": "Sound Souler",
-      "set": "extend_4"
+      "set": "extend_4",
+      "purchase": "extend_4"
     },
     {
       "idx": 523,
@@ -4799,7 +5320,8 @@
         "en": "Vallista"
       },
       "artist": "Sakuzyo",
-      "set": "extend_4"
+      "set": "extend_4",
+      "purchase": "extend_4"
     },
     {
       "idx": 524,
@@ -4808,7 +5330,8 @@
         "en": "GOODRAGE"
       },
       "artist": "EBIMAYO",
-      "set": "single"
+      "set": "single",
+      "purchase": "goodrage"
     },
     {
       "idx": 525,
@@ -4817,7 +5340,8 @@
         "en": "Cryogenic"
       },
       "artist": "Camellia ft. Petra Gurin",
-      "set": "single"
+      "set": "single",
+      "purchase": "cryogenic"
     },
     {
       "idx": 526,
@@ -4826,7 +5350,8 @@
         "en": "Desertrealm"
       },
       "artist": "Masahiro \"Godspeed\" Aoki",
-      "set": "single"
+      "set": "single",
+      "purchase": "desertrealm"
     },
     {
       "idx": 527,
@@ -4836,7 +5361,8 @@
         "ja": "スパイダーダンス"
       },
       "artist": "Toby Fox",
-      "set": "undertale_append_1"
+      "set": "undertale_append_1",
+      "purchase": "undertale_append_1"
     },
     {
       "idx": 528,
@@ -4846,7 +5372,8 @@
         "ja": "正義の槍"
       },
       "artist": "Toby Fox",
-      "set": "undertale_append_1"
+      "set": "undertale_append_1",
+      "purchase": "undertale_append_1"
     },
     {
       "idx": 529,
@@ -4856,7 +5383,8 @@
         "ja": "アズゴア"
       },
       "artist": "Toby Fox",
-      "set": "undertale_append_1"
+      "set": "undertale_append_1",
+      "purchase": "undertale_append_1"
     },
     {
       "idx": 530,
@@ -4865,7 +5393,8 @@
         "en": "MIRROR - kamome sano remix"
       },
       "artist": "kamome sano",
-      "set": "extend_4"
+      "set": "extend_4",
+      "purchase": "extend_4"
     },
     {
       "idx": 531,
@@ -4874,7 +5403,8 @@
         "en": "Riot in the System"
       },
       "artist": "Laur & Massive New Krew feat. 社築",
-      "set": "extend_4"
+      "set": "extend_4",
+      "purchase": "extend_4"
     },
     {
       "idx": 532,
@@ -4883,7 +5413,8 @@
         "en": "Cosmogyral"
       },
       "artist": "Darren + Altermis",
-      "set": "extend_4"
+      "set": "extend_4",
+      "purchase": "extend_4"
     },
     {
       "idx": 533,
@@ -4892,7 +5423,8 @@
         "en": "flexidefine"
       },
       "artist": "Lamanya",
-      "set": "extend_4"
+      "set": "extend_4",
+      "purchase": "extend_4"
     },
     {
       "idx": 534,
@@ -4901,7 +5433,8 @@
         "en": "Altersist"
       },
       "artist": "void (Mournfinale)",
-      "set": "single"
+      "set": "single",
+      "purchase": "altersist"
     },
     {
       "idx": 535,
@@ -4910,7 +5443,8 @@
         "en": "c.s.q.n."
       },
       "artist": "Aoi",
-      "set": "single"
+      "set": "single",
+      "purchase": "csqn"
     },
     {
       "idx": 536,
@@ -4920,7 +5454,8 @@
         "ja": "ザラメノキワミ"
       },
       "artist": "STEAKA",
-      "set": "single"
+      "set": "single",
+      "purchase": "sucromania"
     },
     {
       "idx": 537,
@@ -4930,7 +5465,8 @@
         "ja": "ラヴィ"
       },
       "artist": "すりぃ",
-      "set": "virtualsingers"
+      "set": "virtualsingers",
+      "purchase": "virtualsingers"
     },
     {
       "idx": 538,
@@ -4940,7 +5476,8 @@
         "ja": "神っぽいな"
       },
       "artist": "ピノキオピー",
-      "set": "virtualsingers"
+      "set": "virtualsingers",
+      "purchase": "virtualsingers"
     },
     {
       "idx": 539,
@@ -4950,7 +5487,8 @@
         "ja": "オーバーライド"
       },
       "artist": "吉田夜世",
-      "set": "virtualsingers"
+      "set": "virtualsingers",
+      "purchase": "virtualsingers"
     },
     {
       "idx": 540,
@@ -4960,7 +5498,8 @@
         "ja": "テレパシ"
       },
       "artist": "DECO*27",
-      "set": "virtualsingers"
+      "set": "virtualsingers",
+      "purchase": "virtualsingers"
     },
     {
       "idx": 541,
@@ -4970,7 +5509,8 @@
         "ja": "愛して愛して愛して"
       },
       "artist": "きくお",
-      "set": "virtualsingers"
+      "set": "virtualsingers",
+      "purchase": "virtualsingers"
     },
     {
       "idx": 542,
@@ -4979,7 +5519,8 @@
         "en": "Synthesis."
       },
       "artist": "tn-shi",
-      "set": "single"
+      "set": "single",
+      "purchase": "synthesis"
     },
     {
       "idx": 543,
@@ -4988,7 +5529,8 @@
         "en": "Acid God"
       },
       "artist": "Yuta Imai",
-      "set": "single"
+      "set": "single",
+      "purchase": "acidgod"
     },
     {
       "idx": 544,
@@ -4997,7 +5539,8 @@
         "en": "DIE IN"
       },
       "artist": "TAK x Sobrem",
-      "set": "single"
+      "set": "single",
+      "purchase": ""
     },
     {
       "idx": 545,
@@ -5006,7 +5549,8 @@
         "en": "chronologia"
       },
       "artist": "lowiro Sound Team (ak+q x nitro)",
-      "set": "single"
+      "set": "single",
+      "purchase": "chronologia"
     },
     {
       "idx": 546,
@@ -5015,7 +5559,8 @@
         "en": "Balor"
       },
       "artist": "Redsign",
-      "set": "konzetsu"
+      "set": "konzetsu",
+      "purchase": "konzetsu"
     },
     {
       "idx": 547,
@@ -5024,7 +5569,8 @@
         "en": "DREAD AREA"
       },
       "artist": "Ashrount vs. 打打だいず",
-      "set": "konzetsu"
+      "set": "konzetsu",
+      "purchase": "konzetsu"
     },
     {
       "idx": 548,
@@ -5033,7 +5579,8 @@
         "en": "un"
       },
       "artist": "黒魔",
-      "set": "konzetsu"
+      "set": "konzetsu",
+      "purchase": "konzetsu"
     },
     {
       "idx": 549,
@@ -5042,7 +5589,8 @@
         "en": "Riven Pilgrimage"
       },
       "artist": "rejection & Supire feat. eili",
-      "set": "konzetsu"
+      "set": "konzetsu",
+      "purchase": "konzetsu"
     },
     {
       "idx": 550,
@@ -5051,7 +5599,8 @@
         "en": "Cataclysm Cry"
       },
       "artist": "Aid",
-      "set": "konzetsu"
+      "set": "konzetsu",
+      "purchase": "konzetsu"
     },
     {
       "idx": 551,
@@ -5060,7 +5609,8 @@
         "en": "DEINOS PHAINEIN"
       },
       "artist": "Blacklolita vs Juggernaut.",
-      "set": "konzetsu"
+      "set": "konzetsu",
+      "purchase": "konzetsu"
     },
     {
       "idx": 552,
@@ -5069,7 +5619,8 @@
         "en": "Ember"
       },
       "artist": "Powerless & siqlo feat. Tia",
-      "set": "konzetsu"
+      "set": "konzetsu",
+      "purchase": "konzetsu"
     },
     {
       "idx": 553,
@@ -5078,7 +5629,8 @@
         "en": "⊥⊬"
       },
       "artist": "Silentroom Dismantled XOR かたぎり",
-      "set": "konzetsu"
+      "set": "konzetsu",
+      "purchase": "konzetsu"
     },
     {
       "idx": 554,
@@ -5088,7 +5640,8 @@
         "ko_dialog": "Chateau de cartes"
       },
       "artist": "Inverted Silence ft. Pernelle",
-      "set": "single"
+      "set": "single",
+      "purchase": "chateaudecartes"
     },
     {
       "idx": 555,
@@ -5097,7 +5650,8 @@
         "en": "Voyage to the Future"
       },
       "artist": "Shunji Fujii feat. 千花",
-      "set": "extend_4"
+      "set": "extend_4",
+      "purchase": "extend_4"
     },
     {
       "idx": 556,
@@ -5107,7 +5661,8 @@
         "ja": "蘭"
       },
       "artist": "Feryquitous",
-      "set": "diversesystem"
+      "set": "diversesystem",
+      "purchase": "diversesystem"
     },
     {
       "idx": 557,
@@ -5116,7 +5671,8 @@
         "en": "Ether Drive"
       },
       "artist": "crayvxn",
-      "set": "diversesystem"
+      "set": "diversesystem",
+      "purchase": "diversesystem"
     },
     {
       "idx": 558,
@@ -5125,7 +5681,8 @@
         "en": "Schra Go (Uchina Time)"
       },
       "artist": "REMO-CON",
-      "set": "diversesystem"
+      "set": "diversesystem",
+      "purchase": "diversesystem"
     },
     {
       "idx": 559,
@@ -5134,7 +5691,8 @@
         "en": "Fatality"
       },
       "artist": "Renpul",
-      "set": "diversesystem"
+      "set": "diversesystem",
+      "purchase": "diversesystem"
     },
     {
       "idx": 560,
@@ -5143,7 +5701,8 @@
         "en": "Parallax"
       },
       "artist": "xi vs ak+q (lowiro)",
-      "set": "diversesystem"
+      "set": "diversesystem",
+      "purchase": "diversesystem"
     },
     {
       "idx": 561,
@@ -5152,7 +5711,8 @@
         "en": "Tr!cK Ma?tEr"
       },
       "artist": "Nothing But Requiem",
-      "set": "single"
+      "set": "single",
+      "purchase": "trickmaster"
     },
     {
       "idx": 562,
@@ -5161,7 +5721,8 @@
         "en": "Renegade"
       },
       "artist": "Jason Walsh, Substantial, X. ARI",
-      "set": "base"
+      "set": "base",
+      "purchase": ""
     },
     {
       "idx": 563,
@@ -5170,7 +5731,8 @@
         "en": "Miss You"
       },
       "artist": "David Lin, Erik Castro",
-      "set": "arknights"
+      "set": "arknights",
+      "purchase": "arknights"
     },
     {
       "idx": 564,
@@ -5179,7 +5741,8 @@
         "en": "Speed of Light"
       },
       "artist": "DJ OKAWARI, 二宮愛",
-      "set": "arknights"
+      "set": "arknights",
+      "purchase": "arknights"
     },
     {
       "idx": 565,
@@ -5188,7 +5751,8 @@
         "en": "Fading Sky"
       },
       "artist": "AJURIKA",
-      "set": "arknights"
+      "set": "arknights",
+      "purchase": "arknights"
     },
     {
       "idx": 566,
@@ -5197,7 +5761,8 @@
         "en": "Radiant"
       },
       "artist": "Mary Clare, Erik Castro",
-      "set": "arknights"
+      "set": "arknights",
+      "purchase": "arknights"
     },
     {
       "idx": 567,
@@ -5206,7 +5771,8 @@
         "en": "ALIVE"
       },
       "artist": "Obadiah Brown-Beach, Cristina Vee",
-      "set": "arknights"
+      "set": "arknights",
+      "purchase": "arknights"
     },
     {
       "idx": 568,
@@ -5215,7 +5781,8 @@
         "en": "......已至。"
       },
       "artist": "秋田真典",
-      "set": "arknights"
+      "set": "arknights",
+      "purchase": "arknights"
     },
     {
       "idx": 569,
@@ -5224,7 +5791,8 @@
         "en": "Operation Spectrum Battle Theme"
       },
       "artist": "cybermiso, DOT96, tigerlily",
-      "set": "arknights"
+      "set": "arknights",
+      "purchase": "arknights"
     },
     {
       "idx": 570,
@@ -5233,7 +5801,75 @@
         "en": "Somniomancer [null set]"
       },
       "artist": "Crywolf",
-      "set": "arknights"
+      "set": "arknights",
+      "purchase": "arknights"
     }
-  ]
+  ],
+  "packNames": {
+    "base": "Arcaea",
+    "core": "Eternal Core",
+    "shiawase": "Crimson Solace",
+    "single": "개별곡 (single)",
+    "dynamix": "Dynamix",
+    "mirai": "Ambivalent Vision",
+    "yugamu": "Vicious Labyrinth",
+    "lanota": "Lanota",
+    "nijuusei": "Binary Enfold",
+    "rei": "Luminous Sky",
+    "tonesphere": "Tone Sphere",
+    "groovecoaster": "Groove Coaster",
+    "zettai": "Absolute Reason",
+    "chunithm": "CHUNITHM",
+    "prelude": "Adverse Prelude",
+    "omatsuri": "Sunset Radiance",
+    "vs": "Black Fate",
+    "extend": "Extend Archive 1",
+    "alice": "Ephemeral Page",
+    "alice_append_1": "Ephemeral Page / The Journey Onwards",
+    "ongeki": "O.N.G.E.K.I.",
+    "maimai": "maimai",
+    "chunithm_append_1": "CHUNITHM / Collaboration Chapter 2",
+    "observer": "Esoteric Order",
+    "observer_append_1": "Esoteric Order / Pale Tapestry",
+    "observer_append_2": "Esoteric Order / Light of Salvation",
+    "wacca": "WACCA",
+    "nijuusei_append_1": "Binary Enfold / Shared Time",
+    "dividedheart": "Divided Heart",
+    "musedash": "Muse Dash",
+    "lanota_append_1": "Lanota / Collaboration Chapter 2",
+    "finale": "Final Verdict",
+    "epilogue": "Final Verdict / Silent Answer",
+    "ongeki_append_1": "O.N.G.E.K.I. / Collaboration Chapter 2",
+    "extend_2": "Extend Archive 2",
+    "maimai_append_1": "maimai / Collaboration Chapter 2",
+    "chunithm_append_2": "CHUNITHM / Collaboration Chapter 3",
+    "cytusii": "CYTUS II",
+    "cytusii_append_1": "CYTUS II / Collaboration Chapter 2",
+    "eden": "Lasting Eden",
+    "eden_append_1": "Lasting Eden / Lasting Eden Chapter 2",
+    "eden_append_2": "Lasting Eden / Shifting Veil",
+    "wacca_append_1": "WACCA / Collaboration Chapter 2",
+    "extend_3": "Extend Archive 3",
+    "groovecoaster_append_1": "Groove Coaster / Groove Coaster Chapter 2",
+    "nihil": "Absolute Nihil",
+    "rotaeno": "Rotaeno",
+    "ongeki_append_2": "O.N.G.E.K.I. / Collaboration Chapter 3",
+    "lephon": "Lucent Historia",
+    "chunithm_append_3": "CHUNITHM / Collaboration Chapter 4",
+    "maimai_append_2": "maimai / Collaboration Chapter 3",
+    "undertale": "UNDERTALE",
+    "djmax": "DJMAX",
+    "djmax_append_1": "DJMAX / Collaboration Chapter 2",
+    "anima": "Extant Anima",
+    "anima_append_1": "Extant Anima / Chapter Experientia",
+    "eclipse": "Liminal Eclipse",
+    "extend_4": "World Extend 4",
+    "nextstage": "Arcaea Next Stage",
+    "megarex": "MEGAREX",
+    "undertale_append_1": "UNDERTALE / UNDERTALE Pack Append",
+    "virtualsingers": "Virtual Singers",
+    "konzetsu": "Divine Oblivion",
+    "diversesystem": "Diverse System",
+    "arknights": "Arknights"
+  }
 }

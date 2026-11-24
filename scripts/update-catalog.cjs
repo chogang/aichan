@@ -60,11 +60,12 @@ function convert(source, packSource, previous, jackets = new Map()) {
   const ids = new Set();
   const indices = new Set();
   const songs = [];
+  const packNames = Object.create(null);
   const difficulties = Object.create(null);
   const metadata = Object.create(null);
   for (const row of source.songs) {
     if (!object(row) || typeof row.id !== 'string' || !idPattern.test(row.id) || ids.has(row.id)) fail('Invalid or duplicate song ID');
-    const { idx, id, title_localized, artist, set } = row;
+    const { idx, id, title_localized, artist, set, purchase } = row;
     if (!Number.isInteger(idx) || idx < 0 || idx >= 5000 || indices.has(idx)) fail(`Invalid or duplicate index for ${id}`);
     indices.add(idx);
     ids.add(id);
@@ -73,6 +74,7 @@ function convert(source, packSource, previous, jackets = new Map()) {
     }
     if ((row.deleted !== true || artist !== undefined) && typeof artist !== 'string') fail(`Invalid artist for ${id}`);
     if ((row.deleted !== true || set !== undefined) && (typeof set !== 'string' || !idPattern.test(set))) fail(`Invalid pack ID for ${id}`);
+    if (purchase !== undefined && typeof purchase !== 'string') fail(`Invalid purchase ID for ${id}`);
     if ((row.deleted !== true || row.difficulties !== undefined) && !Array.isArray(row.difficulties)) fail(`Missing chart data for ${id}; use the full game songlist`);
 
     const classes = new Set();
@@ -83,8 +85,10 @@ function convert(source, packSource, previous, jackets = new Map()) {
       if (ratingClass === 3 && ratingClassAlias === 1) chart.ratingClassAlias = 1;
       return chart;
     });
-    songs.push({ idx, id, title_localized, artist, set });
-    metadata[id] = { pack: packName(set), difficulties: charts };
+    songs.push({ idx, id, title_localized, artist, set, purchase });
+    if (set && !Object.hasOwn(packNames, set)) packNames[set] = packName(set);
+    metadata[id] = { pack: set ? packNames[set] : packName(set), difficulties: charts };
+    if (purchase !== undefined) metadata[id].access = purchase ? 'purchase' : 'free';
     if (jackets.has(id)) metadata[id].jacket_hash = jackets.get(id);
     difficulties[id] = [...charts].sort((a, b) => kindOrder.indexOf(a.ratingClass) - kindOrder.indexOf(b.ratingClass)).map(chart => ({
       difficulty: chart.ratingClass === 3 && chart.ratingClassAlias === 1 ? 'INS' : kinds.get(chart.ratingClass),
@@ -92,7 +96,7 @@ function convert(source, packSource, previous, jackets = new Map()) {
     }));
   }
   recommend(songs, 20775); // Ensure the source supports both recommendation groups.
-  return { songs, difficulties, metadata };
+  return { songs, packNames, difficulties, metadata };
 }
 
 function readJSON(file) {
@@ -145,8 +149,9 @@ function updateCatalog(songPath, packPath, dryRun, directory = root) {
   const difficultyPath = path.join(directory, 'song-difficulties.json');
   const html = fs.readFileSync(htmlPath, 'utf8');
   const previous = readViewerCatalog(html);
-  const { songs, metadata, difficulties } = convert(readJSON(songPath), packPath === undefined ? undefined : readJSON(packPath), previous, readSongJackets(directory));
+  const { songs, packNames, metadata, difficulties } = convert(readJSON(songPath), packPath === undefined ? undefined : readJSON(packPath), previous, readSongJackets(directory));
   const serialize = (value, spaces) => JSON.stringify(value, null, spaces) + '\n';
+  const cliCatalog = { songs, packNames };
   const newCatalog = { format: 1, songs, metadata };
   const equal = (a, b) => JSON.stringify(a) === JSON.stringify(b);
   const updateHtml = !equal(previous, newCatalog);
@@ -155,7 +160,7 @@ function updateCatalog(songPath, packPath, dryRun, directory = root) {
   const cli = fs.readFileSync(cliPath, 'utf8');
   const chartLevels = fs.readFileSync(difficultyPath, 'utf8');
   const changed = [
-    [cliPath, cli, equal(JSON.parse(cli), { songs }) ? cli : serialize({ songs }, 2)],
+    [cliPath, cli, equal(JSON.parse(cli), cliCatalog) ? cli : serialize(cliCatalog, 2)],
     [difficultyPath, chartLevels, equal(JSON.parse(chartLevels), difficulties) ? chartLevels : '{\n' + Object.entries(difficulties).map(([id, tracks]) => `  ${JSON.stringify(id)}: ${JSON.stringify(tracks)}`).join(',\n') + '\n}\n'],
     [htmlPath, html, newHtml]
   ].filter(([, before, after]) => before !== after);

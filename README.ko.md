@@ -18,7 +18,9 @@ Arcaea 7.3.0의 파트너 ID 75, 아이쨩의 `skill_aichan`이 고르는 일일
 
 **곡 검색**에 곡명, 아티스트 또는 곡 ID를 입력하면 현재 페이지의 결과를 좁힐 수 있습니다. **난이도**와 레벨 범위는 같은 채보에 적용되며 최저·최고 레벨을 모두 포함합니다. 예를 들어 `9+`는 `9`와 `10` 사이에 해당합니다.
 
-날짜별 **복사** 버튼을 누르면 그날의 필터 결과와 재킷을 복사합니다. 마지막 줄의 링크를 열면 해당 날짜의 추천곡이 바로 표시됩니다. 붙여넣는 앱에서 HTML 붙여넣기와 외부 이미지 로딩을 지원하면 재킷이 표시됩니다.
+날짜별 **복사** 버튼은 그날의 필터 결과와 재킷을 복사합니다. **공유** 버튼과 복사 내용의 마지막 줄은 해당 날짜의 전체 추천곡 링크를 사용합니다. 링크 미리보기에는 날짜, 곡 제목, 재킷, 팩 이름, 무료·유료 표시와 FTR·ETR·BYD·INS 레벨이 표시됩니다. 링크를 열면 해당 날짜의 뷰어가 열리고, 날짜가 없는 링크는 오늘을 조회합니다. 붙여넣는 앱에서 HTML 붙여넣기와 외부 이미지 로딩을 지원하면 재킷이 표시됩니다. [날짜 지정 공유 링크](https://arcaea-aichan-api.pages.dev/share?date=2026-11-18) · [오늘 공유 링크](https://arcaea-aichan-api.pages.dev/share)
+
+뷰어와 링크 미리보기는 Arcaea 곡 데이터에 구매 항목이 지정된 곡을 **유료**, 구매 항목이 빈 곡을 **무료**로 표시합니다. 실제 플레이 가능 여부는 계정의 구매 내역과 월드 모드 해금 상태에 따라 달라집니다.
 
 추천 날짜는 한국 시간 오전 5시에 바뀝니다. 오전 5시 전에 **오늘**을 선택하면 전날 추천곡이 표시됩니다. 오프라인에서는 [뷰어 HTML](docs/index.html)을 내려받아 브라우저에서 열면 됩니다.
 
@@ -48,7 +50,7 @@ node aichan-recommend.js --seed 20775
 
 응답 JSON에는 `day_index`, `effective_period_utc`, `songs`가 포함됩니다. 각 곡의 `difficulties` 배열에는 뷰어와 동일한 채보 난이도와 표시 레벨이 들어갑니다. 예를 들어 `[{"difficulty":"FTR","level":"9+"}]`처럼 `+`를 보존하기 위해 레벨은 문자열로 반환합니다. 채보 정보가 없으면 빈 배열을 반환합니다. 잘못된 인자, 중복 인자, `date`와 `seed`를 동시에 지정한 요청에는 HTTP `400`과 JSON `error`가 반환됩니다.
 
-저장소 루트에서 `npx wrangler pages dev`를 실행하면 `http://localhost:8788/api/recommendations`에서 확인할 수 있습니다. Node.js 22 이상에서 `node verify-api.mjs`를 실행하면 CLI와 API의 응답 및 추천일 경계를 대조합니다.
+저장소 루트에서 `npm ci`와 `npx wrangler pages dev`를 실행하면 로컬 서버의 `/api/recommendations`와 `/share-card?date=2026-11-18`에서 API와 미리보기 PNG를 확인할 수 있습니다. Node.js 22 이상에서 `node verify-api.mjs`로 CLI와 API를 대조하고, `node verify-share.mjs`로 공유 미리보기 메타데이터와 뷰어 링크를 확인합니다.
 
 ## 곡 데이터 갱신
 
@@ -66,6 +68,8 @@ node verify.js
 재킷 썸네일을 갱신하려면 `song-jackets.json`에 곡 ID와 32자리 소문자 16진수 해시를 적고 같은 명령을 다시 실행합니다. 뷰어는 목록을 표시할 때 `https://webassets.lowiro.com/<hash>.jpg?v=323` 주소를 만듭니다. 해시가 없거나 이미지를 불러올 수 없는 곡은 썸네일 없이 표시합니다.
 
 선곡 알고리즘은 Arcaea 7.3.0을 기준으로 합니다. 곡 데이터를 갱신하면 과거 날짜의 추천곡도 달라질 수 있으며, 게임이 업데이트되면 알고리즘이 바뀌었는지 확인해야 합니다.
+
+곡명이나 팩 이름에 새 문자가 추가되면 `python -m pip install fonttools==4.60.1`과 `python scripts/build-share-font.py 'NotoSansJP[wght].ttf'`를 실행해 공유 카드 글꼴을 갱신합니다. 생성된 `share-assets/ai-chan-preview.bin`을 곡 목록과 함께 커밋합니다. 원본 글꼴은 Google Fonts의 Noto Sans JP이며 라이선스는 `share-assets/OFL.txt`에 있습니다. [원본 글꼴 다운로드](https://github.com/google/fonts/tree/main/ofl/notosansjp)
 
 ## 추천곡을 고르는 순서
 

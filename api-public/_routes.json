@@ -1,5 +1,5 @@
 {
   "version": 1,
-  "include": ["/api/recommendations"],
+  "include": ["/api/recommendations", "/share", "/share-card"],
   "exclude": []
 }

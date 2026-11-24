@@ -21,15 +21,7 @@ function parseDay(params, now) {
     return Number(value);
   }
   if (key !== 'date') throw new Error('Use date or seed.');
-
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(value)) throw new Error('date must use YYYY-MM-DD.');
-  const midnight = Date.parse(`${value}T00:00:00Z`);
-  if (!Number.isFinite(midnight) || new Date(midnight).toISOString().slice(0, 10) !== value) {
-    throw new Error('date must be a valid calendar date.');
-  }
-
-  // The UTC calendar-day index equals the recommendation index starting at 05:00 KST.
-  return core.dayIndex(midnight);
+  return core.calendarDayIndex(value);
 }
 
 export function handleRequest(request, now = Date.now()) {

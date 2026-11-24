@@ -17,7 +17,11 @@ const { songs: viewerSongs, metadata: viewerMetadata } = catalogUpdater.readView
 assert.deepEqual(viewerSongs, catalog.songs);
 assert.deepEqual(Object.keys(viewerMetadata).sort(), catalog.songs.map(song => song.id).sort());
 const jackets = catalogUpdater.readSongJackets();
-for (const { id } of catalog.songs) assert.equal(viewerMetadata[id].jacket_hash, jackets.get(id), `Jacket hash for ${id}`);
+for (const { id, set, purchase } of catalog.songs) {
+  assert.equal(viewerMetadata[id].jacket_hash, jackets.get(id), `Jacket hash for ${id}`);
+  assert.equal(viewerMetadata[id].access, purchase === undefined ? undefined : purchase ? 'purchase' : 'free', `Access type for ${id}`);
+  if (set) assert.equal(viewerMetadata[id].pack, catalog.packNames[set], `Pack name for ${id}`);
+}
 const labels = { 0: 'PST', 1: 'PRS', 2: 'FTR', 3: 'BYD', 4: 'ETR' };
 const order = [0, 1, 2, 4, 3];
 const expectedDifficulties = Object.fromEntries(catalog.songs.map(({ id }) => [id,
@@ -62,4 +66,4 @@ const wrongMethod = handleRequest(new Request(endpoint, { method: 'POST' }));
 assert.equal(wrongMethod.status, 405);
 assert.equal(wrongMethod.headers.get('allow'), 'GET');
 assert.equal(handleRequest(new Request('https://example.com/')).status, 404);
-console.log('Verified CLI fields, viewer difficulties for all catalog songs, daily boundary, deterministic inputs, and HTTP errors.');
+console.log('Verified CLI fields, viewer song metadata and difficulties, daily boundary, deterministic inputs, and HTTP errors.');

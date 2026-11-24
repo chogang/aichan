@@ -37,6 +37,16 @@ function dayIndex(time) {
   return Math.floor((time + 14400000) / 86400000);
 }
 
+function calendarDayIndex(value) {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(value)) throw new Error('date must use YYYY-MM-DD.');
+  const midnight = Date.parse(`${value}T00:00:00Z`);
+  if (!Number.isFinite(midnight) || new Date(midnight).toISOString().slice(0, 10) !== value) {
+    throw new Error('date must be a valid calendar date.');
+  }
+  // The UTC calendar-day index is the recommendation index starting at 05:00 KST.
+  return dayIndex(midnight);
+}
+
 function isDayIndex(seed) {
   return Number.isInteger(seed) && seed >= 20400 && seed <= 10000000;
 }
@@ -53,4 +63,4 @@ function recommendationResponse(songs, seed) {
   };
 }
 
-module.exports = { dayIndex, isDayIndex, permutation, recommend, recommendationResponse };
+module.exports = { calendarDayIndex, dayIndex, isDayIndex, permutation, recommend, recommendationResponse };

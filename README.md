@@ -18,7 +18,9 @@ The viewer shows reset times in Korean Standard Time, US Eastern Time, Japan Sta
 
 Use **Song search** (**곡 검색**) to find titles, artists, or song IDs in the results. Set a difficulty (**난이도**) and an inclusive level range to filter the current page. A song qualifies when one chart meets both selections. For example, `9+` falls between `9` and `10`.
 
-Use the per-day **Copy** (**복사**) button to copy that date’s filtered songs and jacket links. The last line links directly to that day's recommendations. Jacket images display when the destination app supports pasted HTML and loads external images.
+Use the per-day **Copy** (**복사**) button to copy that date’s filtered songs and jacket links. The **Share** (**공유**) button and the last line of the copy use a link to that day’s full recommendations. Its preview shows the date, song titles, jackets, pack names, Free or Paid labels, and FTR, ETR, BYD, and INS levels where available. Opening the link takes you to that date in the viewer. The undated share link selects today. Jacket images in pasted content display when the destination app supports pasted HTML and loads external images. [Dated share link](https://arcaea-aichan-api.pages.dev/share?date=2026-11-18) · [Today's share link](https://arcaea-aichan-api.pages.dev/share)
+
+The viewer and its link previews label songs **Paid** when the Arcaea catalog lists a purchase item, and **Free** when the purchase field is empty. Account ownership and World Mode unlocks still determine access in the game.
 
 The recommendation date changes at 05:00 KST. Selecting **Today** before 05:00 KST shows the previous date's recommendations. For offline use, download the [viewer HTML](docs/index.html) and open it in a browser.
 
@@ -48,7 +50,7 @@ Send a `GET` request to the [recommendations endpoint](https://arcaea-aichan-api
 
 The JSON includes `day_index`, `effective_period_utc`, and `songs`. Each song includes a `difficulties` array using the same chart labels and display levels as the viewer, for example `[{"difficulty":"FTR","level":"9+"}]`. Levels are strings so the `+` is preserved. Songs without chart data have an empty array. The API returns HTTP `400` with a JSON `error` for invalid arguments, duplicates, or a combination of `date` and `seed`.
 
-Run `npx wrangler pages dev` from the repository root to try the endpoint at `http://localhost:8788/api/recommendations`. To verify the API response and date boundary against the CLI, run `node verify-api.mjs` with Node.js 22 or later.
+Run `npm ci` and `npx wrangler pages dev` from the repository root to try the API at `/api/recommendations` and the preview PNG at `/share-card?date=2026-11-18` on the local server. With Node.js 22 or later, run `node verify-api.mjs` to compare the API against the CLI and `node verify-share.mjs` to check the share metadata and viewer link.
 
 ## Update the song catalog
 
@@ -66,6 +68,8 @@ The script validates the input and regenerates the CLI catalog, API difficulties
 To update jacket thumbnails, add song IDs and their 32-character lowercase hexadecimal hashes to `song-jackets.json`, then run the same catalog update command. The viewer builds the official URL as `https://webassets.lowiro.com/<hash>.jpg?v=323` when rendering the list. Songs without a known or available jacket are displayed without a thumbnail.
 
 The recommendation algorithm is based on Arcaea 7.3.0. A catalog update can change results for earlier dates, and a game update may require checking the algorithm again.
+
+After adding titles or pack names with new characters, rebuild the share card’s font subset with `python -m pip install fonttools==4.60.1` and `python scripts/build-share-font.py 'NotoSansJP[wght].ttf'`. Commit the updated `share-assets/ai-chan-preview.bin` with the catalog. The source font is Noto Sans JP from Google Fonts, distributed under the SIL Open Font License in `share-assets/OFL.txt`. [Download the source font](https://github.com/google/fonts/tree/main/ofl/notosansjp)
 
 ## How the recommendations are selected
 
