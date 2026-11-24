@@ -1,4 +1,4 @@
-import { selectShareDay, shareCardVersion, shareCardRevision, shareCardHeight, shareContent } from './share-data.mjs';
+import { selectShareDay, shareCardVersion, shareCardHeight, shareContent } from './share-data.mjs';
 
 const chartColors = {
   FTR: ['#342735', '#e9a5e6'],
@@ -7,6 +7,7 @@ const chartColors = {
   INS: ['#4949a0', '#efefff']
 };
 const maxJacketBytes = 512 * 1024;
+const shareCardCachePath = '/share-card-cache/11';
 const mutedText = '#bfbfc7';
 const canvasWidth = 1200;
 const outerMargin = 30;
@@ -240,7 +241,8 @@ export async function handleShareCard(request, renderPng, {
   }
 
   const hasDate = url.searchParams.has('date');
-  url.search = new URLSearchParams({ date: selection.day, lang: selection.locale, v: layout, rev: shareCardRevision }).toString();
+  url.pathname = shareCardCachePath;
+  url.search = new URLSearchParams({ date: selection.day, lang: selection.locale, v: layout }).toString();
   const cacheKey = new Request(url);
   let datedResponse = await cache?.match(cacheKey);
   if (!datedResponse) {
