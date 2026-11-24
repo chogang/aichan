@@ -37,7 +37,7 @@ export function sharePage(request, now = Date.now()) {
   const requested = new URL(request.url).searchParams;
   const query = `date=${day}&lang=${locale}`;
   const canonical = escape(`${shareOrigin}/share?${query}`);
-  const image = escape(`${shareOrigin}/share-card?${query}&v=${shareCardVersion}`);
+  const image = escape(`${shareOrigin}/share-card?v=${shareCardVersion}&${query}`);
   const viewer = escape(`${viewerOrigin}?${requested.has('lang') ? query : 'date=' + day}`);
   return respond(`<!doctype html>
 <html lang="${locale}">

@@ -2,11 +2,12 @@ import { selectShareDay, shareCardVersion, shareContent } from './share-data.mjs
 
 const chartColors = {
   FTR: ['#342735', '#e9a5e6'],
-  ETR: ['#252d45', '#b6c7ff'],
-  BYD: ['#40272f', '#ffadb3'],
+  ETR: ['#345d9e', '#eef4ff'],
+  BYD: ['#a33f54', '#fff0f3'],
   INS: ['#4949a0', '#efefff']
 };
 const maxJacketBytes = 512 * 1024;
+const renderRevision = '5';
 const jacketSize = 342;
 const jacketInset = 13;
 
@@ -98,16 +99,49 @@ function songCard(song, index, bytes, labels) {
   </g>`;
 }
 
-export function shareCardSvg({ day, songs, labels }, jackets) {
+function songRow(song, index, bytes, labels) {
+  const charts = song.difficulties.map(({ difficulty, level }, chartIndex) => {
+    const [background, color] = chartColors[difficulty];
+    return `<g transform="translate(${chartIndex * 137} 64)">
+      <rect width="124" height="34" rx="8" fill="${background}"/>
+      <text x="62" y="24" text-anchor="middle" font-size="19" fill="${color}">${difficulty} ${escapeXml(level)}</text>
+    </g>`;
+  }).join('');
+  const accessLabel = labels[song.access];
+  const access = accessLabel ? `<g transform="translate(1024 24)">
+    <rect width="84" height="28" rx="7" fill="${song.access === 'free' ? '#45454b' : 'none'}" stroke="#6d6d76"/>
+    <text x="42" y="19" text-anchor="middle" fill="#e6e6ea" font-size="14" letter-spacing="1">${escapeXml(accessLabel)}</text>
+  </g>` : '';
+  const jacket = bytes ? `<image href="${jacketDataUrl(bytes)}" width="112" height="112" preserveAspectRatio="xMidYMid slice"/>` : '';
+  return `<g transform="translate(36 ${136 + index * 152})">
+    <rect width="1128" height="140" rx="16" fill="#2a2a2e" stroke="#444449"/>
+    <g transform="translate(14 14)" clip-path="url(#jacket-clip)">
+      <rect width="112" height="112" fill="#414147"/>
+      <path d="M63 29v42c0 12-17 17-23 9-7-11 4-22 16-19V38l29-7v9z" fill="#888891"/>
+      ${jacket}
+    </g>
+    <g transform="translate(154 0)">
+      <text x="0" y="48" fill="#f7f7f8" font-size="31">${escapeXml(fitText(song.title, 27, 1)[0] || '')}</text>
+      ${charts}
+      <text x="0" y="124" fill="#bfbfc7" font-size="19">${escapeXml(song.packName)}</text>
+    </g>
+    ${access}
+  </g>`;
+}
+
+export function shareCardSvg({ day, songs, labels }, jackets, layout = '2') {
+  const list = layout === '1';
+  const coverSize = list ? 112 : jacketSize;
+  const drawSong = list ? songRow : songCard;
   return `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-    <defs><clipPath id="jacket-clip"><rect width="${jacketSize}" height="${jacketSize}" rx="9"/></clipPath></defs>
+    <defs><clipPath id="jacket-clip"><rect width="${coverSize}" height="${coverSize}" rx="${list ? 10 : 9}"/></clipPath></defs>
     <rect width="1200" height="630" fill="#202023"/>
     <g font-family="AiChan Preview, AiChan Hangul, AiChan Han">
-      <text x="36" y="21" font-size="16" fill="#bfbfc7" letter-spacing="1.2">ARCAEA</text>
-      <text x="36" y="63" font-size="35" fill="#f7f7f8">${escapeXml(labels.title)}</text>
-      <text x="1164" y="62" font-size="31" fill="#e6e6ea" text-anchor="end">${escapeXml(day)}</text>
-      ${songs.map((song, index) => songCard(song, index, jackets[index], labels)).join('')}
-      <text x="36" y="609" font-size="15" fill="#bfbfc7">${escapeXml(labels.jacketCredit)}</text>
+      <text x="36" y="${list ? 58 : 21}" font-size="${list ? 22 : 16}" fill="#bfbfc7" letter-spacing="1.2">ARCAEA</text>
+      <text x="36" y="${list ? 104 : 63}" font-size="${list ? 39 : 35}" fill="#f7f7f8">${escapeXml(labels.title)}</text>
+      <text x="1164" y="${list ? 102 : 62}" font-size="${list ? 34 : 31}" fill="#e6e6ea" text-anchor="end">${escapeXml(day)}</text>
+      ${songs.map((song, index) => drawSong(song, index, jackets[index], labels)).join('')}
+      <text x="36" y="${list ? 610 : 609}" font-size="15" fill="#bfbfc7">${escapeXml(labels.jacketCredit)}</text>
     </g>
   </svg>`;
 }
@@ -148,6 +182,7 @@ export async function handleShareCard(request, renderPng, {
   const url = new URL(request.url);
   const versions = url.searchParams.getAll('v');
   if (versions.length === 1 && /^\d+$/.test(versions[0])) url.searchParams.delete('v');
+  const layout = versions[0] === '1' ? '1' : shareCardVersion;
   let selection;
   try {
     selection = selectShareDay(new Request(url), now);
@@ -156,14 +191,14 @@ export async function handleShareCard(request, renderPng, {
   }
 
   const hasDate = url.searchParams.has('date');
-  url.search = new URLSearchParams({ date: selection.day, lang: selection.locale, v: shareCardVersion }).toString();
+  url.search = new URLSearchParams({ date: selection.day, lang: selection.locale, v: layout, rev: renderRevision }).toString();
   const cacheKey = new Request(url);
   let datedResponse = await cache?.match(cacheKey);
   if (!datedResponse) {
     const content = shareContent(selection);
     const jackets = await Promise.all(content.songs.map(song => fetchJacket(song.jacketUrl, fetchImage)));
     const complete = content.songs.every((song, index) => !song.jacketUrl || jackets[index]);
-    const png = await renderPng(shareCardSvg(content, jackets));
+    const png = await renderPng(shareCardSvg(content, jackets, layout));
     datedResponse = new Response(png, { headers: {
       'Content-Type': 'image/png',
       'Cache-Control': `public, max-age=${complete ? 86400 : 300}`

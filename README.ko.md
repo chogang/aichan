@@ -50,7 +50,9 @@ node aichan-recommend.js --seed 20775
 
 응답 JSON에는 `day_index`, `effective_period_utc`, `songs`가 포함됩니다. 각 곡의 `difficulties` 배열에는 뷰어와 동일한 채보 난이도와 표시 레벨이 들어갑니다. 예를 들어 `[{"difficulty":"FTR","level":"9+"}]`처럼 `+`를 보존하기 위해 레벨은 문자열로 반환합니다. 채보 정보가 없으면 빈 배열을 반환합니다. 잘못된 인자, 중복 인자, `date`와 `seed`를 동시에 지정한 요청에는 HTTP `400`과 JSON `error`가 반환됩니다.
 
-저장소 루트에서 `npm ci`와 `npx wrangler pages dev`를 실행하면 로컬 서버의 `/api/recommendations`와 `/share-card?date=2026-11-18`에서 API와 미리보기 PNG를 확인할 수 있습니다. Node.js 22 이상에서 `node verify-api.mjs`로 CLI와 API를 대조하고, `node verify-share.mjs`로 공유 미리보기 메타데이터와 뷰어 링크를 확인합니다.
+`/share-card`는 PNG를 반환합니다. `v=1`은 기존 목록형, `v=2`는 카드 세 장을 나란히 배치하는 형식입니다. 기본값과 공유 링크 미리보기는 `v=2`를 사용합니다. 두 형식 모두 `date`와 `lang`을 받을 수 있습니다. [목록형](https://arcaea-aichan-api.pages.dev/share-card?v=1&date=2026-11-18&lang=ko) · [나열형](https://arcaea-aichan-api.pages.dev/share-card?v=2&date=2026-11-18&lang=ko)
+
+저장소 루트에서 `npm ci`와 `npx wrangler pages dev`를 실행하면 두 API를 로컬 서버에서 사용할 수 있습니다. Node.js 22 이상에서 `node verify-api.mjs`로 CLI와 API를 대조하고, `node verify-share.mjs`로 카드 레이아웃, 공유 메타데이터와 뷰어 링크를 확인합니다.
 
 ## 곡 데이터 갱신
 

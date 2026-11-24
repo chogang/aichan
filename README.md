@@ -50,7 +50,9 @@ Send a `GET` request to the [recommendations endpoint](https://arcaea-aichan-api
 
 The JSON includes `day_index`, `effective_period_utc`, and `songs`. Each song includes a `difficulties` array using the same chart labels and display levels as the viewer, for example `[{"difficulty":"FTR","level":"9+"}]`. Levels are strings so the `+` is preserved. Songs without chart data have an empty array. The API returns HTTP `400` with a JSON `error` for invalid arguments, duplicates, or a combination of `date` and `seed`.
 
-Run `npm ci` and `npx wrangler pages dev` from the repository root to try the API at `/api/recommendations` and the preview PNG at `/share-card?date=2026-11-18` on the local server. With Node.js 22 or later, run `node verify-api.mjs` to compare the API against the CLI and `node verify-share.mjs` to check the share metadata and viewer link.
+The `/share-card` endpoint returns a PNG. Use `v=1` for the original list layout or `v=2` for three side-by-side cards. The endpoint defaults to `v=2`, and share links use that layout for their previews. Either layout accepts `date` and `lang`. [List layout](https://arcaea-aichan-api.pages.dev/share-card?v=1&date=2026-11-18&lang=en) · [Card layout](https://arcaea-aichan-api.pages.dev/share-card?v=2&date=2026-11-18&lang=en)
+
+Run `npm ci` and `npx wrangler pages dev` from the repository root to try both endpoints on the local server. With Node.js 22 or later, run `node verify-api.mjs` to compare the API against the CLI and `node verify-share.mjs` to check the card layouts, share metadata, and viewer link.
 
 ## Update the song catalog
 
