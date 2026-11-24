@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import { sharePage } from './functions/share.js';
 import { handleShareCard } from './share-card.mjs';
-import { selectShareDay, shareContent, shareOrigin, viewerOrigin } from './share-data.mjs';
+import { selectShareDay, shareContent, shareCardVersion, shareOrigin, viewerOrigin } from './share-data.mjs';
 
 const url = 'https://example.com/share';
 const before = Date.parse('2026-11-18T04:59:59.999+09:00');
@@ -22,7 +22,7 @@ for (const [query, time, day, song] of [
   const html = await response.text();
   assert.match(html, new RegExp(`<meta property="og:title" content="${day} `));
   assert.ok(html.includes(`<meta property="og:url" content="${shareOrigin}/share?date=${day}&amp;lang=ko">`));
-  assert.ok(html.includes(`<meta property="og:image" content="${shareOrigin}/share-card?date=${day}&amp;lang=ko">`));
+  assert.ok(html.includes(`<meta property="og:image" content="${shareOrigin}/share-card?date=${day}&amp;lang=ko&amp;v=${shareCardVersion}">`));
   assert.ok(html.includes('<meta property="og:image:type" content="image/png">'));
   assert.ok(html.includes('<meta property="og:image:width" content="1200">'));
   assert.ok(html.includes('<meta property="og:image:height" content="630">'));
@@ -62,7 +62,7 @@ for (const [locale, ogLocale, title, access, single] of [
   assert.ok(html.includes(`property="og:locale" content="${ogLocale}"`));
   assert.ok(html.includes(`<title>2026-11-18 ${title} · Arcaea</title>`));
   assert.ok(html.includes(`· ${single} · ${access} · FTR`));
-  assert.ok(html.includes(`content="${shareOrigin}/share-card?${query}"`));
+  assert.ok(html.includes(`content="${shareOrigin}/share-card?${query}&amp;v=${shareCardVersion}"`));
   assert.ok(html.includes(`id="viewer" href="${viewerOrigin}?${query}"`));
 }
 const localizedTitles = await respond('?date=2026-02-18&lang=zh-Hans', after).text();
@@ -93,7 +93,9 @@ const japaneseCard = await renderCard('?lang=ja&date=2026-11-18');
 assert.match(japaneseCard, /Ai-chanのおすすめ楽曲/);
 assert.match(japaneseCard, />有料</);
 assert.equal(await renderCard('?date=2026-11-18&lang=ja'), japaneseCard);
+assert.equal(await renderCard(`?date=2026-11-18&lang=ja&v=${shareCardVersion}`), japaneseCard);
 assert.equal(renders, 2);
+assert.ok([...cards.keys()].every(key => new URL(key).searchParams.get('v') === shareCardVersion));
 
 for (const query of [
   '?date=', '?date=2026-11-8', '?date=2026-02-29', '?date=2025-11-07', '?date=2100-01-01',
