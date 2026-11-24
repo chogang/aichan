@@ -95,6 +95,7 @@ assert.match(japaneseCard, />有料</);
 assert.equal(await renderCard('?date=2026-11-18&lang=ja'), japaneseCard);
 assert.equal(await renderCard(`?date=2026-11-18&lang=ja&v=${shareCardVersion}`), japaneseCard);
 assert.equal(await renderCard('?date=2026-11-18&lang=ja&v=2'), japaneseCard);
+assert.equal(await renderCard('?date=2026-11-18&lang=ja&v=3'), japaneseCard);
 assert.equal(renders, 2);
 assert.ok([...cards.keys()].every(key => new URL(key).searchParams.get('v') === shareCardVersion));
 

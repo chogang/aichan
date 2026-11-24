@@ -4,7 +4,7 @@ const chartColors = {
   FTR: ['#342735', '#e9a5e6'],
   ETR: ['#252d45', '#b6c7ff'],
   BYD: ['#40272f', '#ffadb3'],
-  INS: ['#403321', '#ffd18a']
+  INS: ['#4949a0', '#efefff']
 };
 const maxJacketBytes = 512 * 1024;
 const jacketSize = 342;
@@ -147,7 +147,7 @@ export async function handleShareCard(request, renderPng, {
 } = {}) {
   const url = new URL(request.url);
   const versions = url.searchParams.getAll('v');
-  if (versions.length === 1 && [shareCardVersion, '2'].includes(versions[0])) url.searchParams.delete('v');
+  if (versions.length === 1 && /^\d+$/.test(versions[0])) url.searchParams.delete('v');
   let selection;
   try {
     selection = selectShareDay(new Request(url), now);
