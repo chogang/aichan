@@ -7,8 +7,8 @@ const chartColors = {
   INS: ['#403321', '#ffd18a']
 };
 const maxJacketBytes = 512 * 1024;
-const jacketSize = 302;
-const jacketInset = 33;
+const jacketSize = 342;
+const jacketInset = 13;
 
 function escapeXml(text) {
   return String(text).replace(/[&<>"']/g, character => ({
@@ -64,32 +64,31 @@ function jacketDataUrl(bytes) {
 function songCard(song, index, bytes, labels) {
   const x = 36 + index * 380;
   const title = fitText(song.title, 12.8, 2).map((line, lineIndex) =>
-    `<text x="184" y="${383 + lineIndex * 28}" text-anchor="middle" fill="#f7f7f8" font-size="25">${escapeXml(line)}</text>`
+    `<text x="184" y="${397 + lineIndex * 26}" text-anchor="middle" fill="#f7f7f8" font-size="25">${escapeXml(line)}</text>`
   ).join('');
   const charts = song.difficulties.map(({ difficulty, level }, chartIndex) => {
     const [background, color] = chartColors[difficulty];
-    return `<g transform="translate(${19 + chartIndex * 81} 429)">
+    return `<g transform="translate(${19 + chartIndex * 81} 435)">
       <rect width="74" height="31" rx="7" fill="${background}" stroke="${color}" stroke-opacity=".65"/>
       <text x="37" y="21" text-anchor="middle" font-size="16" fill="${color}">${difficulty} ${escapeXml(level)}</text>
     </g>`;
   }).join('');
   const accessLabel = labels[song.access];
-  const access = accessLabel ? `<g transform="translate(276 -1)">
+  const access = accessLabel ? `<g transform="translate(276 -21)">
     <rect width="84" height="28" rx="7" fill="${song.access === 'free' ? '#e8e8ed' : '#25252a'}" stroke="#92929c"/>
     <text x="42" y="19" text-anchor="middle" fill="${song.access === 'free' ? '#232329' : '#f3f3f5'}" font-size="15">${escapeXml(accessLabel)}</text>
   </g>` : '';
-  const pack = fitText(song.packName, accessLabel ? 13.5 : 19, 2);
-  const packFontSize = accessLabel ? Math.min(15, Math.floor(170 / Math.max(1, ...pack.map(textWidth)))) : 15;
+  const pack = fitText(song.packName, accessLabel ? 16.5 : 22.8, 2);
   const packText = pack.map((line, i) =>
-    `<text x="184" y="${pack.length === 1 ? 18 : 10 + i * 17}" text-anchor="middle" font-size="${packFontSize}" fill="#f3f3f5">${escapeXml(line)}</text>`
+    `<text x="${jacketInset}" y="${pack.length === 1 ? -2 : -10 + i * 17}" font-size="15" fill="#f3f3f5">${escapeXml(line)}</text>`
   ).join('');
   const jacket = bytes ? `<image href="${jacketDataUrl(bytes)}" width="${jacketSize}" height="${jacketSize}" preserveAspectRatio="xMidYMid slice"/>` : '';
 
   return `<g transform="translate(${x} 105)">
-    <rect y="-11" width="368" height="485" rx="15" fill="#2a2a2e" stroke="#48484f"/>
+    <rect y="-29" width="368" height="503" rx="15" fill="#2a2a2e" stroke="#48484f"/>
     <g transform="translate(${jacketInset} ${jacketInset})" clip-path="url(#jacket-clip)">
       <rect width="${jacketSize}" height="${jacketSize}" fill="#414147"/>
-      <path transform="translate(85 82) scale(1.16)" d="M63 29v42c0 12-17 17-23 9-7-11 4-22 16-19V38l29-7v9z" fill="#888891"/>
+      <path transform="translate(105 102) scale(1.16)" d="M63 29v42c0 12-17 17-23 9-7-11 4-22 16-19V38l29-7v9z" fill="#888891"/>
       ${jacket}
     </g>
     ${access}
@@ -104,9 +103,9 @@ export function shareCardSvg({ day, songs, labels }, jackets) {
     <defs><clipPath id="jacket-clip"><rect width="${jacketSize}" height="${jacketSize}" rx="9"/></clipPath></defs>
     <rect width="1200" height="630" fill="#202023"/>
     <g font-family="AiChan Preview, AiChan Hangul, AiChan Han">
-      <text x="36" y="39" font-size="16" fill="#bfbfc7" letter-spacing="1.2">ARCAEA</text>
-      <text x="36" y="81" font-size="35" fill="#f7f7f8">${escapeXml(labels.title)}</text>
-      <text x="1164" y="80" font-size="31" fill="#e6e6ea" text-anchor="end">${escapeXml(day)}</text>
+      <text x="36" y="21" font-size="16" fill="#bfbfc7" letter-spacing="1.2">ARCAEA</text>
+      <text x="36" y="63" font-size="35" fill="#f7f7f8">${escapeXml(labels.title)}</text>
+      <text x="1164" y="62" font-size="31" fill="#e6e6ea" text-anchor="end">${escapeXml(day)}</text>
       ${songs.map((song, index) => songCard(song, index, jackets[index], labels)).join('')}
       <text x="36" y="609" font-size="15" fill="#bfbfc7">${escapeXml(labels.jacketCredit)}</text>
     </g>
@@ -148,7 +147,7 @@ export async function handleShareCard(request, renderPng, {
 } = {}) {
   const url = new URL(request.url);
   const versions = url.searchParams.getAll('v');
-  if (versions.length === 1 && versions[0] === shareCardVersion) url.searchParams.delete('v');
+  if (versions.length === 1 && [shareCardVersion, '2'].includes(versions[0])) url.searchParams.delete('v');
   let selection;
   try {
     selection = selectShareDay(new Request(url), now);
